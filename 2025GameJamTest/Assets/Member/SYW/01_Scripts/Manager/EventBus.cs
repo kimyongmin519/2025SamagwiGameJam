@@ -1,8 +1,7 @@
-using UnityEngine;
 using System;
 using System.Collections.Generic;
 
-namespace Member.SYW._01_Scripts
+namespace Member.SYW._01_Scripts.Manager
 {
     public static class EventBus
     {
