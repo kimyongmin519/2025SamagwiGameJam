@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Member.KYM._02.Scripts.Player
+namespace Member.KYM.Code.Players
 {
     public class AgentMovement : MonoBehaviour
     {

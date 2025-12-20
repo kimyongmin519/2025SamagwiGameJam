@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Member.KYM._02.Scripts.Interface
+namespace Member.KYM.Code.Interface
 {
     public interface IPoolable
     {

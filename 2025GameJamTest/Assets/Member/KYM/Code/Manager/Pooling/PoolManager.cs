@@ -1,8 +1,8 @@
-using UnityEngine;
+using Member.SYW._01_Scripts;
 
-namespace Member.KYM._02.Scripts.Manager.Pooling
+namespace Member.KYM.Code.Manager.Pooling
 {
-    public class PoolManager : MonoBehaviour
+    public class PoolManager : MonoSingleton<PoolManager>
     {
         
 

@@ -1,9 +1,8 @@
-using System;
-using Member.KYM._02.Scripts.SO;
+using Member.KYM.Code.SO;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Member.KYM._02.Scripts.Player
+namespace Member.KYM.Code.Players
 {
     public class Player : MonoBehaviour
     {

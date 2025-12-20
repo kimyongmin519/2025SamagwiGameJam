@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
-using Member.KYM._02.Scripts.Interface;
+using Member.KYM.Code.Interface;
 using UnityEngine;
 
-namespace Member.KYM._02.Scripts.Manager.Pooling
+namespace Member.KYM.Code.Manager.Pooling
 {
     public class Pool
     {

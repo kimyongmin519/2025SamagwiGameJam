@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Member.KYM._02.Scripts.SO
+namespace Member.KYM.Code.SO
 {
     [CreateAssetMenu(fileName = "PlayerData", menuName = "KimSO/PlayerData")]
     public class PlayerDataSO : ScriptableObject

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Member.KYM._02.Scripts.Agent
+namespace Member.KYM.Code.Agent
 {
     public class AgentRenderer : MonoBehaviour
     {

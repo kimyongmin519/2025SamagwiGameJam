@@ -1,8 +1,7 @@
-using System;
-using Member.KYM._02.Scripts.Interface;
+using Member.KYM.Code.Interface;
 using UnityEngine;
 
-namespace Member.KYM._02.Scripts.SO
+namespace Member.KYM.Code.SO
 {
     [CreateAssetMenu(fileName = "PoolItemSO", menuName = "KimSO/PoolItemSO")]
     public class PoolItemSO : ScriptableObject

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Member.KYM._02.Scripts.SO
+namespace Member.KYM.Code.SO
 {
     [CreateAssetMenu(fileName = "PlayerInputSO", menuName = "KimSO/PlayerInputSO")]
     public class PlayerInputSO : ScriptableObject, Controller.IPlayerActions

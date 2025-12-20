@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Member.KYM._02.Scripts.SO
+namespace Member.KYM.Code.SO
 {
     [CreateAssetMenu(fileName = "PoolItemList", menuName = "KimSO/PoolItemList")]
     public class PoolItemListSO : ScriptableObject
