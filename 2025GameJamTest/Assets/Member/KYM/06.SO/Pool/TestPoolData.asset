@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa156546d452301439d67a7743e5494f, type: 3}
+  m_Name: TestPoolData
+  m_EditorClassIdentifier: 
+  <ItemName>k__BackingField: 
+  <Count>k__BackingField: 10
+  <ItemPrefab>k__BackingField: {fileID: 4999903131360721389, guid: a7d41f35135ee404a833f7a016294419, type: 3}
