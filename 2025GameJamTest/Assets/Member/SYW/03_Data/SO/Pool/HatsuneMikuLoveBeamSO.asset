@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: HatsuneMikuLoveBeamSO
   m_EditorClassIdentifier: 
   <ItemName>k__BackingField: HatsuneMikuLoveBeam
-  <Count>k__BackingField: 0
+  <Count>k__BackingField: 30
   <ItemPrefab>k__BackingField: {fileID: 4333719887603510299, guid: f5214db35823a5e48b3e470eeb814d98, type: 3}
