@@ -1,10 +1,10 @@
 namespace Member.KYM.Code.Bus
 {
-    public static class EventBus
+    public static class EventBus<T> where T : IEvent
     {
-        public delegate void Event(GameEvent evt);
+        public delegate void Event(T evt);
 
         public static event Event OnEvent;
-        public static void Raise(GameEvent evt) => OnEvent?.Invoke(evt);
+        public static void Raise(T evt) => OnEvent?.Invoke(evt);
     }
 }
