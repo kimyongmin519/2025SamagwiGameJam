@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Member.KYM.Code.SO
+namespace Member.KYM.Code.Manager.Pooling
 {
     [CreateAssetMenu(fileName = "PoolItemList", menuName = "KimSO/PoolItemList")]
     public class PoolItemListSO : ScriptableObject

@@ -1,7 +1,7 @@
 using Member.KYM.Code.Interface;
 using UnityEngine;
 
-namespace Member.KYM.Code.SO
+namespace Member.KYM.Code.Manager.Pooling
 {
     [CreateAssetMenu(fileName = "PoolItemSO", menuName = "KimSO/PoolItemSO")]
     public class PoolItemSO : ScriptableObject
@@ -12,6 +12,8 @@ namespace Member.KYM.Code.SO
 
         private void OnValidate()
         {
+            if (ItemPrefab == null) return;
+            
             if (ItemPrefab.TryGetComponent(out IPoolable poolable))
             {
                 ItemName = poolable.ItemName;

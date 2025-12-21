@@ -1,4 +1,3 @@
-using Member.KYM.Code.SO;
 using UnityEngine;
 using UnityEngine.Events;
 
