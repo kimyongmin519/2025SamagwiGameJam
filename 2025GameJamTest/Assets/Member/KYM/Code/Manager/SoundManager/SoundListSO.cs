@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Member.KYM.Code.Manager.SoundManager
 {
-    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
+    [CreateAssetMenu(fileName = "SoundListSO", menuName = "KimSO/SoundListSO", order = 15)]
     public class SoundListSO : ScriptableObject
     {
         
