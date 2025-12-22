@@ -11,7 +11,7 @@ public class BackgroundScroller : MonoBehaviour
 
         foreach (Transform bg in backgrounds)
         {
-            bg.position += Vector3.left * GameManager.Instance.currentScrollSpeed * Time.deltaTime;
+            bg.position += Vector3.left * 5 * Time.deltaTime;
 
             if (bg.position.x < -backgroundWidth)
             {

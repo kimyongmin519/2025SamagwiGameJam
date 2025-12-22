@@ -1,4 +1,5 @@
 using Member.KYM.Code.Agent;
+using Member.KYM.Code.Players;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class Santa : Agent
 
     public HealthSystem HealthSystem { get; private set; }
     public SantaMove SantaMove { get; private set; }
+    public Player player;
 
     public bool IsStun { get; private set; }
 
@@ -99,10 +101,10 @@ public class Santa : Agent
 
     private void OnDrawGizmos()
     {
-        if (GameManager.Instance == null || GameManager.Instance.player == null) return;
+        if (GameManager.Instance == null || player == null) return;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, GameManager.Instance.player.transform.position);
+        Gizmos.DrawLine(transform.position, player.transform.position);
 
         Gizmos.color = Color.yellow;
         Vector3 targetPos = transform.position + Vector3.right * 10f; Gizmos.DrawWireSphere(targetPos, 0.5f);

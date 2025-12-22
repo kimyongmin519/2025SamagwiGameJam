@@ -26,7 +26,7 @@ public class Gimic : MonoBehaviour
     {
         if (!isFalling && GameManager.Instance != null)
         {
-            transform.position += Vector3.left * GameManager.Instance.currentScrollSpeed * Time.deltaTime;
+            transform.position += Vector3.left * 5 * Time.deltaTime;
         }
     }
 
