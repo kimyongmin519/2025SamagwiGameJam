@@ -1,3 +1,4 @@
+using System;
 using Member.KYM.Code.Interface;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ namespace Member.KYM.Code.Agent
         
         private Agent _agent;
 
+        public Action OnDead; 
+        
         public float Health
         {
             get => health;
@@ -24,25 +27,25 @@ namespace Member.KYM.Code.Agent
                     health = Mathf.Clamp(value, 0, MaxHealth);
             }
         }
+        
         public void GetDamage(float damage)
         {
-            print("µ¥¹ÌÁö µé¾î°¨");
+            print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¨");
 
             Health -= damage;
             
             if (Health <= 0)
             {
-                
+                OnDead?.Invoke();
             }
         }
-
+        
         public void SetHealth(float _health)
         {
             MaxHealth = _health;
             health = MaxHealth;
         }
-
-
+        
         public void Initialize(Agent agent)
         {
             _agent = agent;

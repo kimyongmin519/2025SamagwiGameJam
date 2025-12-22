@@ -1,23 +1,26 @@
 using System;
 using Member.KYM.Code.Agent;
+using Member.KYM.Code.Weapon;
 using UnityEngine;
 
 namespace Member.KYM.Code.Players
 {
     public class Player : Agent.Agent
     {
-        [SerializeField] private PlayerInputSO playerInput;
+        [field:SerializeField] public PlayerInputSO PlayerInput { get; private set; }
         [SerializeField] private float speed;
         [SerializeField] private float jumpPower;
         public HealthSystem HealthSystem { get; private set; }
         public AgentMovement AgentMovement { get; private set; }
         public AgentRenderer AgentRenderer { get; private set; }
+        private Hand _hand;
 
         private void Awake()
         {
             HealthSystem = GetComponent<HealthSystem>();
             AgentMovement = GetComponentInChildren<AgentMovement>();
             AgentRenderer = GetComponentInChildren<AgentRenderer>();
+            _hand = GetComponentInChildren<Hand>();
             
             AgentMovement.Initialize(this);
             AgentRenderer.Initialize(this);
@@ -25,17 +28,18 @@ namespace Member.KYM.Code.Players
             AgentMovement.SetSpeed(speed);
             AgentMovement.SetJumpPower(jumpPower);
 
-            playerInput.OnJumpPressed += AgentMovement.Jump;
+            PlayerInput.OnJumpPressed += AgentMovement.Jump;
         }
 
         private void Update()
         {
-            AgentMovement.SetXDir(playerInput.MoveDir);
+            AgentMovement.SetXDir(PlayerInput.MoveDir.x);
+            _hand.SetMousePos(PlayerInput.MousePos);
         }
 
         private void OnDestroy()
         {
-            playerInput.OnJumpPressed -= AgentMovement.Jump;
+            PlayerInput.OnJumpPressed -= AgentMovement.Jump;
         }
     }
 }

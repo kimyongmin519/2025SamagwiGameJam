@@ -18,7 +18,7 @@ namespace Member.KYM.Code.Players.FSM
 
         public virtual void EnterState()
         {
-            
+            Player.AgentRenderer.Animator.SetBool(AnimParam, true);
         }
 
         public virtual void UpdateState()
@@ -28,7 +28,7 @@ namespace Member.KYM.Code.Players.FSM
     
         public virtual void ExitState()
         {
-            
+            Player.AgentRenderer.Animator.SetBool(AnimParam, false);
         }
     }
 }
