@@ -1,3 +1,4 @@
+using System;
 using Member.KYM.Code.Agent;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,11 @@ namespace Member.SYW._01_Scripts.UI
             _hpBar = GetComponent<Slider>();
         }
 
+        private void OnEnable()
+        {
+            healthSystem.OnDead += BossDieBar;
+        }
+
         private void Start()
         {
             _hpBar.value = healthSystem.Health;
@@ -27,6 +33,16 @@ namespace Member.SYW._01_Scripts.UI
             
             if (Input.GetKeyDown(KeyCode.K))
                 healthSystem.GetDamage(5);
+        }
+
+        private void BossDieBar()
+        {
+            
+        }
+        
+        private void OnDisable()
+        {
+            healthSystem.OnDead -= BossDieBar;
         }
     }
 }
