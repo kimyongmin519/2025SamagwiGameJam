@@ -1,4 +1,3 @@
-using System;
 using Member.KYM.Code.Agent;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,9 +29,6 @@ namespace Member.SYW._01_Scripts.UI
         {
             _hpBar.value = healthSystem.Health;
             _hpBar.maxValue = healthSystem.MaxHealth;
-            
-            if (Input.GetKeyDown(KeyCode.K))
-                healthSystem.GetDamage(5);
         }
 
         private void BossDieBar()
