@@ -1,3 +1,4 @@
+using System;
 using Member.KYM.Code.Agent;
 using UnityEngine;
 
@@ -25,7 +26,10 @@ namespace Member.KYM.Code.Players
             
             AgentMovement.SetSpeed(speed);
             AgentMovement.SetJumpPower(jumpPower);
+        }
 
+        private void Start()
+        {
             PlayerInput.OnJumpPressed += AgentMovement.Jump;
             PlayerInput.OnAttackPressed += _hand.Gun.Shoot;
             PlayerInput.OnAttackReleased += _hand.Gun.StopShoot;

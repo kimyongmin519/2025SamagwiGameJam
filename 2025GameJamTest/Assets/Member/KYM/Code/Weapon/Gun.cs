@@ -1,7 +1,9 @@
 using System.Collections;
+using Member.KYM.Code.Bus;
 using Member.KYM.Code.GameEvents;
 using Member.KYM.Code.Interface;
 using Member.KYM.Code.Manager.Pooling;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,6 +16,21 @@ namespace Member.KYM.Code.Weapon
         private Vector2 _mousePos;
         private Vector2 _mouseDir;
         private GunRenderer _renderer;
+
+        private int _ammo;
+
+        public int Ammo
+        {
+            get => _ammo;
+            set
+            {
+                int before = _ammo;
+                if (value != before)
+                {
+                    EventBus<AmmoReturnEvent>.Raise(value);
+                }
+            }
+        }
         
         private int _bulletCount;
 
