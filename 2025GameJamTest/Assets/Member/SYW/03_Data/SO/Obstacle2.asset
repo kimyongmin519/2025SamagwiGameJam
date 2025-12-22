@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036c7827d246b1a4484a094cb0b5dcea, type: 3}
   m_Name: Obstacle2
   m_EditorClassIdentifier: 
-  <Obstacle>k__BackingField: {fileID: 0}
+  <Obstacle>k__BackingField: {fileID: 708919912767916634, guid: 75bc19b84ac83a1419dd3637f37e1a9d, type: 3}
