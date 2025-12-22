@@ -3,5 +3,5 @@ using UnityEngine;
 
 public interface IDamageable
 {
-    public float IDamageable(float damage);
+    public float GetDamage(float damage);
 }
