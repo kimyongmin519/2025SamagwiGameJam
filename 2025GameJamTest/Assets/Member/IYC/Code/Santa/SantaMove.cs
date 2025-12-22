@@ -4,11 +4,12 @@ using Member.KYM.Code.Interface;
 using Unity.VisualScripting;
 using UnityEngine;
 using Member.KYM.Code.Players;
+using System.Collections;
 
 public class SantaMove : MonoBehaviour, IAgentComponent
 {
     [SerializeField] private float baseSpeed = 7;
-    [SerializeField] private float farDistance = 100f;
+    [SerializeField] private float farDistance = 10000000000000000000000000000000000f;
     [SerializeField] private float closeDistance = 2f;
     [SerializeField] private float farSpeedMultiplier = 100000f;
     [SerializeField] private float closeSpeedMultiplier = 1.1f;
@@ -24,6 +25,7 @@ public class SantaMove : MonoBehaviour, IAgentComponent
     private bool isKnockedBack = false;
     private float knockbackTimer = 0f;
 
+    private bool isSpeedUP = false;
     public void Initialize(Agent agent)
     {
         _agent = agent;
@@ -63,10 +65,17 @@ public class SantaMove : MonoBehaviour, IAgentComponent
 
         float currentSpeed = baseSpeed;
 
+        if(isSpeedUP)
+        {
+            currentSpeed = baseSpeed * farSpeedMultiplier;
+        }
+
         if (distanceToPlayer >= farDistance)
         {
             print("속도가 증가되었습니다.");
             currentSpeed = baseSpeed * farSpeedMultiplier;
+
+            StartCoroutine(StaySpeed(9999999));
         }
 
         else if (distanceToPlayer <= closeDistance)
@@ -75,6 +84,13 @@ public class SantaMove : MonoBehaviour, IAgentComponent
         }
 
         transform.position += Vector3.right * currentSpeed * Time.fixedDeltaTime;
+    }
+
+    private IEnumerator StaySpeed(float time)
+    {
+        isSpeedUP = true;
+        yield return new WaitForSeconds(time);
+        isSpeedUP = false;
     }
 
     private void CheckCatchPlayer()
