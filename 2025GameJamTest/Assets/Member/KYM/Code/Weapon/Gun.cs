@@ -1,3 +1,5 @@
+using System.Collections;
+using Member.KYM.Code.GameEvents;
 using Member.KYM.Code.Interface;
 using Member.KYM.Code.Manager.Pooling;
 using UnityEngine;
@@ -41,16 +43,36 @@ namespace Member.KYM.Code.Weapon
             _mousePos = mouseDir;
         }
 
+        private bool _shoot = false;
+
         public void Shoot()
         {
-            OnShootEvent?.Invoke();
+            _shoot = true;
+            StartCoroutine(ShootCor());
+        }
+        private IEnumerator ShootCor()
+        {
+            while (_shoot)
+            {
+                ShootBullet();
+                yield return new WaitForSeconds(gunData.ShotDelay);
+            }
+        }
 
+        private void ShootBullet()
+        {
+            OnShootEvent?.Invoke();
+            
             for (int i = 0; i < _bulletCount; i++)
             {
                 GameObject bullet = PoolManager.Instance.Pop("Bullet").GetGameObject();
                 bullet.transform.position = firePoint.position;
                 bullet.GetComponent<Bullet>().ShootBullet(_mouseDir);
             }
+        }
+        public void StopShoot()
+        {
+            _shoot = false;
         }
     }
 }
