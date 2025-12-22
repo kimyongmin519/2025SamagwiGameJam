@@ -51,7 +51,7 @@ namespace Member.SYW._01_Scripts.UI
         public void GoTitle()
         {
             SceneManager.LoadScene("Title");
-            Time.timeScale = 1f;
+            TimeManager.Instance.TimeStart();
         }
 
         public void Restart()

@@ -7,4 +7,9 @@ public class TimeManager : MonoSingleton<TimeManager>
     {
         Time.timeScale = 0;
     }
+
+    public void TimeStart()
+    {
+        Time.timeScale = 1;
+    }
 }

@@ -36,7 +36,7 @@ namespace Member.SYW._01_Scripts.Manager
             if (!_panelOpen)
             {
                 OnEscOpen?.Invoke();
-                Time.timeScale = 0;
+                TimeManager.Instance.TimeStop();
                 _panelOpen = true;
                 print("엉");
             }
@@ -49,7 +49,7 @@ namespace Member.SYW._01_Scripts.Manager
         private void CloseEscPanel()
         {
             OnEscClose?.Invoke();
-            Time.timeScale = 1;
+            TimeManager.Instance.TimeStart();
             _panelOpen = false;
             print("잉");
         }
