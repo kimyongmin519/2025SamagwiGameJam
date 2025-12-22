@@ -14,18 +14,6 @@ TextureImporter:
   - first:
       213: -7880768969819588173
     second: WalkingAni_3
-  - first:
-      213: 5982460569790391847
-    second: WalkingAni_4
-  - first:
-      213: 6866555805068796910
-    second: WalkingAni_5
-  - first:
-      213: 2654288790900394455
-    second: WalkingAni_6
-  - first:
-      213: -3794769603559101578
-    second: WalkingAni_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,10 +112,10 @@ TextureImporter:
       name: WalkingAni_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 0
-        width: 16
-        height: 32
+        width: 12
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,10 +134,10 @@ TextureImporter:
       name: WalkingAni_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 19
         y: 0
-        width: 16
-        height: 32
+        width: 12
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +156,10 @@ TextureImporter:
       name: WalkingAni_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 35
         y: 0
-        width: 16
-        height: 32
+        width: 12
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,10 +178,10 @@ TextureImporter:
       name: WalkingAni_3
       rect:
         serializedVersion: 2
-        x: 48
+        x: 51
         y: 0
-        width: 16
-        height: 32
+        width: 12
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,99 +196,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: WalkingAni_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 72623291138f50350800000000000000
-      internalID: 5982460569790391847
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WalkingAni_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ee3a587cf18ea4f50800000000000000
-      internalID: 6866555805068796910
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WalkingAni_6
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7d94be0a79de5d420800000000000000
-      internalID: 2654288790900394455
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WalkingAni_7
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 67be86fa625465bc0800000000000000
-      internalID: -3794769603559101578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3d827c9181e393b42af96ad60faa41e6
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -314,10 +214,6 @@ TextureImporter:
       WalkingAni_1: -9126712332637392749
       WalkingAni_2: -6342212680954135103
       WalkingAni_3: -7880768969819588173
-      WalkingAni_4: 5982460569790391847
-      WalkingAni_5: 6866555805068796910
-      WalkingAni_6: 2654288790900394455
-      WalkingAni_7: -3794769603559101578
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
