@@ -1,4 +1,3 @@
-using System;
 using Member.KYM.Code.Bus;
 using Member.KYM.Code.GameEvents;
 using Member.KYM.Code.Weapon;

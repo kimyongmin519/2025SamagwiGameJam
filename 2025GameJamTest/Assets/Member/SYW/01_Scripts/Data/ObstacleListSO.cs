@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Member.SYW._01_Scripts.Data;
 using UnityEngine;
 
 namespace Member.SYW._01_Scripts.Data
