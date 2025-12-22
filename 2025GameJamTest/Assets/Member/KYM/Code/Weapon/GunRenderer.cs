@@ -1,4 +1,6 @@
 using System;
+using Member.KYM.Code.Bus;
+using Member.KYM.Code.GameEvents;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +10,7 @@ namespace Member.KYM.Code.Weapon
     {
         private Transform _trm;
         private Animator _animator;
+        private readonly int _reloadHash = Animator.StringToHash("Reload");
 
         public void Initialize(Transform trm)
         {
@@ -15,12 +18,14 @@ namespace Member.KYM.Code.Weapon
             _animator = GetComponent<Animator>();
         }
 
-        private void Update()
+        public void ReloadAnim()
         {
-            if (Mouse.current.rightButton.wasPressedThisFrame)
-            {
-                _animator.SetTrigger("Reload");
-            }
+            _animator.SetTrigger(_reloadHash);
+        }
+
+        public void ReloadSuccess()
+        {
+            EventBus<ReloadEndEvent>.Raise(new ReloadEndEvent());
         }
 
         public void FlipControl(float xDir)

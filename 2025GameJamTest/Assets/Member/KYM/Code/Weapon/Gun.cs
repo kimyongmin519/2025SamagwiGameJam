@@ -1,9 +1,8 @@
+using System;
 using System.Collections;
 using Member.KYM.Code.Bus;
 using Member.KYM.Code.GameEvents;
-using Member.KYM.Code.Interface;
 using Member.KYM.Code.Manager.Pooling;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,9 +12,9 @@ namespace Member.KYM.Code.Weapon
     {
         [SerializeField] private GunDataSO gunData;
         [SerializeField] private Transform firePoint;
+        public GunRenderer Renderer {get; private set;}
         private Vector2 _mousePos;
         private Vector2 _mouseDir;
-        private GunRenderer _renderer;
 
         private int _ammo;
 
@@ -27,8 +26,9 @@ namespace Member.KYM.Code.Weapon
                 int before = _ammo;
                 if (value != before)
                 {
-                    EventBus<AmmoReturnEvent>.Raise(new AmmoReturnEvent());
+                    EventBus<AmmoReturnEvent>.Raise(new AmmoReturnEvent(value));
                 }
+                _ammo = value;
             }
         }
         
@@ -38,17 +38,20 @@ namespace Member.KYM.Code.Weapon
 
         private void Awake()
         {
-            _renderer = GetComponentInChildren<GunRenderer>();
+            Renderer = GetComponentInChildren<GunRenderer>();
             
-            _renderer.Initialize(transform);
+            Renderer.Initialize(transform);
 
             _bulletCount = gunData.BulletCount;
+            Ammo = gunData.Ammo;
+
+            EventBus<ReloadEndEvent>.OnEvent += Reload;
         }
 
         private void Update()
         {
             _mouseDir = (_mousePos - (Vector2)transform.position).normalized;
-            _renderer.FlipControl(_mouseDir.x);
+            Renderer.FlipControl(_mouseDir.x);
             
             float angle = Mathf.Atan2(_mouseDir.y,_mouseDir.x) * Mathf.Rad2Deg;
 
@@ -69,7 +72,7 @@ namespace Member.KYM.Code.Weapon
         }
         private IEnumerator ShootCor()
         {
-            while (_shoot)
+            while (_shoot && Ammo > 0)
             {
                 ShootBullet();
                 yield return new WaitForSeconds(gunData.ShotDelay);
@@ -79,6 +82,8 @@ namespace Member.KYM.Code.Weapon
         private void ShootBullet()
         {
             OnShootEvent?.Invoke();
+
+            Ammo--;
             
             for (int i = 0; i < _bulletCount; i++)
             {
@@ -90,6 +95,16 @@ namespace Member.KYM.Code.Weapon
         public void StopShoot()
         {
             _shoot = false;
+        }
+
+        public void Reload(ReloadEndEvent evt)
+        {
+            Ammo = gunData.Ammo;
+        }
+
+        private void OnDestroy()
+        {
+            EventBus<ReloadEndEvent>.OnEvent -= Reload;
         }
     }
 }
