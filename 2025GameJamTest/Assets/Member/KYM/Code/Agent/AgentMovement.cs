@@ -12,9 +12,6 @@ namespace Member.KYM.Code.Agent
         [SerializeField] private float fallTime;
 
         private int _jumpCount = 2;
-        
-        private AgentRenderer _renderer;
-        
         private float _airborneTime;
         
         private Agent _agent;
@@ -29,7 +26,6 @@ namespace Member.KYM.Code.Agent
         public void Initialize(Agent agent)
         {
             _agent = agent;
-            _renderer = _agent.GetComponentInChildren<AgentRenderer>();
             _rigidbody2D = agent.GetComponent<Rigidbody2D>();
         }
         
@@ -44,15 +40,13 @@ namespace Member.KYM.Code.Agent
             _rigidbody2D.linearVelocityX = _xDir * _speed;
 
             GroundCheck();
-            
-            _renderer.FlipControl(_xDir);
 
             if (!isGround)
             {
                 _airborneTime += Time.fixedDeltaTime;
 
                 if (fallTime <= _airborneTime)
-                    _rigidbody2D.AddForceY(-0.5f, ForceMode2D.Impulse);
+                    _rigidbody2D.AddForceY(-0.25f, ForceMode2D.Impulse);
 
             }
             else

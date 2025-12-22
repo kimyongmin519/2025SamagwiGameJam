@@ -10,14 +10,14 @@ namespace Member.KYM.Code.Players
         [field:SerializeField] public PlayerInputSO PlayerInput { get; private set; }
         [SerializeField] private float speed;
         [SerializeField] private float jumpPower;
-        public HealthSystem HealthSystem { get; private set; }
         public AgentMovement AgentMovement { get; private set; }
         public AgentRenderer AgentRenderer { get; private set; }
         private Hand _hand;
 
+        private bool _isAttack = false;
+
         private void Awake()
         {
-            HealthSystem = GetComponent<HealthSystem>();
             AgentMovement = GetComponentInChildren<AgentMovement>();
             AgentRenderer = GetComponentInChildren<AgentRenderer>();
             _hand = GetComponentInChildren<Hand>();
@@ -25,7 +25,6 @@ namespace Member.KYM.Code.Players
             AgentMovement.Initialize(this);
             AgentRenderer.Initialize(this);
             
-            AgentMovement.SetSpeed(speed);
             AgentMovement.SetJumpPower(jumpPower);
         }
 
@@ -35,13 +34,24 @@ namespace Member.KYM.Code.Players
             PlayerInput.OnAttackPressed += _hand.Gun.Shoot;
             PlayerInput.OnAttackReleased += _hand.Gun.StopShoot;
             PlayerInput.OnReloadPressed += _hand.Gun.Renderer.ReloadAnim;
+            PlayerInput.OnAttackPressed += AttackTrue;
+            PlayerInput.OnAttackReleased += AttackFalse;
         }
 
         private void Update()
         {
+            if (_isAttack && _hand.Gun.Ammo > 0)
+                AgentMovement.SetSpeed(speed / 1.5f);
+            else
+                AgentMovement.SetSpeed(speed);
+            
+            AgentRenderer.FlipControl(PlayerInput.MousePos.x);
             AgentMovement.SetXDir(PlayerInput.MoveDir.x);
             _hand.SetMousePos(PlayerInput.MousePos);
         }
+        
+        private void AttackTrue() => _isAttack = true;
+        private void AttackFalse() => _isAttack = false;
 
         private void OnDestroy()
         {
@@ -49,6 +59,8 @@ namespace Member.KYM.Code.Players
             PlayerInput.OnAttackPressed -= _hand.Gun.Shoot;
             PlayerInput.OnAttackReleased -= _hand.Gun.StopShoot;
             PlayerInput.OnReloadPressed -= _hand.Gun.Renderer.ReloadAnim;
+            PlayerInput.OnAttackPressed -= AttackTrue;
+            PlayerInput.OnAttackReleased -= AttackFalse;
         }
     }
 }

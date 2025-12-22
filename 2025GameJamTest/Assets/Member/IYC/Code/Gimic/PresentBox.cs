@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Member.KYM.Code.Interface;
 using Member.KYM.Code.Manager.Pooling;
@@ -33,11 +34,11 @@ public class PresentBox : MonoBehaviour, IPoolable
         ScoreManager scoreManager = FindAnyObjectByType<ScoreManager>();
         if (scoreManager != null)
         {
-            OnBulletHit.AddListener(() => scoreManager.AddScore());
+            OnBulletHit.AddListener(() => scoreManager.AddScore(1));
         }
         else
         {
-            print("없어 없다고 score");
+            print("없어 없다고 scoremanager가 없어!");
         }
 
         _rb = GetComponent<Rigidbody2D>();
@@ -49,14 +50,15 @@ public class PresentBox : MonoBehaviour, IPoolable
         yield return new WaitForSeconds(lifeTime);
         PoolManager.Instance.Push(this);
     }
-
-    private void OnCollisionEnter(Collision collision)
+    
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            Console.WriteLine("Bullet과의 충돌이 감지됨");
             OnBulletHit?.Invoke();
 
-            Destroy(collision.gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

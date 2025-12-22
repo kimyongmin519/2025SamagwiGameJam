@@ -1,27 +1,30 @@
-using System;
 using System.Collections;
 using Member.KYM.Code.Bus;
 using Member.KYM.Code.GameEvents;
+using Member.KYM.Code.Manager.Level;
 using Member.KYM.Code.Manager.Pooling;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 namespace Member.KYM.Code.Weapon
 {
     public class Gun : MonoBehaviour
     {
+        private UpgradeValues _upgradeValues = new UpgradeValues();
         [SerializeField] private GunDataSO gunData;
         [SerializeField] private Transform firePoint;
         public GunRenderer Renderer {get; private set;}
         private Vector2 _mousePos;
         private Vector2 _mouseDir;
-
+        
+        private int _maxAmmo;
         private int _ammo;
 
         public int Ammo
         {
             get => _ammo;
-            set
+            private set
             {
                 int before = _ammo;
                 if (value != before)
@@ -43,9 +46,22 @@ namespace Member.KYM.Code.Weapon
             Renderer.Initialize(transform);
 
             _bulletCount = gunData.BulletCount;
-            Ammo = gunData.Ammo;
 
             EventBus<ReloadEndEvent>.OnEvent += Reload;
+            EventBus<AmmoResetEvent>.OnEvent += ResetAmmo;
+        }
+
+        private void Start()
+        {
+            _upgradeValues.gunAmmoLevel = ProgressManager.Instance.WeaponProgress.GunAmmoLevel;
+            _upgradeValues.gunDamageLevel = ProgressManager.Instance.WeaponProgress.GunDamageLevel;
+            _upgradeValues.gunSpeedLevel = ProgressManager.Instance.WeaponProgress.GunSpeedLevel;
+            _upgradeValues.gunReloadSpeedLevel = ProgressManager.Instance.WeaponProgress.GunReloadSpeedLevel;
+            
+            _maxAmmo = gunData.Ammo + (10 * _upgradeValues.gunAmmoLevel);
+            Ammo = _maxAmmo;
+            
+            Renderer.SetAnimSpeed(1 + (_upgradeValues.gunReloadSpeedLevel * 0.2f));
         }
 
         private void Update()
@@ -75,7 +91,7 @@ namespace Member.KYM.Code.Weapon
             while (_shoot && Ammo > 0)
             {
                 ShootBullet();
-                yield return new WaitForSeconds(gunData.ShotDelay);
+                yield return new WaitForSeconds(gunData.ShotDelay - (0.01f * _upgradeValues.gunSpeedLevel));
             }
         }
 
@@ -84,12 +100,14 @@ namespace Member.KYM.Code.Weapon
             OnShootEvent?.Invoke();
 
             Ammo--;
+
+            float errorValue = Random.Range(-gunData.GunAccuracy, gunData.GunAccuracy);
             
             for (int i = 0; i < _bulletCount; i++)
             {
                 GameObject bullet = PoolManager.Instance.Pop("Bullet").GetGameObject();
                 bullet.transform.position = firePoint.position;
-                bullet.GetComponent<Bullet>().ShootBullet(_mouseDir);
+                bullet.GetComponent<Bullet>().ShootBullet((_mouseDir + new Vector2(errorValue, 0)).normalized);
             }
         }
         public void StopShoot()
@@ -97,14 +115,19 @@ namespace Member.KYM.Code.Weapon
             _shoot = false;
         }
 
+        private void ResetAmmo(AmmoResetEvent evt)
+        {
+            Ammo = 0;
+        }
         public void Reload(ReloadEndEvent evt)
         {
-            Ammo = gunData.Ammo;
+            Ammo = _maxAmmo;
         }
 
         private void OnDestroy()
         {
             EventBus<ReloadEndEvent>.OnEvent -= Reload;
+            EventBus<AmmoResetEvent>.OnEvent -= ResetAmmo;
         }
     }
 }
