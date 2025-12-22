@@ -1,3 +1,4 @@
+using System;
 using Member.KYM.Code.Agent;
 using Member.KYM.Code.Players;
 using Unity.VisualScripting;
@@ -36,13 +37,12 @@ public class Santa : Agent
             Debug.LogError("SantaMove component not found!");
         }
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Gimic"))
+        if (collision.gameObject.CompareTag("ElectronicDisplayBoard"))
         {
             Gimic gimic = collision.gameObject.GetComponent<Gimic>();
-
+            IsStun = true;
             if (gimic != null && gimic.gimicData != null)
             {
                 HealthSystem.GetDamage(gimic.gimicData.Damage);
@@ -53,10 +53,12 @@ public class Santa : Agent
                     return;
                 }
 
-                if (gimic.gimicData.StunDuration > 0)
+                if (IsStun)
                 {
                     Stun(gimic.gimicData.StunDuration);
                     SantaMove?.Knockback();
+                    print("Santa is knockbacked!");
+                    IsStun = false;
                 }
 
                 if (gimic.gimicData.DestroyOnHit)
