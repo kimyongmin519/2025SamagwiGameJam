@@ -26,6 +26,7 @@ namespace Member.KYM.Code.Agent
         }
         public void GetDamage(float damage)
         {
+            print("데미지 들어감");
 
             Health -= damage;
             
