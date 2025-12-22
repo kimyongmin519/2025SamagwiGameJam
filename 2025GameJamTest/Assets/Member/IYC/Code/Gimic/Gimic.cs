@@ -21,7 +21,10 @@ public class Gimic : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Bullet"))
         {
-            rigi.gravityScale = 2;
+            if(gameObject.TryGetComponent<Rigidbody2D>(out rigi))
+            {
+                rigi.gravityScale = 2;
+            }
         }
     }
 }
