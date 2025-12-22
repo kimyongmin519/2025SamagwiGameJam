@@ -1,3 +1,6 @@
+using System;
+using Member.KYM.Code.Bus;
+using Member.KYM.Code.GameEvents;
 using Member.KYM.Code.Weapon;
 using TMPro;
 using UnityEngine;
@@ -15,17 +18,22 @@ namespace Member.SYW._01_Scripts.UI
         {
             _slider = GetComponent<Slider>();
             _ammoText = GetComponentInChildren<TextMeshProUGUI>();
-            _gun = GameObject.Find("Gun").GetComponent<Gun>();
         }
-
-        private void Start()
+        
+        private void OnEnable()
         {
-            _slider.value = _gun.Ammo;
+            EventBus<AmmoReturnEvent>.OnEvent += ChangeAmmoUI;
         }
-
-        private void Update()
+        
+        private void ChangeAmmoUI(AmmoReturnEvent evt)
         {
-            _slider.value = _gun.Ammo;
+            _slider.value = evt.Ammo;
+            _ammoText.text = evt.Ammo.ToString();
+        }
+        
+        private void OnDisable()
+        {
+            EventBus<AmmoReturnEvent>.OnEvent -= ChangeAmmoUI;
         }
     }
 }

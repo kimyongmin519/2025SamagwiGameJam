@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Member.KYM.Code.Interface;
 using Member.KYM.Code.Manager.Pooling;
@@ -23,7 +22,7 @@ namespace Member.SYW._01_Scripts.ETC
 
         private IEnumerator SpawnRoutine()
         {
-            while (true)
+            while (true) // 그 전설적인..
             {
                 SpawnObstacle();
                 float randomInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
