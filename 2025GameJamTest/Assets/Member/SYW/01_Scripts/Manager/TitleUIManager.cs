@@ -8,12 +8,12 @@ namespace Member.SYW._01_Scripts.Manager
     {
         [SerializeField] private TextMeshProUGUI creditText;
         [SerializeField] private RectTransform originTransform;
-        private TitleESCPanel _titleEscPanel;
+        private EditPanel _editPanel;
         private bool _creditIsOpen = false;
 
         private void Awake()
         {
-            _titleEscPanel = TitleESCPanel.Instance;
+            _editPanel = EditPanel.Instance;
         }
 
         private void Start()
@@ -37,7 +37,7 @@ namespace Member.SYW._01_Scripts.Manager
 
         public void EscPanelOpen()
         {
-            _titleEscPanel.gameObject.SetActive(true);
+            _editPanel.gameObject.SetActive(true);
         }
         
         public void QuitGame()

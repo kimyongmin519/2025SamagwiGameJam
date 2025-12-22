@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Member.SYW._01_Scripts.UI
 {
-    public class TitleESCPanel : MonoSingleton<TitleESCPanel>
+    public class EditPanel : MonoSingleton<EditPanel>
     {
         [SerializeField] private Slider masterSlider;
         [SerializeField] private Slider bgmSlider;
