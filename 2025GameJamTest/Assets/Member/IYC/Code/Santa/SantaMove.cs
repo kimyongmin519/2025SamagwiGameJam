@@ -7,10 +7,10 @@ using Member.KYM.Code.Players;
 
 public class SantaMove : MonoBehaviour, IAgentComponent
 {
-    [SerializeField] private float baseSpeed = 4f;
-    [SerializeField] private float farDistance = 10f;
+    [SerializeField] private float baseSpeed = 7;
+    [SerializeField] private float farDistance = 100f;
     [SerializeField] private float closeDistance = 2f;
-    [SerializeField] private float farSpeedMultiplier = 1.5f;
+    [SerializeField] private float farSpeedMultiplier = 100000f;
     [SerializeField] private float closeSpeedMultiplier = 1.1f;
     [SerializeField] private float catchDistance = 1f;
     [SerializeField] private float knockbackForce = 5f;
@@ -29,6 +29,11 @@ public class SantaMove : MonoBehaviour, IAgentComponent
         _agent = agent;
         _santa = agent as Santa;
         _rigidbody = agent.GetComponent<Rigidbody2D>();
+    }
+
+    public void SetPlayer(Player player)
+    {
+        _player = player;
     }
 
     private void FixedUpdate()
@@ -60,21 +65,16 @@ public class SantaMove : MonoBehaviour, IAgentComponent
 
         if (distanceToPlayer >= farDistance)
         {
+            print("속도가 증가되었습니다.");
             currentSpeed = baseSpeed * farSpeedMultiplier;
         }
+
         else if (distanceToPlayer <= closeDistance)
         {
             currentSpeed = baseSpeed * closeSpeedMultiplier;
         }
 
-        if (_rigidbody != null)
-        {
-            _rigidbody.linearVelocityX = currentSpeed;
-        }
-        else
-        {
-            transform.position += Vector3.right * currentSpeed * Time.fixedDeltaTime;
-        }
+        transform.position += Vector3.right * currentSpeed * Time.fixedDeltaTime;
     }
 
     private void CheckCatchPlayer()

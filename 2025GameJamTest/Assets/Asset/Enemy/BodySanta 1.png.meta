@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d07d8d22a625a984480a8b84ac69df12
+guid: 825ad87d9990aa145bee29e2f498da8b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8538730538999541972
-    second: BodySanta_0
+      213: 7978175470955692724
+    second: BodySanta 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BodySanta_0
+      name: BodySanta 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 165
+        width: 288
         height: 205
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4d0f8d16f2aaf7670800000000000000
-      internalID: 8538730538999541972
+      spriteID: 4b28c06125c28be60800000000000000
+      internalID: 7978175470955692724
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BodySanta_0: 8538730538999541972
+      BodySanta 1_0: 7978175470955692724
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
