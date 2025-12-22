@@ -1,16 +1,26 @@
 using UnityEngine;
 
-public class PlayerWalkState : MonoBehaviour
+namespace Member.KYM.Code.Players.FSM
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class PlayerWalkState : PlayerState
     {
-        
-    }
+        public PlayerWalkState(Player player, PlayerStateMachine stateMachine, string animParam) : base(player, stateMachine, animParam)
+        {
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void EnterState()
+        {
+            base.EnterState();
+        }
+
+        public override void UpdateState()
+        {
+            base.UpdateState();
+        }
+
+        public override void ExitState()
+        {
+            base.ExitState();
+        }
     }
 }
