@@ -4,45 +4,42 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     [SerializeField] private HealthSystem healthSystem;
-    /// <summary>
-    /// Awake
-    /// </summary>
+
+    [SerializeField] private float targetDistance = 10f;
+    [SerializeField] private float baseChaseSpeed = 3f;
+    [SerializeField] private float maxChaseSpeed = 6f;
+    [SerializeField] private float catchDistance = 10f;
+
+    private GameManager gameManager;
+
     private void Awake()
     {
         if (healthSystem == null)
             healthSystem = GetComponent<HealthSystem>();
     }
 
-    /// <summary>
-    /// 물리처리
-    /// </summary>
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Gimic")) // 태그로 기믹 오브젝트 확인
+        if (collision.gameObject.CompareTag("Gimic"))
         {
-            Gimic gimic = collision.gameObject.GetComponent<Gimic>(); // 기믹의 기믹 가져오기
-
-            if (gimic != null && gimic.gimicData != null) // 기믹에 데이터가 있으면
+            Gimic gimic = collision.gameObject.GetComponent<Gimic>(); gimic.gimicData.Stun = true;
+            if (gimic != null && gimic.gimicData != null)
             {
-                healthSystem.GetDamage(gimic.gimicData.Damage); // GetDamage
-
-                if (gimic.gimicData.StunDuration > 0)
+                healthSystem.GetDamage(gimic.gimicData.Damage);
+                if (gimic.gimicData.Stun == true)
                 {
                     Stun(gimic.gimicData.StunDuration);
+                    gimic.gimicData.Stun = false;
                 }
 
                 if (gimic.gimicData.DestroyOnHit)
                 {
                     Destroy(collision.gameObject);
-                } // 나머지 if는 알아서 해석
+                }
             }
         }
     }
 
-    /// <summary>
-    /// 스턴 매서드
-    /// todo:실제 스턴 구현하기
-    /// </summary>
     private void Stun(float duration)
     {
         print($"산타 장애물 맞아서 스턴이되");
