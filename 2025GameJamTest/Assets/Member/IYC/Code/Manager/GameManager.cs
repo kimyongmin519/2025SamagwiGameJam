@@ -6,22 +6,27 @@ using Member.SYW._01_Scripts.UI;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+    private GameOverUI _gameOverUI;
+    private GameWinUI _gameWinUI;
+    
     protected override void Awake()
     {
-
+        base.Awake();
+        _gameOverUI = GameOverUI.Instance;
+        _gameWinUI = GameWinUI.Instance;
     }
 
     public void GameOver()
     {
         Debug.Log("Game Over!");
-        GameOverUI.Instance.gameObject.SetActive(true);
+        _gameOverUI.gameObject.SetActive(true);
         TimeManager.Instance?.TimeStop();
     }
 
     public void Victory()
     {
         Debug.Log("Victory!");
-        GameWinUI.Instance.gameObject.SetActive(true);
+        _gameWinUI.gameObject.SetActive(true);
         TimeManager.Instance?.TimeStop();
     }
 }
