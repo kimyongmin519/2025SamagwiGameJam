@@ -30,12 +30,14 @@ namespace Member.SYW._01_Scripts.Manager
                 OnEscOpen?.Invoke();
                 Time.timeScale = 0;
                 _panelOpen = true;
+                print("엉");
             }
             else if (_panelOpen)
             {
                 OnEscClose?.Invoke();
                 Time.timeScale = 1;
                 _panelOpen = false;
+                print("잉");
             }
         }
     }
