@@ -9,7 +9,7 @@ namespace Member.KYM.Code.Players
     {
         private Controller _controller;
 
-        public float MoveDir { get; private set; } = 0;
+        public Vector2 MoveDir { get; private set; }
         public Vector2 MousePos { get;private set; }
         public event Action OnAttackPressed;
         public event Action OnAttackReleased;
@@ -32,9 +32,9 @@ namespace Member.KYM.Code.Players
         public void OnMove(InputAction.CallbackContext context)
         {
             if (context.performed)
-                MoveDir = context.ReadValue<Vector2>().x;
+                MoveDir = context.ReadValue<Vector2>();
             if (context.canceled)
-                MoveDir = 0;
+                MoveDir = Vector2.zero;
         }
 
         public void OnJump(InputAction.CallbackContext context)
