@@ -15,4 +15,5 @@ MonoBehaviour:
   <ShotDelay>k__BackingField: 0.1
   <Ammo>k__BackingField: 30
   <BulletCount>k__BackingField: 1
+  <GunAccuracy>k__BackingField: 0.2
   <BulletPrefab>k__BackingField: {fileID: 5724201035366646099, guid: c1ab3937b93137f438d5cca3e2f92015, type: 3}
