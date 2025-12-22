@@ -13,12 +13,12 @@ public class GameManager : MonoSingleton<GameManager>
     public void GameOver()
     {
         Debug.Log("Game Over!");
-        Time.timeScale = 0f;
+        TimeManager.Instance?.TimeStop();
     }
 
     public void Victory()
     {
         Debug.Log("Victory!");
-        Time.timeScale = 0f;
+        TimeManager.Instance?.TimeStop();
     }
 }
