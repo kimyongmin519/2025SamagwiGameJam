@@ -21,19 +21,11 @@ namespace Member.SYW._01_Scripts.UI
         private void Start()
         {
             _slider.value = _gun.Ammo;
-            _slider.maxValue = _gun.GunData.Ammo;
-            _ammoText.text = $"{_gun.Ammo}" +
-                             $"/" +
-                             $"{_gun.GunData.Ammo}";
         }
 
         private void Update()
         {
             _slider.value = _gun.Ammo;
-            _slider.maxValue = _gun.GunData.Ammo;
-            _ammoText.text = $"{_gun.Ammo}" +
-                             $"/" +
-                             $"{_gun.GunData.Ammo}";
         }
     }
 }

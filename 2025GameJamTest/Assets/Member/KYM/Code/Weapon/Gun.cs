@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Member.KYM.Code.Bus;
 using Member.KYM.Code.GameEvents;
@@ -9,7 +10,7 @@ namespace Member.KYM.Code.Weapon
 {
     public class Gun : MonoBehaviour
     {
-        [field:SerializeField] public GunDataSO GunData { get; private set; }
+        [SerializeField] private GunDataSO gunData;
         [SerializeField] private Transform firePoint;
         public GunRenderer Renderer {get; private set;}
         private Vector2 _mousePos;
@@ -41,8 +42,8 @@ namespace Member.KYM.Code.Weapon
             
             Renderer.Initialize(transform);
 
-            _bulletCount = GunData.BulletCount;
-            Ammo = GunData.Ammo;
+            _bulletCount = gunData.BulletCount;
+            Ammo = gunData.Ammo;
 
             EventBus<ReloadEndEvent>.OnEvent += Reload;
         }
@@ -74,7 +75,7 @@ namespace Member.KYM.Code.Weapon
             while (_shoot && Ammo > 0)
             {
                 ShootBullet();
-                yield return new WaitForSeconds(GunData.ShotDelay);
+                yield return new WaitForSeconds(gunData.ShotDelay);
             }
         }
 
@@ -98,7 +99,7 @@ namespace Member.KYM.Code.Weapon
 
         public void Reload(ReloadEndEvent evt)
         {
-            Ammo = GunData.Ammo;
+            Ammo = gunData.Ammo;
         }
 
         private void OnDestroy()
