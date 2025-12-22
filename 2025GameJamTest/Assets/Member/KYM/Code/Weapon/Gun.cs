@@ -27,7 +27,7 @@ namespace Member.KYM.Code.Weapon
                 int before = _ammo;
                 if (value != before)
                 {
-                    EventBus<AmmoReturnEvent>.Raise(new AmmoReturnEvent());
+                    EventBus<AmmoReturnEvent>.Raise(new AmmoReturnEvent(value));
                 }
             }
         }
@@ -43,6 +43,7 @@ namespace Member.KYM.Code.Weapon
             _renderer.Initialize(transform);
 
             _bulletCount = gunData.BulletCount;
+            Ammo = gunData.Ammo;
         }
 
         private void Update()
@@ -69,7 +70,7 @@ namespace Member.KYM.Code.Weapon
         }
         private IEnumerator ShootCor()
         {
-            while (_shoot)
+            while (_shoot && Ammo > 0)
             {
                 ShootBullet();
                 yield return new WaitForSeconds(gunData.ShotDelay);
@@ -79,6 +80,8 @@ namespace Member.KYM.Code.Weapon
         private void ShootBullet()
         {
             OnShootEvent?.Invoke();
+
+            Ammo--;
             
             for (int i = 0; i < _bulletCount; i++)
             {
@@ -90,6 +93,11 @@ namespace Member.KYM.Code.Weapon
         public void StopShoot()
         {
             _shoot = false;
+        }
+
+        public void Reload()
+        {
+            
         }
     }
 }

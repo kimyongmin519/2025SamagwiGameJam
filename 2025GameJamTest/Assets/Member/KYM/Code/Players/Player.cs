@@ -33,6 +33,7 @@ namespace Member.KYM.Code.Players
         {
             PlayerInput.OnJumpPressed += AgentMovement.Jump;
             PlayerInput.OnAttackPressed += _hand.Gun.Shoot;
+            PlayerInput.OnAttackReleased += _hand.Gun.StopShoot;
         }
 
         private void Update()
@@ -45,6 +46,7 @@ namespace Member.KYM.Code.Players
         {
             PlayerInput.OnJumpPressed -= AgentMovement.Jump;
             PlayerInput.OnAttackPressed -= _hand.Gun.Shoot;
+            PlayerInput.OnAttackReleased -= _hand.Gun.StopShoot;
         }
     }
 }
