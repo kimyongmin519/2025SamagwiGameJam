@@ -19,6 +19,7 @@ namespace Member.KYM.Code.Players.FSM
         public void Initialize(PlayerStateType stateType)
         {
             CurrentState = _stateDict[stateType];
+            CurrentState.EnterState();
         }
         
         public void ChangeState(PlayerStateType type)

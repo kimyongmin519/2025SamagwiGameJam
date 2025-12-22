@@ -6,14 +6,14 @@ namespace Member.KYM.Code.Agent
     public class AgentRenderer : MonoBehaviour, IAgentComponent
     {
         private Agent _agent;
-        private Animator _animator;
+        public Animator Animator { get; private set; }
 
         private float _facingDirection = 1;
         
         public void Initialize(Agent agent)
         {
             _agent = agent;
-            _animator = GetComponent<Animator>();
+            Animator = GetComponent<Animator>();
         }
 
         public void FlipControl(float xMove)
@@ -26,9 +26,9 @@ namespace Member.KYM.Code.Agent
 
         private void FlipX()
         {
-            _facingDirection += -1;
+            _facingDirection *= -1;
 
-            float targetYRotation = _facingDirection = _facingDirection > 0 ? 0 : 180;
+            float targetYRotation =  _facingDirection > 0 ? 0 : 180;
             _agent.transform.rotation = Quaternion.Euler(0, targetYRotation, 0);
         }
         

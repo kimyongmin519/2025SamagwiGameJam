@@ -36,6 +36,8 @@ namespace Member.KYM.Code.Agent
         public void SetXDir(float dir) => _xDir = dir;
         public void SetSpeed(float speed) => _speed = speed;
         public void SetJumpPower(float power) => _jumpPower = power;
+        public bool GetIsGround() => isGround;
+        public float GetYVelocity() => _rigidbody2D.linearVelocityY;
 
         private void FixedUpdate()
         {
