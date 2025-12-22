@@ -29,6 +29,7 @@ public class Santa : Agent
         if (SantaMove != null)
         {
             SantaMove.Initialize(this);
+            SantaMove.SetPlayer(player);
         }
         else
         {
