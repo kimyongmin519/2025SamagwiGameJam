@@ -1,16 +1,27 @@
 using UnityEngine;
 
-public class PlayerJumpState : MonoBehaviour
+namespace Member.KYM.Code.Players.FSM
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class PlayerJumpState : PlayerState
     {
-        
-    }
+        public PlayerJumpState(Player player, PlayerStateMachine stateMachine, string animParam) : base(player, stateMachine, animParam)
+        {
+            
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void EnterState()
+        {
+            base.EnterState();
+        }
+
+        public override void UpdateState()
+        {
+            base.UpdateState();
+        }
+
+        public override void ExitState()
+        {
+            base.ExitState();
+        }
     }
 }

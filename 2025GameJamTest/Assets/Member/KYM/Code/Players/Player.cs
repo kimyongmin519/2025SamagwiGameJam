@@ -6,7 +6,7 @@ namespace Member.KYM.Code.Players
 {
     public class Player : Agent.Agent
     {
-        [SerializeField] private PlayerInputSO playerInput;
+        [field:SerializeField] public PlayerInputSO PlayerInput { get; private set; }
         [SerializeField] private float speed;
         [SerializeField] private float jumpPower;
         public HealthSystem HealthSystem { get; private set; }
@@ -25,17 +25,17 @@ namespace Member.KYM.Code.Players
             AgentMovement.SetSpeed(speed);
             AgentMovement.SetJumpPower(jumpPower);
 
-            playerInput.OnJumpPressed += AgentMovement.Jump;
+            PlayerInput.OnJumpPressed += AgentMovement.Jump;
         }
 
         private void Update()
         {
-            AgentMovement.SetXDir(playerInput.MoveDir.x);
+            AgentMovement.SetXDir(PlayerInput.MoveDir.x);
         }
 
         private void OnDestroy()
         {
-            playerInput.OnJumpPressed -= AgentMovement.Jump;
+            PlayerInput.OnJumpPressed -= AgentMovement.Jump;
         }
     }
 }
