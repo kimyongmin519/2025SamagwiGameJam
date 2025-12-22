@@ -3,6 +3,7 @@ using Member.KYM.Code.Agent;
 using Member.KYM.Code.Interface;
 using Unity.VisualScripting;
 using UnityEngine;
+using Member.KYM.Code.Players;
 
 public class SantaMove : MonoBehaviour, IAgentComponent
 {
@@ -14,6 +15,8 @@ public class SantaMove : MonoBehaviour, IAgentComponent
     [SerializeField] private float catchDistance = 1f;
     [SerializeField] private float knockbackForce = 5f;
     [SerializeField] private float knockbackDuration = 0.5f;
+
+    private Player _player;
     private Agent _agent;
     private Santa _santa;
     private Rigidbody2D _rigidbody;
@@ -31,7 +34,7 @@ public class SantaMove : MonoBehaviour, IAgentComponent
     private void FixedUpdate()
     {
         if (_santa == null) return;
-        if (GameManager.Instance == null || GameManager.Instance.player == null) return;
+        if (GameManager.Instance == null || _player == null) return;
 
         if (isKnockedBack)
         {
@@ -51,7 +54,7 @@ public class SantaMove : MonoBehaviour, IAgentComponent
 
     private void MoveRight()
     {
-        float distanceToPlayer = GameManager.Instance.player.transform.position.x - transform.position.x;
+        float distanceToPlayer = _player.transform.position.x - transform.position.x;
 
         float currentSpeed = baseSpeed;
 
@@ -76,7 +79,7 @@ public class SantaMove : MonoBehaviour, IAgentComponent
 
     private void CheckCatchPlayer()
     {
-        float distance = GameManager.Instance.player.transform.position.x - transform.position.x;
+        float distance = _player.transform.position.x - transform.position.x;
 
         if (distance <= catchDistance)
         {
@@ -117,9 +120,9 @@ public class SantaMove : MonoBehaviour, IAgentComponent
 
     private void OnDrawGizmos()
     {
-        if (GameManager.Instance == null || GameManager.Instance.player == null) return;
+        if (GameManager.Instance == null || _player == null) return;
 
-        float distance = GameManager.Instance.player.transform.position.x - transform.position.x;
+        float distance = _player.transform.position.x - transform.position.x;
 
         if (distance >= farDistance)
         {
@@ -134,6 +137,6 @@ public class SantaMove : MonoBehaviour, IAgentComponent
             Gizmos.color = Color.green;
         }
 
-        Gizmos.DrawLine(transform.position, GameManager.Instance.player.transform.position);
+        Gizmos.DrawLine(transform.position, _player.transform.position);
     }
 }
