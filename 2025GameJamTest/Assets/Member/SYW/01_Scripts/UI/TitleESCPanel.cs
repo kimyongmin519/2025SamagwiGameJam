@@ -1,0 +1,25 @@
+using Member.SYW._01_Scripts.Manager;
+using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
+
+namespace Member.SYW._01_Scripts.UI
+{
+    public class TitleESCPanel : MonoSingleton<TitleESCPanel>
+    {
+        [SerializeField] private Slider masterSlider;
+        [SerializeField] private Slider bgmSlider;
+        [SerializeField] private Slider sfxSlider;
+        [SerializeField] private AudioMixer audioMixer;
+
+        private void Start()
+        {
+            gameObject.SetActive(false);
+        }
+
+        public void ClosePanel()
+        {
+            gameObject.SetActive(false);
+        }
+    }
+}

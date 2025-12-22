@@ -1,21 +1,22 @@
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace Member.SYW._01_Scripts.UI
 {
     public class TitleUIManager : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI titleText;
         [SerializeField] private TextMeshProUGUI creditText;
         [SerializeField] private RectTransform originTransform;
+        private TitleESCPanel _titleEscPanel;
         private bool _creditIsOpen = false;
+
+        private void Awake()
+        {
+            _titleEscPanel = TitleESCPanel.Instance;
+        }
 
         private void Start()
         {
-            titleText.transform.position = originTransform.transform.position;
             creditText.gameObject.SetActive(false);
         }
 
@@ -33,11 +34,11 @@ namespace Member.SYW._01_Scripts.UI
             }
         }
 
-        public void GameStart()
+        public void EscPanelOpen()
         {
-            SceneManager.LoadScene("Develop");
+            _titleEscPanel.gameObject.SetActive(true);
         }
-
+        
         public void QuitGame()
         {
             Application.Quit();
