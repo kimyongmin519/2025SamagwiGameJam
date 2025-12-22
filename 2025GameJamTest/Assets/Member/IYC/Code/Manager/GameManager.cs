@@ -39,14 +39,14 @@ public class GameManager : MonoBehaviour
     {
         if (playerInput == null) return;
 
-        if (playerInput.MoveDir > 0)
+        /*if (playerInput.MoveDir > 0)
         {
             currentScrollSpeed = baseScrollSpeed + 3f;
         }
         else if (playerInput.MoveDir < 0)
         {
             currentScrollSpeed = baseScrollSpeed - 2f;
-        }
+        }*/
         else
         {
             currentScrollSpeed = baseScrollSpeed;
