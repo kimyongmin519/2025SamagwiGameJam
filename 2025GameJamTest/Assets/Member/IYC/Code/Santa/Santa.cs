@@ -1,35 +1,59 @@
 using Member.KYM.Code.Agent;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Boss : MonoBehaviour
+public class Santa : Agent
 {
-    [SerializeField] private HealthSystem healthSystem;
+    [SerializeField] private float health = 100f;
 
-    [SerializeField] private float targetDistance = 10f;
-    [SerializeField] private float baseChaseSpeed = 3f;
-    [SerializeField] private float maxChaseSpeed = 6f;
-    [SerializeField] private float catchDistance = 10f;
+    public HealthSystem HealthSystem { get; private set; }
+    public SantaMove SantaMove { get; private set; }
 
-    private GameManager gameManager;
+    public bool IsStun { get; private set; }
 
     private void Awake()
     {
-        if (healthSystem == null)
-            healthSystem = GetComponent<HealthSystem>();
+        HealthSystem = GetComponent<HealthSystem>();
+        SantaMove = GetComponent<SantaMove>();
+
+        if (HealthSystem == null)
+        {
+            HealthSystem = gameObject.AddComponent<HealthSystem>();
+        }
+
+        HealthSystem.Initialize(this);
+        HealthSystem.SetHealth(health);
+
+        if (SantaMove != null)
+        {
+            SantaMove.Initialize(this);
+        }
+        else
+        {
+            Debug.LogError("SantaMove component not found!");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Gimic"))
         {
-            Gimic gimic = collision.gameObject.GetComponent<Gimic>(); gimic.gimicData.Stun = true;
+            Gimic gimic = collision.gameObject.GetComponent<Gimic>();
+
             if (gimic != null && gimic.gimicData != null)
             {
-                healthSystem.GetDamage(gimic.gimicData.Damage);
-                if (gimic.gimicData.Stun == true)
+                HealthSystem.GetDamage(gimic.gimicData.Damage);
+
+                if (HealthSystem.Health <= 0)
+                {
+                    BossDefeated();
+                    return;
+                }
+
+                if (gimic.gimicData.StunDuration > 0)
                 {
                     Stun(gimic.gimicData.StunDuration);
-                    gimic.gimicData.Stun = false;
+                    SantaMove?.Knockback();
                 }
 
                 if (gimic.gimicData.DestroyOnHit)
@@ -38,10 +62,52 @@ public class Boss : MonoBehaviour
                 }
             }
         }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GameManager.Instance?.GameOver();
+        }
     }
 
-    private void Stun(float duration)
+    public void Stun(float duration)
     {
-        print($"산타 장애물 맞아서 스턴이되");
+        if (IsStun) return;
+
+        IsStun = true;
+        Debug.Log($"Santa stunned for {duration} seconds!");
+
+        Invoke(nameof(EndStun), duration);
+    }
+
+    private void EndStun()
+    {
+        IsStun = false;
+        Debug.Log("Santa stun ended!");
+    }
+
+    private void BossDefeated()
+    {
+        Debug.Log("Santa Defeated!");
+        GameManager.Instance?.Victory();
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        CancelInvoke();
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (GameManager.Instance == null || GameManager.Instance.player == null) return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, GameManager.Instance.player.transform.position);
+
+        Gizmos.color = Color.yellow;
+        Vector3 targetPos = transform.position + Vector3.right * 10f; Gizmos.DrawWireSphere(targetPos, 0.5f);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position + Vector3.right * 2f, 0.5f);
     }
 }
