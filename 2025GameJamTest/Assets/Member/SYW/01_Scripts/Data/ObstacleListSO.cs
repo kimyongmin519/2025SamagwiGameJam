@@ -1,8 +1,12 @@
 using System.Collections.Generic;
+using Member.SYW._01_Scripts.Data;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PresentListSO", menuName = "SO/PresentListSO")]
-public class PresentListSO : ScriptableObject
+namespace Member.SYW._01_Scripts.Data
 {
-    [field: SerializeField] public List<PresentSO> presentSO { get; set; }
+    [CreateAssetMenu(fileName = "ObstacleListSO", menuName = "YeonSO/ObstacleListSO")]
+    public class ObstacleListSO : ScriptableObject
+    {
+        [field: SerializeField] public List<ObstacleSO> Obstacles { get; set; }
+    }
 }

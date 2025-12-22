@@ -1,10 +1,31 @@
+using System.Collections;
 using Member.KYM.Code.Interface;
+using Member.KYM.Code.Manager.Pooling;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PresentBox : MonoBehaviour
+public class PresentBox : MonoBehaviour, IPoolable
 {
+    [SerializeField] protected float lifeTime = 5f;
     public UnityEvent OnBulletHit;
+
+    public string ItemName => gameObject.name;
+
+    public GameObject GetGameObject()
+    {
+        return gameObject;
+    }
+
+    public void Reset()
+    {
+        
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(LifeCoroutine());
+    }
+
     private void Awake()
     {
         ScoreManager scoreManager = FindAnyObjectByType<ScoreManager>();
@@ -18,6 +39,11 @@ public class PresentBox : MonoBehaviour
         }
     }
 
+    private IEnumerator LifeCoroutine()
+    {
+        yield return new WaitForSeconds(lifeTime);
+        PoolManager.Instance.Push(this);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -28,12 +54,4 @@ public class PresentBox : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Bullet"))
-    //    {
-    //        OnBulletHit?.Invoke();
-    //        Destroy(other.gameObject);
-    //    }
-    //}
 }

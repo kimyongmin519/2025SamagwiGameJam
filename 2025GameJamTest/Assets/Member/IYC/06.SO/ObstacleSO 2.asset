@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d015269f1451fe429b0cb80940c48aa, type: 3}
-  m_Name: PresentSO 1
+  m_Script: {fileID: 11500000, guid: 036c7827d246b1a4484a094cb0b5dcea, type: 3}
+  m_Name: ObstacleSO 2
   m_EditorClassIdentifier: 
-  <Presentbox>k__BackingField: {fileID: 8827814188044919066, guid: 4f790ab8286e6d04280f987b80e2c1c5, type: 3}
+  <Obstacle>k__BackingField: {fileID: 0}

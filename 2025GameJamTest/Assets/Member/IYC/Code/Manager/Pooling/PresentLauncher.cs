@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Member.KYM.Code.Interface;
 using Member.KYM.Code.Manager.Pooling;
@@ -8,11 +7,11 @@ using Random = UnityEngine.Random;
 
 namespace Member.SYW._01_Scripts.ETC
 {
-    public class ObstacleLauncher : MonoBehaviour
+    public class PresentSOLauncher : MonoBehaviour
     {
         [Header("Settings")]
         [SerializeField] private Transform spawnPoint;
-        [SerializeField] private ObstacleListSO obstacleList;
+        [SerializeField] private PresentListSO presentList;
         [SerializeField] private float minSpawnInterval = 0.5f;
         [SerializeField] private float maxSpawnInterval = 3f;
 
@@ -34,16 +33,16 @@ namespace Member.SYW._01_Scripts.ETC
 
         private void SpawnObstacle()
         {
-            if (obstacleList == null || obstacleList.Obstacles.Count == 0)
+            if (presentList == null || presentList.presentSO.Count == 0)
             {
                 Debug.LogWarning("ObstacleListSO가 비어있거나 할당되지 않았습니다.");
                 return;
             }
 
-            int randomIndex = Random.Range(0, obstacleList.Obstacles.Count);
-            ObstacleSO selectedData = obstacleList.Obstacles[randomIndex];
+            int randomIndex = Random.Range(0, presentList.presentSO.Count);
+            PresentSO selectedData = presentList.presentSO[randomIndex];
             
-            string obstacleName = selectedData.Obstacle.gameObject.name;
+            string obstacleName = selectedData.Presentbox.gameObject.name;
             
             IPoolable item = PoolManager.Instance.Pop(obstacleName);
 
