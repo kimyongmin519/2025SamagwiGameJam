@@ -14,7 +14,8 @@ namespace Member.KYM.Code.Agent
         
         private Agent _agent;
 
-        public Action OnDead; 
+        public Action OnDead;
+        public Action OnDamaged;
         
         public float Health
         {
@@ -24,14 +25,15 @@ namespace Member.KYM.Code.Agent
                 float before = health;
 
                 if (!isInvincible)
+                {
                     health = Mathf.Clamp(value, 0, MaxHealth);
+                    OnDamaged?.Invoke();
+                }
             }
         }
         
         public void GetDamage(float damage)
         {
-            print("������ ��");
-
             Health -= damage;
             
             if (Health <= 0)

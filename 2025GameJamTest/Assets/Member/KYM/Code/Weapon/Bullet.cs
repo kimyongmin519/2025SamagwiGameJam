@@ -3,6 +3,7 @@ using Member.KYM.Code.Agent;
 using Member.KYM.Code.Interface;
 using Member.KYM.Code.Manager.Pooling;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Member.KYM.Code.Weapon
 {
@@ -53,8 +54,12 @@ namespace Member.KYM.Code.Weapon
         {
             if (other.gameObject.TryGetComponent(out HealthSystem healthSystem))
             {
-                IPoolable effect = PoolManager.Instance.Pop("HitEffect");
-                effect.GetGameObject().transform.position = transform.position;
+                healthSystem.GetDamage(bulletData.Damage);
+                
+                GameObject effect = PoolManager.Instance.Pop("HitEffect").GetGameObject();
+                    
+                effect.transform.position = transform.position;
+                effect.transform.rotation = Quaternion.Euler(new Vector3(0,0,Random.Range(0,360)));
             }
             else
             {

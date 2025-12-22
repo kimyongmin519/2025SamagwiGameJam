@@ -8,6 +8,7 @@ namespace Member.KYM.Code.Weapon
         [field: SerializeField] public float ShotDelay { get; private set; }
         [field:SerializeField] public int Ammo { get; private set; }
         [field:SerializeField] public int BulletCount { get; private set; }
+        [field:SerializeField] public float GunAccuracy { get; private set; }
         [field: SerializeField] public GameObject BulletPrefab {get; private set;}
 
     }

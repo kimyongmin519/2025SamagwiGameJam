@@ -42,7 +42,6 @@ namespace Member.KYM.Code.Manager.Pooling
         
         public void Push(IPoolable item)
         {
-            Debug.Log(_poolDit.ContainsKey(item.ItemName));
             if (_poolDit.ContainsKey(item.ItemName))
             {
                 _poolDit[item.ItemName].Push(item);
