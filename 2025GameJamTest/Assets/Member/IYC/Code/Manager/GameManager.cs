@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using Member.KYM.Code.Players;
 using Member.SYW._01_Scripts.Manager;
 using Member.SYW._01_Scripts.UI;
 

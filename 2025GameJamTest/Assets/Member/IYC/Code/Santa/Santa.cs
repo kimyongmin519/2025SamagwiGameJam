@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Member.KYM.Code.Agent;
 using Member.KYM.Code.Players;
 using Unity.VisualScripting;
@@ -11,6 +12,8 @@ public class Santa : Agent
     public HealthSystem HealthSystem { get; private set; }
     public SantaMove SantaMove { get; private set; }
     public Player player;
+    [SerializeField]
+    private Rigidbody2D _rigi;
 
     public bool IsStun { get; private set; }
 
@@ -18,6 +21,7 @@ public class Santa : Agent
     {
         HealthSystem = GetComponent<HealthSystem>();
         SantaMove = GetComponent<SantaMove>();
+        _rigi = GetComponent<Rigidbody2D>();
 
         if (HealthSystem == null)
         {
@@ -39,35 +43,6 @@ public class Santa : Agent
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("ElectronicDisplayBoard"))
-        {
-            Gimic gimic = collision.gameObject.GetComponent<Gimic>();
-            IsStun = true;
-            if (gimic != null && gimic.gimicData != null)
-            {
-                HealthSystem.GetDamage(gimic.gimicData.Damage);
-
-                if (HealthSystem.Health <= 0)
-                {
-                    BossDefeated();
-                    return;
-                }
-
-                if (IsStun)
-                {
-                    Stun(gimic.gimicData.StunDuration);
-                    SantaMove?.Knockback();
-                    print("Santa is knockbacked!");
-                    IsStun = false;
-                }
-
-                if (gimic.gimicData.DestroyOnHit)
-                {
-                    Destroy(collision.gameObject);
-                }
-            }
-        }
-
         if (collision.gameObject.CompareTag("Player"))
         {
             GameManager.Instance?.GameOver();
@@ -76,25 +51,14 @@ public class Santa : Agent
 
     public void Stun(float duration)
     {
-        if (IsStun) return;
-
-        IsStun = true;
-        Debug.Log($"Santa stunned for {duration} seconds!");
-
-        Invoke(nameof(EndStun), duration);
+        _rigi.constraints = RigidbodyConstraints2D.FreezePositionX;
+        StartCoroutine(StopStun(duration));
+        _rigi.constraints = RigidbodyConstraints2D.None;
     }
 
-    private void EndStun()
+    private IEnumerator StopStun(float duration)
     {
-        IsStun = false;
-        Debug.Log("Santa stun ended!");
-    }
-
-    private void BossDefeated()
-    {
-        Debug.Log("Santa Defeated!");
-        GameManager.Instance?.Victory();
-        Destroy(gameObject);
+        yield return new WaitForSeconds(duration);
     }
 
     private void OnDestroy()

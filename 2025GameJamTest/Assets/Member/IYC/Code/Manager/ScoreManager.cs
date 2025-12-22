@@ -1,8 +1,9 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using Member.SYW._01_Scripts.Manager;
 
-public class ScoreManager : MonoBehaviour
+public class ScoreManager : MonoSingleton<ScoreManager>
 {
     [SerializeField] private int score = 0;
     [SerializeField] private TextMeshProUGUI scoreText;

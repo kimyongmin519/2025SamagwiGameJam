@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PoolItemSO
   m_EditorClassIdentifier: 
   <ItemName>k__BackingField: "\uC120\uBB3C\uC0C1\uC790_0"
-  <Count>k__BackingField: 10
+  <Count>k__BackingField: 1
   <ItemPrefab>k__BackingField: {fileID: 1653497741069659027, guid: 4f790ab8286e6d04280f987b80e2c1c5, type: 3}
