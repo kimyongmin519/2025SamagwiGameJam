@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
@@ -7,6 +8,11 @@ public class ScoreManager : MonoSingleton<ScoreManager>
 {
     [SerializeField] private int score = 0;
     [SerializeField] private TextMeshProUGUI scoreText;
+
+    private void Start()
+    {
+        UpdateScoreUI();
+    }
 
     public void AddScore(int amount = 1)
     {
@@ -19,7 +25,16 @@ public class ScoreManager : MonoSingleton<ScoreManager>
     {
         if (scoreText != null)
         {
-            scoreText.text = $"Score: {score}";
+            scoreText.text = $"점수: {score}";
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            score += 50;
+            UpdateScoreUI();
         }
     }
 
