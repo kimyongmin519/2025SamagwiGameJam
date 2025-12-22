@@ -33,7 +33,7 @@ namespace Member.SYW._01_Scripts.UI
 
         private void BossDieBar()
         {
-            
+            Destroy(gameObject);
         }
         
         private void OnDisable()
