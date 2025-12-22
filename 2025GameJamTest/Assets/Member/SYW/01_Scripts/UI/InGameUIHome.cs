@@ -11,17 +11,15 @@ namespace Member.SYW._01_Scripts.UI
         private RectTransform _rectTransform;
         private EditPanel _editPanel;
         private float _originTransform;
+        private float _targetTransform;
 
         protected override void Awake()
         {
             base.Awake();
             _editPanel = EditPanel.Instance;
             _rectTransform = GetComponent<RectTransform>();
-        }
-
-        private void Start()
-        {
-            _originTransform = _rectTransform.localPosition.x;
+            _originTransform = _rectTransform.anchoredPosition.x;
+            _targetTransform = _originTransform + 460;
         }
 
         private void OnEnable()
@@ -32,13 +30,17 @@ namespace Member.SYW._01_Scripts.UI
 
         private void AppearanceUI()
         {
-            // -1200 , -725
-            _rectTransform.DOLocalMove(new Vector3(-725, 0), 1);
+            _rectTransform.DOKill();
+            _rectTransform.DOAnchorPosX(_targetTransform, 1f)
+                .SetUpdate(true);
         }
 
         private void UnAppearanceUI()
         {
-            _rectTransform.DOLocalMove(new Vector3(_originTransform, 0), 1);
+            _rectTransform.DOKill();
+            _rectTransform.DOAnchorPosX(_originTransform, 1f)
+                .SetUpdate(true);
+            _editPanel.gameObject.SetActive(false);
         }
 
         public void EditPanelOpen()
