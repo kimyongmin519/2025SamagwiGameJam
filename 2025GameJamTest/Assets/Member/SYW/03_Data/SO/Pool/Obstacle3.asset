@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa156546d452301439d67a7743e5494f, type: 3}
   m_Name: Obstacle3
   m_EditorClassIdentifier: 
-  <ItemName>k__BackingField: Obstacle
+  <ItemName>k__BackingField: Obstacle3
   <Count>k__BackingField: 10
-  <ItemPrefab>k__BackingField: {fileID: 0}
+  <ItemPrefab>k__BackingField: {fileID: 5535401732613199896, guid: c8cbef737602c2349bfe67a429c949b1, type: 3}
