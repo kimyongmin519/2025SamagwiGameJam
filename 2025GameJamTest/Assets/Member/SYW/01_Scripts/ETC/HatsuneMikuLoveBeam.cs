@@ -13,7 +13,7 @@ namespace Member.SYW._01_Scripts.ETC
         }
 
         public void Reset()
-        {
+        {  
             
         }
     }
