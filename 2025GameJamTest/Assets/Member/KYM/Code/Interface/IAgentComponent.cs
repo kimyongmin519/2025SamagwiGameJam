@@ -1,16 +1,7 @@
-using UnityEngine;
-
-public class IAgentComponent : MonoBehaviour
+namespace Member.KYM.Code.Interface
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public interface IAgentComponent
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void Initialize(Agent.Agent agent);
     }
 }
