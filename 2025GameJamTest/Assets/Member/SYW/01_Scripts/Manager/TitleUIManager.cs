@@ -1,7 +1,8 @@
+using Member.SYW._01_Scripts.UI;
 using TMPro;
 using UnityEngine;
 
-namespace Member.SYW._01_Scripts.UI
+namespace Member.SYW._01_Scripts.Manager
 {
     public class TitleUIManager : MonoBehaviour
     {
