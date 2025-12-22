@@ -53,5 +53,10 @@ namespace Member.SYW._01_Scripts.Manager
             _panelOpen = false;
             print("잉");
         }
+
+        public void GameExit()
+        {
+            Application.Quit();
+        }
     }
 }
