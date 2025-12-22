@@ -21,7 +21,7 @@ namespace Member.KYM.Code.Manager.Pooling
             else
             {
                 ItemPrefab = null;
-                Debug.LogWarning("얘 IPoolable없엉!!!!!!!!!!!");
+                Debug.LogWarning("얘 IPoolable없엉!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             }
         }
     }
