@@ -29,6 +29,7 @@ namespace Member.KYM.Code.Players
             AgentMovement.SetJumpPower(jumpPower);
 
             PlayerInput.OnJumpPressed += AgentMovement.Jump;
+            PlayerInput.OnAttackPressed += _hand.Gun.Shoot;
         }
 
         private void Update()
@@ -40,6 +41,7 @@ namespace Member.KYM.Code.Players
         private void OnDestroy()
         {
             PlayerInput.OnJumpPressed -= AgentMovement.Jump;
+            PlayerInput.OnAttackPressed -= _hand.Gun.Shoot;
         }
     }
 }

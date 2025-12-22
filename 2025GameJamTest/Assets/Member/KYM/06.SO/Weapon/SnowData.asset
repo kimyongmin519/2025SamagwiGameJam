@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e8c2d5294d6f1e4f9f669e03835d198, type: 3}
-  m_Name: PlayerData
+  m_Script: {fileID: 11500000, guid: f09acf13622d4c9497b3cf07551287d4, type: 3}
+  m_Name: SnowData
   m_EditorClassIdentifier: 
-  <CorrectionSpeed>k__BackingField: 10
+  <Damage>k__BackingField: 10
+  <BulletSpeed>k__BackingField: 25
+  <BulletSprite>k__BackingField: {fileID: -270039738421603607, guid: 612eda9fdb74d854f81fc02f848df0b5, type: 3}

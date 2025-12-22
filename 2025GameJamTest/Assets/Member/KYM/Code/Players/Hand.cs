@@ -8,19 +8,19 @@ namespace Member.KYM.Code.Players
 {
     public class Hand : MonoBehaviour
     {
+        public Gun Gun { get; private set; }
         private Vector2 _mousePos;
-        private Gun _gun;
         private float _defaultY;
 
         private void Awake()
         {
-            _gun = GetComponentInChildren<Gun>();
+            Gun = GetComponentInChildren<Gun>();
             _defaultY = transform.localPosition.y;
         }
 
         private void Update()
         {
-            _gun.SetMousePos(_mousePos);
+            Gun.SetMousePos(_mousePos);
 
             Vector2 bonusPos = (_mousePos - (Vector2)transform.position) / 100f;
 

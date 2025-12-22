@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a3aeb6b9b4451fb9afbd8fb0e0e43c, type: 3}
+  m_Name: SnowGunData
+  m_EditorClassIdentifier: 
+  <ShotDelay>k__BackingField: 0.1
+  <Ammo>k__BackingField: 30
+  <BulletCount>k__BackingField: 1
+  <BulletPrefab>k__BackingField: {fileID: 5724201035366646099, guid: c1ab3937b93137f438d5cca3e2f92015, type: 3}
