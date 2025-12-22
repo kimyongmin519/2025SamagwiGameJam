@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56838af0d04482ca42693653400b440, type: 3}
+  m_Name: ObstacleListSO
+  m_EditorClassIdentifier: 
+  <Obstacles>k__BackingField:
+  - {fileID: 11400000, guid: 2ec541d625d87e040916e5a352197da4, type: 2}
+  - {fileID: 11400000, guid: bfd71b548b79bc8419fd701f877e4565, type: 2}
+  - {fileID: 11400000, guid: 4d4cb0ce9da8b8b4ba88b6db8eac3149, type: 2}
+  - {fileID: 11400000, guid: aa03550d0d6a0ca4c9ab50d391b18cd9, type: 2}
+  - {fileID: 11400000, guid: a80c1cfae8d97f4489df27a418e7cde7, type: 2}

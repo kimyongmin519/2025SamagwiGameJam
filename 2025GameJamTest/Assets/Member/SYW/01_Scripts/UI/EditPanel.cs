@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using Member.SYW._01_Scripts.Manager;
 using UnityEngine;
