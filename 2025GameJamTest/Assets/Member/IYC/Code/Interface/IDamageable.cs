@@ -1,6 +1,7 @@
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public interface IDamageable
 {
-    public int IDamageable(int damage);
+    public float IDamageable(float damage);
 }

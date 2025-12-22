@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class Santa : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private HealthManager healthManager;
+
+    private void Awake()
     {
-        
+        healthManager = GetComponent<HealthManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
