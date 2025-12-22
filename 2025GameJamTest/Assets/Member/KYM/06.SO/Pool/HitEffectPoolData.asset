@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa156546d452301439d67a7743e5494f, type: 3}
+  m_Name: HitEffectPoolData
+  m_EditorClassIdentifier: 
+  <ItemName>k__BackingField: HitEffect
+  <Count>k__BackingField: 20
+  <ItemPrefab>k__BackingField: {fileID: 2128893209776224548, guid: 9a42504e6847b4d469fa754e3b4df591, type: 3}

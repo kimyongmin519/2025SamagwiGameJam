@@ -1,5 +1,7 @@
 using System;
+using Member.KYM.Code.Agent;
 using Member.KYM.Code.Interface;
+using Member.KYM.Code.Manager.Pooling;
 using UnityEngine;
 
 namespace Member.KYM.Code.Weapon
@@ -45,6 +47,22 @@ namespace Member.KYM.Code.Weapon
             gameObject.SetActive(false);
             _currentTime = 0;
             _rigidbody2D.linearVelocity = Vector2.zero;
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.TryGetComponent(out HealthSystem healthSystem))
+            {
+                IPoolable effect = PoolManager.Instance.Pop("HitEffect");
+                effect.GetGameObject().transform.position = transform.position;
+            }
+            else
+            {
+                IPoolable effect = PoolManager.Instance.Pop("SnowExplotion");
+                effect.GetGameObject().transform.position = transform.position;
+            }
+            Reset();
+            PoolManager.Instance.Push(this);
         }
     }
 }
