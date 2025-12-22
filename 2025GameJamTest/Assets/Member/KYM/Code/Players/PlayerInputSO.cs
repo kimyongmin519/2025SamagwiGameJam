@@ -14,6 +14,7 @@ namespace Member.KYM.Code.Players
         public event Action OnAttackPressed;
         public event Action OnAttackReleased;
         public event Action OnJumpPressed;
+        public event Action OnReloadPressed;
 
         private void OnEnable()
         {
@@ -54,6 +55,12 @@ namespace Member.KYM.Code.Players
         public void OnMousePos(InputAction.CallbackContext context)
         {
             MousePos = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>());
+        }
+
+        public void OnReload(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                OnReloadPressed?.Invoke();
         }
     }
 }
