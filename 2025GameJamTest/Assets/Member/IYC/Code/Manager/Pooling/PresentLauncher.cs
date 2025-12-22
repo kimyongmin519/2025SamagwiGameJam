@@ -33,14 +33,14 @@ namespace Member.SYW._01_Scripts.ETC
 
         private void SpawnObstacle()
         {
-            if (presentList == null || presentList.presentSO.Count == 0)
+            if (presentList == null || presentList.PresentBox.Count == 0)
             {
                 Debug.LogWarning("ObstacleListSO가 비어있거나 할당되지 않았습니다.");
                 return;
             }
 
-            int randomIndex = Random.Range(0, presentList.presentSO.Count);
-            PresentSO selectedData = presentList.presentSO[randomIndex];
+            int randomIndex = Random.Range(0, presentList.PresentBox.Count);
+            PresentSO selectedData = presentList.PresentBox[randomIndex];
             
             string obstacleName = selectedData.Presentbox.gameObject.name;
             

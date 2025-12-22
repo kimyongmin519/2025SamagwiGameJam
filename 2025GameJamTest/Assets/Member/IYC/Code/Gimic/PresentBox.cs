@@ -4,10 +4,12 @@ using Member.KYM.Code.Manager.Pooling;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PresentBox : MonoBehaviour, IPoolable
 {
-    [SerializeField] protected float lifeTime = 5f;
+    [SerializeField] private float lifeTime = 5f;
     public UnityEvent OnBulletHit;
+    private Rigidbody2D _rb;
 
     public string ItemName => gameObject.name;
 
@@ -18,7 +20,7 @@ public class PresentBox : MonoBehaviour, IPoolable
 
     public void Reset()
     {
-        
+        if (_rb != null) _rb.linearVelocity = Vector2.zero;
     }
 
     private void OnEnable()
@@ -37,6 +39,9 @@ public class PresentBox : MonoBehaviour, IPoolable
         {
             print("없어 없다고 score");
         }
+
+        _rb = GetComponent<Rigidbody2D>();
+        _rb.bodyType = RigidbodyType2D.Kinematic;
     }
 
     private IEnumerator LifeCoroutine()

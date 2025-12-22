@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d015269f1451fe429b0cb80940c48aa, type: 3}
   m_Name: PresentSO
   m_EditorClassIdentifier: 
-  <Presentbox>k__BackingField: {fileID: 0}
+  <ItemName>k__BackingField: "\uC120\uBB3C\uC0C1\uC790_0"
+  <Count>k__BackingField: 10
+  <ItemPrefab>k__BackingField: {fileID: 1653497741069659027, guid: 4f790ab8286e6d04280f987b80e2c1c5, type: 3}
+  <Presentbox>k__BackingField: {fileID: 8827814188044919066, guid: 4f790ab8286e6d04280f987b80e2c1c5, type: 3}
