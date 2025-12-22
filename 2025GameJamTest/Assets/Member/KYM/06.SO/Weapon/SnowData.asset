@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Damage>k__BackingField: 10
   <BulletSpeed>k__BackingField: 25
+  <BulletLifeTime>k__BackingField: 3
   <BulletSprite>k__BackingField: {fileID: -270039738421603607, guid: 612eda9fdb74d854f81fc02f848df0b5, type: 3}

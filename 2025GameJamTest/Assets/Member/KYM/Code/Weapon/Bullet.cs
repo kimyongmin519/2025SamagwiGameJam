@@ -34,7 +34,7 @@ namespace Member.KYM.Code.Weapon
             _rigidbody2D.linearVelocity = dir * bulletData.BulletSpeed;
         }
 
-        public string ItemName { get; }
+        [field:SerializeField] public string ItemName { get;  private set; }
         public GameObject GetGameObject()
         {
             return gameObject;

@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletData: {fileID: 11400000, guid: a6c71adf246219b49a7f5a5f69897f12, type: 2}
+  <ItemName>k__BackingField: Bullet
 --- !u!50 &7444396419847122940
 Rigidbody2D:
   serializedVersion: 5
