@@ -23,6 +23,14 @@ namespace Member.SYW._01_Scripts.Manager
                 HandleEsc();
         }
 
+        public void ResumeGame()
+        {
+            if (_panelOpen)
+            {
+                CloseEscPanel();
+            }
+        }
+
         private void HandleEsc()
         {
             if (!_panelOpen)
@@ -34,11 +42,16 @@ namespace Member.SYW._01_Scripts.Manager
             }
             else if (_panelOpen)
             {
-                OnEscClose?.Invoke();
-                Time.timeScale = 1;
-                _panelOpen = false;
-                print("잉");
+                CloseEscPanel();
             }
+        }
+        
+        private void CloseEscPanel()
+        {
+            OnEscClose?.Invoke();
+            Time.timeScale = 1;
+            _panelOpen = false;
+            print("잉");
         }
     }
 }
