@@ -13,7 +13,8 @@ namespace Member.SYW._01_Scripts.ETC
         [Header("Settings")]
         [SerializeField] private Transform spawnPoint;
         [SerializeField] private ObstacleListSO obstacleList;
-        [SerializeField] private float spawnInterval = 2f;
+        [SerializeField] private float minSpawnInterval = 0.5f;
+        [SerializeField] private float maxSpawnInterval = 3f;
 
         private void Start()
         {
@@ -25,7 +26,9 @@ namespace Member.SYW._01_Scripts.ETC
             while (true)
             {
                 SpawnObstacle();
-                yield return new WaitForSeconds(spawnInterval);
+                float randomInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
+                
+                yield return new WaitForSeconds(randomInterval);
             }
         }
 
