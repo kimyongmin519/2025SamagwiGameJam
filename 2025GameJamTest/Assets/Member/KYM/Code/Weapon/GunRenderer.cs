@@ -20,6 +20,7 @@ namespace Member.KYM.Code.Weapon
 
         public void ReloadAnim()
         {
+            EventBus<AmmoResetEvent>.Raise(new AmmoResetEvent());
             _animator.SetTrigger(_reloadHash);
         }
 
@@ -33,6 +34,11 @@ namespace Member.KYM.Code.Weapon
             float targetYScale = xDir > 0 ? 1 : -1;
             _trm.transform.localScale = new Vector3(_trm.transform.localScale.x, targetYScale
                 ,_trm.transform.localScale.z);
+        }
+
+        public void SetAnimSpeed(float speed)
+        {
+            _animator.speed = speed;
         }
     }
 }

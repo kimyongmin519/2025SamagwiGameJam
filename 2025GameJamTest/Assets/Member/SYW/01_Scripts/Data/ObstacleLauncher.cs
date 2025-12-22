@@ -1,12 +1,10 @@
-using System;
 using System.Collections;
 using Member.KYM.Code.Interface;
 using Member.KYM.Code.Manager.Pooling;
-using Member.SYW._01_Scripts.Data;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Member.SYW._01_Scripts.ETC
+namespace Member.SYW._01_Scripts.Data
 {
     public class ObstacleLauncher : MonoBehaviour
     {
