@@ -25,7 +25,6 @@ namespace Member.KYM.Code.Weapon
 
         public void ReloadSuccess()
         {
-            Debug.Log("ReloadSuccess");
             EventBus<ReloadEndEvent>.Raise(new ReloadEndEvent());
         }
 

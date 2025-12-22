@@ -60,7 +60,10 @@ namespace Member.KYM.Code.Players
         public void OnReload(InputAction.CallbackContext context)
         {
             if (context.performed)
+            {
+                OnAttackReleased?.Invoke();
                 OnReloadPressed?.Invoke();
+            }
         }
     }
 }
