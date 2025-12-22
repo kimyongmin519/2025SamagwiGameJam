@@ -30,7 +30,7 @@ namespace Member.KYM.Code.Players
 
         private void Update()
         {
-            AgentMovement.SetXDir(playerInput.MoveDir);
+            AgentMovement.SetXDir(playerInput.MoveDir.x);
         }
 
         private void OnDestroy()

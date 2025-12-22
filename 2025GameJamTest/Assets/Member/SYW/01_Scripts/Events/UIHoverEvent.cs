@@ -1,5 +1,4 @@
-using System;
-using Member.KYM.Code.Bus;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -22,12 +21,25 @@ namespace Member.SYW._01_Scripts.Events
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            
+            _rectTransform.DOKill();
+            _rectTransform.DOSizeDelta(
+                    new Vector2(hoverWidth, _rectTransform.sizeDelta.y), duration)
+                .SetEase(Ease.Flash);
+            Debug.Log("엉");
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            
+            _rectTransform.DOKill();
+            _rectTransform.DOSizeDelta(
+                new Vector2(_originWidth, _rectTransform.sizeDelta.y), duration)
+                .SetEase(Ease.Flash);
+            Debug.Log("잉");
+        }
+
+        private void OnDisable()
+        {
+            _rectTransform.DOKill();
         }
     }
 }

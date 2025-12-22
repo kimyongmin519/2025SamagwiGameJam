@@ -18,15 +18,18 @@ namespace Member.KYM.Code.Agent
 
         public void FlipControl(float xMove)
         {
-            if (Mathf.Abs(_facingDirection + xMove) > 1)
+            if (Mathf.Abs(_facingDirection + xMove) < 0.5f)
             {
-                
+                FlipX();
             }
         }
 
-        public void FlipX()
+        private void FlipX()
         {
-            
+            _facingDirection += -1;
+
+            float targetYRotation = _facingDirection = _facingDirection > 0 ? 0 : 180;
+            _agent.transform.rotation = Quaternion.Euler(0, targetYRotation, 0);
         }
         
     }
