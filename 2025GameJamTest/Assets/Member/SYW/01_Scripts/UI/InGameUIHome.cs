@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using Member.SYW._01_Scripts.Manager;
 using UnityEngine;
@@ -51,11 +52,12 @@ namespace Member.SYW._01_Scripts.UI
         public void GoTitle()
         {
             SceneManager.LoadScene("Title");
+            Time.timeScale = 1f;
         }
 
         public void Restart()
         {
-            UnAppearanceUI();
+            gameUIManager.ResumeGame();
         } 
         
         private void OnDisable()
