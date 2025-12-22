@@ -9,8 +9,8 @@ namespace Member.SYW._01_Scripts.ETC
     [RequireComponent(typeof(Rigidbody2D))]
     public class Obstacle : MonoBehaviour, IPoolable
     {
-        [SerializeField] private float lifeTime = 5f;
-        [SerializeField] private float speed = 5f;
+        [SerializeField] protected float lifeTime = 5f;
+        [SerializeField] protected float speed = 5f;
         private Rigidbody2D _rb;
         
         public string ItemName => gameObject.name;
@@ -18,10 +18,10 @@ namespace Member.SYW._01_Scripts.ETC
         {
             return gameObject;
         }
-
+        
         public void Reset()
         {
-            
+            if(_rb != null) _rb.linearVelocity = Vector2.zero;
         }
 
         private void Awake()
@@ -29,9 +29,14 @@ namespace Member.SYW._01_Scripts.ETC
             _rb = GetComponent<Rigidbody2D>();
         }
 
+        private void OnEnable()
+        {
+            StartCoroutine(LifeCoroutine());
+        }
+
         private void FixedUpdate()
         {
-            _rb.linearVelocity += Vector2.left * speed;
+            _rb.linearVelocity = Vector2.left * speed;
         }
         
         private IEnumerator LifeCoroutine()
