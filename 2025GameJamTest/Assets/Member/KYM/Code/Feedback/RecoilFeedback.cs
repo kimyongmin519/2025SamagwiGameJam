@@ -9,9 +9,9 @@ namespace Member.KYM.Code.Feedback
         [SerializeField] private Transform trm;
         [SerializeField] private float recoilAmount;
         [SerializeField] private float recoilDuration;
-        
-        private Tween _recoilTween;
+
         private Vector2 _initPos;
+        private Tween _recoilTween;
 
         private void Awake()
         {
@@ -20,7 +20,7 @@ namespace Member.KYM.Code.Feedback
 
         public override void CreateFeedback()
         {
-            float targetX = _initPos.x - recoilAmount;
+            float targetX = KimMet.GetWorldMousePos().x > trm.position.x ? recoilAmount : -recoilAmount;
             _recoilTween = trm.DOLocalMoveX(targetX, recoilDuration).SetLoops(2, LoopType.Yoyo);
         }
 
