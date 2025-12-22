@@ -27,7 +27,7 @@ namespace Member.KYM.Code.Weapon
                 int before = _ammo;
                 if (value != before)
                 {
-                    EventBus<AmmoReturnEvent>.Raise(value);
+                    EventBus<AmmoReturnEvent>.Raise(new AmmoReturnEvent());
                 }
             }
         }

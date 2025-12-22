@@ -6,7 +6,7 @@ namespace Member.KYM.Code.GameEvents
     {
         public int Ammo { get; private set; }
 
-        public void AmmoReturn(int ammo)
+        public AmmoReturnEvent(int ammo)
         {
             Ammo = ammo;
         }
