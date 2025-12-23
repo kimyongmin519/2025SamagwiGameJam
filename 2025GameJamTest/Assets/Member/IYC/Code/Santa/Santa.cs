@@ -8,7 +8,7 @@ using UnityEngine;
 public class Santa : Agent
 {
     [SerializeField] private double health = 100f;
-
+    [SerializeField] private GameObject deathEffectPrefab;
     public SantaMove SantaMove { get; private set; }
     public Player player;
     public bool IsStun { get; private set; }
@@ -66,6 +66,10 @@ public class Santa : Agent
         {
             SoundManager.Instance.Play(SFXSoundType.HURTSANTAR);
             print("��Ÿ����");
+            if (deathEffectPrefab != null)
+            {
+                Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+            }
             Stun(2);
             health += 100;
             HealthSystem.SetHealth(health);

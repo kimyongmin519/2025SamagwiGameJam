@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56838af0d04482ca42693653400b440, type: 3}
+  m_Name: HouseListSO
+  m_EditorClassIdentifier: 
+  <Obstacles>k__BackingField:
+  - {fileID: 11400000, guid: 47919d55be968464d8afa7877a8ed949, type: 2}
+  - {fileID: 11400000, guid: 22935c91452283745a6f2808120113cf, type: 2}
+  - {fileID: 11400000, guid: 57d3ab12ee043b542adb15fd026d7a2a, type: 2}
+  - {fileID: 11400000, guid: 291b5a38d8daaa54ebef7283c53df615, type: 2}
+  - {fileID: 11400000, guid: 4cfc9c00687029848897f3c926f89284, type: 2}
+  - {fileID: 11400000, guid: 1feb97bef57aebf429b87888fefde4da, type: 2}
