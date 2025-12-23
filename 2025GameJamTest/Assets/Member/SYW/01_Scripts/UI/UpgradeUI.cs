@@ -1,7 +1,7 @@
 using DG.Tweening;
 using Member.KYM.Code.Bus;
 using Member.KYM.Code.GameEvents;
-using Unity.VisualScripting;
+using Member.KYM.Code.Manager.Level;
 using UnityEngine;
 using UnityEngine.UI;
 using Sequence = DG.Tweening.Sequence;
@@ -55,9 +55,23 @@ namespace Member.SYW._01_Scripts.UI
             TimeManager.Instance.TimeStop();
         }
 
-        public void Choose()
+        public void Choose(int index)
         {
-            
+            switch (index)
+            {
+                case 0:
+                    EventBus<WeaponUpgradeEvent>.Raise(new WeaponUpgradeEvent(UpgradeType.Damage));
+                    break;
+                case 1:
+                    EventBus<WeaponUpgradeEvent>.Raise(new WeaponUpgradeEvent(UpgradeType.Speed));
+                    break;
+                case 2:
+                    EventBus<WeaponUpgradeEvent>.Raise(new WeaponUpgradeEvent(UpgradeType.Reload));
+                    break;
+                case 3:
+                    EventBus<WeaponUpgradeEvent>.Raise(new WeaponUpgradeEvent(UpgradeType.Ammo));
+                    break;
+            }
         }
 
         public void Exit()

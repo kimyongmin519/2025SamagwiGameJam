@@ -39,5 +39,10 @@ namespace Member.KYM.Code
          OnInteractEvent?.Invoke();
          _circleCollider.enabled = false;
       }
+      
+      public void OffInteract()
+      {
+         _circleCollider.enabled = true;
+      }
    }
 }

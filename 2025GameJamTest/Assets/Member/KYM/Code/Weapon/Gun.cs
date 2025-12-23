@@ -69,6 +69,7 @@ namespace Member.KYM.Code.Weapon
             _upgradeValues.gunDamageLevel = ProgressManager.Instance.WeaponProgress.GunDamageLevel;
             _upgradeValues.gunSpeedLevel = ProgressManager.Instance.WeaponProgress.GunSpeedLevel;
             _upgradeValues.gunReloadSpeedLevel = ProgressManager.Instance.WeaponProgress.GunReloadSpeedLevel;
+            Debug.Log(_upgradeValues.gunAmmoLevel);
             
             _maxAmmo = gunData.Ammo + (10 * _upgradeValues.gunAmmoLevel);
             Ammo = _maxAmmo;
