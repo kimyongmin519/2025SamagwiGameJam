@@ -51,9 +51,12 @@ namespace Member.KYM.Code.Manager.Level
         {
             base.Awake();
             DontDestroyOnLoad(gameObject);
-            EventBus<WeaponUpgradeEvent>.OnEvent += Upgrade;
-            EventBus<LevelSettingUIEvent>.Raise(new LevelSettingUIEvent());
             Load();
+        }
+
+        private void Start()
+        {
+            EventBus<WeaponUpgradeEvent>.OnEvent += Upgrade;
         }
 
         [ContextMenu("Save To Json")]

@@ -17,7 +17,11 @@ namespace Member.KYM.Code.Manager.Level
             _text = GetComponent<TextMeshProUGUI>();
 
             EventBus<WeaponUpgradeEvent>.OnEvent += SetText;
-            EventBus<LevelSettingUIEvent>.OnEvent += SetUIText;
+        }
+
+        private void Start()
+        {
+            SetText();
         }
 
         private void SetText(WeaponUpgradeEvent evt)
@@ -25,16 +29,16 @@ namespace Member.KYM.Code.Manager.Level
             if (upType == evt.upgradeType)
                 _text.SetText($"Lv:{ProgressManager.Instance.ReturnLevelValue(evt.upgradeType)}");
         }
-
-        private void SetUIText(LevelSettingUIEvent evt)
+        
+        private void SetText()
         {
             _text.SetText($"Lv:{ProgressManager.Instance.ReturnLevelValue(upType)}");
         }
+        
 
         private void OnDestroy()
         {
             EventBus<WeaponUpgradeEvent>.OnEvent -= SetText;
-            EventBus<LevelSettingUIEvent>.OnEvent -= SetUIText;
         }
     }
 }
