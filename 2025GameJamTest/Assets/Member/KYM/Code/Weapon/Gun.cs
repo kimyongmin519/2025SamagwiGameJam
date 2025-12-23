@@ -14,10 +14,10 @@ namespace Member.KYM.Code.Weapon
         private UpgradeValues _upgradeValues = new UpgradeValues();
         [SerializeField] private GunDataSO gunData;
         [SerializeField] private Transform firePoint;
-        public GunRenderer Renderer {get; private set;}
+        public GunRenderer Renderer { get; private set; }
         private Vector2 _mousePos;
         private Vector2 _mouseDir;
-        
+
         private int _maxAmmo;
         private int _ammo;
 
@@ -31,6 +31,7 @@ namespace Member.KYM.Code.Weapon
                 {
                     EventBus<AmmoReturnEvent>.Raise(new AmmoReturnEvent(value));
                 }
+
                 _ammo = value;
             }
         }
@@ -40,12 +41,9 @@ namespace Member.KYM.Code.Weapon
         public float GunDelay
         {
             get => _gunDelay;
-            set
-            {
-                _gunDelay = Mathf.Clamp(value, 0.001f, gunData.ShotDelay);
-            }
+            set { _gunDelay = Mathf.Clamp(value, 0.001f, gunData.ShotDelay); }
         }
-        
+
         private int _bulletCount;
 
         public UnityEvent OnShootEvent;
@@ -53,7 +51,7 @@ namespace Member.KYM.Code.Weapon
         private void Awake()
         {
             Renderer = GetComponentInChildren<GunRenderer>();
-            
+
             Renderer.Initialize(transform);
 
             _bulletCount = gunData.BulletCount;
@@ -61,6 +59,7 @@ namespace Member.KYM.Code.Weapon
 
             EventBus<ReloadEndEvent>.OnEvent += Reload;
             EventBus<AmmoResetEvent>.OnEvent += ResetAmmo;
+            EventBus<GunSettingEvent>.OnEvent += SetGunLevel;
         }
 
         private void Start()
@@ -69,11 +68,10 @@ namespace Member.KYM.Code.Weapon
             _upgradeValues.gunDamageLevel = ProgressManager.Instance.WeaponProgress.GunDamageLevel;
             _upgradeValues.gunSpeedLevel = ProgressManager.Instance.WeaponProgress.GunSpeedLevel;
             _upgradeValues.gunReloadSpeedLevel = ProgressManager.Instance.WeaponProgress.GunReloadSpeedLevel;
-            Debug.Log(_upgradeValues.gunAmmoLevel);
-            
+
             _maxAmmo = gunData.Ammo + (10 * _upgradeValues.gunAmmoLevel);
             Ammo = _maxAmmo;
-            
+
             Renderer.SetAnimSpeed(1 + (_upgradeValues.gunReloadSpeedLevel * 0.2f));
         }
 
@@ -81,12 +79,12 @@ namespace Member.KYM.Code.Weapon
         {
             _mouseDir = (_mousePos - (Vector2)transform.position).normalized;
             Renderer.FlipControl(_mouseDir.x);
-            
-            float angle = Mathf.Atan2(_mouseDir.y,_mouseDir.x) * Mathf.Rad2Deg;
+
+            float angle = Mathf.Atan2(_mouseDir.y, _mouseDir.x) * Mathf.Rad2Deg;
 
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
-        
+
         public void SetMousePos(Vector2 mouseDir)
         {
             _mousePos = mouseDir;
@@ -99,6 +97,7 @@ namespace Member.KYM.Code.Weapon
             _shoot = true;
             StartCoroutine(ShootCor());
         }
+
         private IEnumerator ShootCor()
         {
             while (_shoot && Ammo > 0)
@@ -115,7 +114,7 @@ namespace Member.KYM.Code.Weapon
             Ammo--;
 
             float errorValue = Random.Range(-gunData.GunAccuracy, gunData.GunAccuracy);
-            
+
             for (int i = 0; i < _bulletCount; i++)
             {
                 GameObject bullet = PoolManager.Instance.Pop("Bullet").GetGameObject();
@@ -123,6 +122,7 @@ namespace Member.KYM.Code.Weapon
                 bullet.GetComponent<Bullet>().ShootBullet((_mouseDir + new Vector2(errorValue, 0)).normalized);
             }
         }
+
         public void StopShoot()
         {
             _shoot = false;
@@ -132,12 +132,21 @@ namespace Member.KYM.Code.Weapon
         {
             Ammo = 0;
         }
+
         public void Reload(ReloadEndEvent evt)
         {
             Ammo = _maxAmmo;
         }
 
-        private void OnDestroy()
+        private void SetGunLevel(GunSettingEvent evt)
+        {
+            _upgradeValues.gunAmmoLevel = ProgressManager.Instance.WeaponProgress.GunAmmoLevel;
+            _upgradeValues.gunDamageLevel = ProgressManager.Instance.WeaponProgress.GunDamageLevel;
+            _upgradeValues.gunSpeedLevel = ProgressManager.Instance.WeaponProgress.GunSpeedLevel;
+            _upgradeValues.gunReloadSpeedLevel = ProgressManager.Instance.WeaponProgress.GunReloadSpeedLevel;
+        }
+
+    private void OnDestroy()
         {
             EventBus<ReloadEndEvent>.OnEvent -= Reload;
             EventBus<AmmoResetEvent>.OnEvent -= ResetAmmo;
