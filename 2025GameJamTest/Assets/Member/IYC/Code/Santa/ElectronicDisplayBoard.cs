@@ -1,26 +1,50 @@
 using Member.KYM.Code.Agent;
+using Member.KYM.Code.Interface;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class ElectronicDisplayBoard : MonoBehaviour
+public class ElectronicDisplayBoard : Agent, IPoolable
 {
     private Santa _santa;
-    private HealthSystem healthSystem;
+    private Rigidbody2D _rigi;
+    public UnityEvent OnBulletHit;
 
     private float currentHealth = 1;
     private float _stunCoolDown = 3f;
 
-    private void Awake()
+    public string ItemName => gameObject.name;
+
+    public GameObject GetGameObject()
     {
-        healthSystem = GetComponent<HealthSystem>();
+        return gameObject;
+    }
+
+    public void Reset()
+    {
+        if (_rigi != null) _rigi.linearVelocity = Vector2.zero;
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        HealthSystem.Initialize(this);
+        HealthSystem.SetHealth(currentHealth);
+
+        _rigi = GetComponent<Rigidbody2D>();
         _santa = FindAnyObjectByType<Santa>();
-        healthSystem.SetHealth(currentHealth);
+
+        _rigi.bodyType = RigidbodyType2D.Kinematic;
+
+        OnBulletHit.AddListener(() => _santa.Stun(_stunCoolDown));
     }
 
     private void Update()
     {
-        if(healthSystem.Health <= 0)
+        if(HealthSystem.Health <= 0)
         {
-            _santa.Stun(_stunCoolDown);
+            OnBulletHit?.Invoke();
+            gameObject.SetActive(false);
         }
     }
 }

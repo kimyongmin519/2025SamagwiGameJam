@@ -9,7 +9,6 @@ public class Santa : Agent
 {
     [SerializeField] private float health = 100f;
 
-    public HealthSystem HealthSystem { get; private set; }
     public SantaMove SantaMove { get; private set; }
     public Player player;
     [SerializeField]
@@ -17,19 +16,15 @@ public class Santa : Agent
 
     public bool IsStun { get; private set; }
 
-    private void Awake()
+    protected override void Awake()
     {
-        HealthSystem = GetComponent<HealthSystem>();
-        SantaMove = GetComponent<SantaMove>();
-        _rigi = GetComponent<Rigidbody2D>();
-
-        if (HealthSystem == null)
-        {
-            HealthSystem = gameObject.AddComponent<HealthSystem>();
-        }
+        base.Awake();
 
         HealthSystem.Initialize(this);
         HealthSystem.SetHealth(health);
+
+        SantaMove = GetComponent<SantaMove>();
+        _rigi = GetComponent<Rigidbody2D>();
 
         if (SantaMove != null)
         {
@@ -41,6 +36,7 @@ public class Santa : Agent
             Debug.LogError("SantaMove component not found!");
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

@@ -1,16 +1,19 @@
 using System;
 using System.Collections;
+using Member.KYM.Code.Agent;
 using Member.KYM.Code.Interface;
 using Member.KYM.Code.Manager.Pooling;
 using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PresentBox : MonoBehaviour, IPoolable
+public class PresentBox : Agent, IPoolable
 {
-    [SerializeField] private float lifeTime = 5f;
     public UnityEvent OnBulletHit;
     private Rigidbody2D _rb;
+
+    private float health = 1f;
+    [SerializeField] private float lifeTime = 5f;
 
     public string ItemName => gameObject.name;
 
@@ -29,8 +32,13 @@ public class PresentBox : MonoBehaviour, IPoolable
         StartCoroutine(LifeCoroutine());
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
+        HealthSystem.Initialize(this);
+        HealthSystem.SetHealth(health);
+
         ScoreManager scoreManager = FindAnyObjectByType<ScoreManager>();
         if (scoreManager != null)
         {
@@ -45,20 +53,19 @@ public class PresentBox : MonoBehaviour, IPoolable
         _rb.bodyType = RigidbodyType2D.Kinematic;
     }
 
+    private void Update()
+    {
+        if(HealthSystem.Health <= 0)
+        {
+            Console.WriteLine("Bullet과의 충돌이 감지됨");
+            OnBulletHit?.Invoke();
+            gameObject.SetActive(false);
+        }
+    }
+
     private IEnumerator LifeCoroutine()
     {
         yield return new WaitForSeconds(lifeTime);
         PoolManager.Instance.Push(this);
-    }
-    
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            Console.WriteLine("Bullet과의 충돌이 감지됨");
-            OnBulletHit?.Invoke();
-
-            gameObject.SetActive(false);
-        }
     }
 }
