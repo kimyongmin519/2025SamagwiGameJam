@@ -52,10 +52,6 @@ namespace Member.KYM.Code.Manager.Level
             base.Awake();
             DontDestroyOnLoad(gameObject);
             Load();
-        }
-
-        private void Start()
-        {
             EventBus<WeaponUpgradeEvent>.OnEvent += Upgrade;
         }
 
