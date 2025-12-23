@@ -8,8 +8,7 @@ namespace Member.KYM.Code.Manager
         public int UpgradePoint {get; private set;}
         private void Start()
         {
-            PlayerPrefs.SetInt("UpgradePoint", UpgradePoint);
-            PlayerPrefs.Save();
+            PlayerPrefs.SetInt("UpgradePoint", 0);
         }
 
         public void PlusPoint(int amount)
