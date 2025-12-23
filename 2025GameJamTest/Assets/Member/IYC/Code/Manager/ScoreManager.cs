@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
@@ -13,6 +14,7 @@ public class ScoreManager : MonoSingleton<ScoreManager>
     {
         SoundManager.Instance.Play(BGMSoundType.GAMEBGM, 1f);
         UpdateScoreUI();
+        StartCoroutine(ScoreCoroutine());
     }
 
     public void AddScore(int amount = 1)
@@ -27,6 +29,15 @@ public class ScoreManager : MonoSingleton<ScoreManager>
         if (scoreText != null)
         {
             scoreText.text = $"점수: {score}점";
+        }
+    }
+
+    private IEnumerator ScoreCoroutine()
+    {
+        while (true) 
+        {
+            yield return new WaitForSeconds(1f);
+            AddScore(5);
         }
     }
     
