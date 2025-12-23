@@ -119,70 +119,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!21 &65722070
-Material:
-  serializedVersion: 8
+--- !u!28 &2516291
+Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shape
-  m_Shader: {fileID: 4800000, guid: 87f64466c34c14d7183e665246b4a294, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _GradientTex:
-        m_Texture: {fileID: 281890618}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MaskTex:
-        m_Texture: {fileID: 2800000, guid: 2873235459d4547b58d76a16bc824b5a, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NoiseTex:
-        m_Texture: {fileID: 2800000, guid: 8a547588e5fea481a97e1deb94c9612c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AspectRatio: 1
-    - _CellDivisions: 32
-    - _CentersCount: 16
-    - _Contrast: 1
-    - _Distortion: 3.56
-    - _NoiseIntensity: 0
-    - _Rotation: 0
-    - _RotationMultiplier: 3
-    - _Seed: 0
-    - _Splits: 2
-    - _Spread: 64
-    - _T: 0
-    - _TimeMultiplier: 1
-    - _ToonDotCount: 1
-    - _ToonDotIntensity: 0
-    - _ToonDotRadius: 0.333
-    - _ToonIntensity: 1
-    - _VignetteIntensity: 0
-    m_Colors:
-    - _Center: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0, g: 0, b: 0, a: 1}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 256
+  m_Height: 1
+  m_CompleteImageSize: 2044
+  m_MipsStripped: 0
+  m_TextureFormat: 4
+  m_MipCount: 9
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 2044
+  _typelessdata: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!21 &77634355
 Material:
   serializedVersion: 8
@@ -240,6 +222,70 @@ Material:
     - _VignetteIntensity: 0
     m_Colors:
     - _Color: {r: 0.64705884, g: 1, b: 0.9652241, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &78251350
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shape
+  m_Shader: {fileID: 4800000, guid: 87f64466c34c14d7183e665246b4a294, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _GradientTex:
+        m_Texture: {fileID: 2516291}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 2800000, guid: 2873235459d4547b58d76a16bc824b5a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: 8a547588e5fea481a97e1deb94c9612c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AspectRatio: 1
+    - _CellDivisions: 32
+    - _CentersCount: 16
+    - _Contrast: 1
+    - _Distortion: 3.56
+    - _NoiseIntensity: 0
+    - _Rotation: 0
+    - _RotationMultiplier: 3
+    - _Seed: 0
+    - _Splits: 2
+    - _Spread: 64
+    - _T: 0
+    - _TimeMultiplier: 1
+    - _ToonDotCount: 1
+    - _ToonDotIntensity: 0
+    - _ToonDotRadius: 0.333
+    - _ToonIntensity: 1
+    - _VignetteIntensity: 0
+    m_Colors:
+    - _Center: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &104664920
@@ -317,70 +363,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104664920}
   m_CullTransparentMesh: 1
---- !u!21 &104848962
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Shape
-  m_Shader: {fileID: 4800000, guid: 87f64466c34c14d7183e665246b4a294, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _GradientTex:
-        m_Texture: {fileID: 1404498997}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MaskTex:
-        m_Texture: {fileID: 2800000, guid: 2873235459d4547b58d76a16bc824b5a, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NoiseTex:
-        m_Texture: {fileID: 2800000, guid: 8a547588e5fea481a97e1deb94c9612c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AspectRatio: 1
-    - _CellDivisions: 32
-    - _CentersCount: 16
-    - _Contrast: 1
-    - _Distortion: 3.56
-    - _NoiseIntensity: 0
-    - _Rotation: 0
-    - _RotationMultiplier: 3
-    - _Seed: 0
-    - _Splits: 2
-    - _Spread: 64
-    - _T: 1
-    - _TimeMultiplier: 1
-    - _ToonDotCount: 1
-    - _ToonDotIntensity: 0
-    - _ToonDotRadius: 0.333
-    - _ToonIntensity: 1
-    - _VignetteIntensity: 0
-    m_Colors:
-    - _Center: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0, g: 0, b: 0, a: 1}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &139092314
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,52 +649,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!28 &281890618
-Texture2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 256
-  m_Height: 1
-  m_CompleteImageSize: 2044
-  m_MipsStripped: 0
-  m_TextureFormat: 4
-  m_MipCount: 9
-  m_IsReadable: 1
-  m_IsPreProcessed: 0
-  m_IgnoreMipmapLimit: 1
-  m_MipmapLimitGroupName: 
-  m_StreamingMipmaps: 0
-  m_StreamingMipmapsPriority: 0
-  m_VTOnly: 0
-  m_AlphaIsTransparency: 0
-  m_ImageCount: 1
-  m_TextureDimension: 2
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_LightmapFormat: 0
-  m_ColorSpace: 1
-  m_PlatformBlob: 
-  image data: 2044
-  _typelessdata: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1001 &282861736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -896,52 +832,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeUI: {fileID: 1848872378}
---- !u!28 &458732566
-Texture2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 256
-  m_Height: 1
-  m_CompleteImageSize: 2044
-  m_MipsStripped: 0
-  m_TextureFormat: 4
-  m_MipCount: 9
-  m_IsReadable: 1
-  m_IsPreProcessed: 0
-  m_IgnoreMipmapLimit: 1
-  m_MipmapLimitGroupName: 
-  m_StreamingMipmaps: 0
-  m_StreamingMipmapsPriority: 0
-  m_VTOnly: 0
-  m_AlphaIsTransparency: 0
-  m_ImageCount: 1
-  m_TextureDimension: 2
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_LightmapFormat: 0
-  m_ColorSpace: 1
-  m_PlatformBlob: 
-  image data: 2044
-  _typelessdata: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1001 &463302562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1240,7 +1130,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _GradientTex:
-        m_Texture: {fileID: 458732566}
+        m_Texture: {fileID: 1352734121}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -1401,6 +1291,70 @@ Texture2D:
     offset: 0
     size: 0
     path: 
+--- !u!21 &791564428
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shape
+  m_Shader: {fileID: 4800000, guid: 87f64466c34c14d7183e665246b4a294, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _GradientTex:
+        m_Texture: {fileID: 2071617674}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 2800000, guid: 2873235459d4547b58d76a16bc824b5a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: 8a547588e5fea481a97e1deb94c9612c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AspectRatio: 1
+    - _CellDivisions: 32
+    - _CentersCount: 16
+    - _Contrast: 1
+    - _Distortion: 3.56
+    - _NoiseIntensity: 0
+    - _Rotation: 0
+    - _RotationMultiplier: 3
+    - _Seed: 0
+    - _Splits: 2
+    - _Spread: 64
+    - _T: 1
+    - _TimeMultiplier: 1
+    - _ToonDotCount: 1
+    - _ToonDotIntensity: 0
+    - _ToonDotRadius: 0.333
+    - _ToonIntensity: 1
+    - _VignetteIntensity: 0
+    m_Colors:
+    - _Center: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &961746258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,7 +1953,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8890892865078760386, guid: 06ad98f27212ad143b80f08ef786dec0, type: 3}
   m_PrefabInstance: {fileID: 2316521219248288488}
   m_PrefabAsset: {fileID: 0}
---- !u!28 &1404498997
+--- !u!28 &1352734121
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2855,6 +2809,52 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 913727925794809882, guid: 724831ab45adf41818b57ca0f2ba94c8, type: 3}
   m_PrefabInstance: {fileID: 1091903091}
   m_PrefabAsset: {fileID: 0}
+--- !u!28 &2071617674
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 256
+  m_Height: 1
+  m_CompleteImageSize: 2044
+  m_MipsStripped: 0
+  m_TextureFormat: 4
+  m_MipCount: 9
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 2044
+  _typelessdata: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1001 &529266997611123239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2970,7 +2970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8730981148487704762, guid: 4983d003e560b0449b06c0796f248362, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 8730981148487704762, guid: 4983d003e560b0449b06c0796f248362, type: 3}
       propertyPath: m_LocalPosition.y
