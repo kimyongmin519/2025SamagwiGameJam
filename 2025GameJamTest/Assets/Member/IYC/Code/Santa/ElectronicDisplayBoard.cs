@@ -22,6 +22,7 @@ public class ElectronicDisplayBoard : Agent, IPoolable
     private float currentHealth = 1;
     
     private bool isFall = false;
+
     public string ItemName => gameObject.name;
 
     [SerializeField]private Animator animator;
@@ -52,6 +53,13 @@ public class ElectronicDisplayBoard : Agent, IPoolable
     {
         _rigi.gravityScale = 0;
         HealthSystem.OnDead += FallDisplay;
+        StartCoroutine(LifeCoroutine());
+    }
+
+    private IEnumerator LifeCoroutine()
+    {
+        yield return new WaitForSeconds(lifeTime);
+        PoolManager.Instance.Push(this);
     }
 
     protected override void Awake()

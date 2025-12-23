@@ -32,6 +32,13 @@ public class PresentBox : Agent, IPoolable
     {
         HealthSystem.OnDead += Hit;
         transform.position += Vector3.up * 0.4f * Time.deltaTime;
+        StartCoroutine(LifeCoroutine());
+    }
+
+    private IEnumerator LifeCoroutine()
+    {
+        yield return new WaitForSeconds(lifeTime);
+        PoolManager.Instance.Push(this);
     }
 
     protected override void Awake()

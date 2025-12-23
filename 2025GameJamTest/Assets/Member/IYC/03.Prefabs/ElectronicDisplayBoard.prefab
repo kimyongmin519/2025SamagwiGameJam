@@ -167,8 +167,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _collider: {fileID: 0}
-  lifeTime: 50
+  lifeTime: 20
   currentHealth: 1
+  animator: {fileID: 0}
 --- !u!50 &5121026056527976015
 Rigidbody2D:
   serializedVersion: 5
