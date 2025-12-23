@@ -64,7 +64,15 @@ MonoBehaviour:
       <Clip>k__BackingField: {fileID: 8300000, guid: dff6f13167431dc4eaa7cf5e42588c1a, type: 3}
     - <Type>k__BackingField: 8
       <Clip>k__BackingField: {fileID: 8300000, guid: b28b7c51cf41cb245ac301879cc84bc5, type: 3}
+    - <Type>k__BackingField: 9
+      <Clip>k__BackingField: {fileID: 8300000, guid: 26b4e85c41bbc0b4aa539594d261ba0f, type: 3}
     <Mixer>k__BackingField: {fileID: 6471553930647006141, guid: 826e2d750f9764f43b08948b66b1619f, type: 2}
   bgmSounds:
-    <ClipDatas>k__BackingField: []
+    <ClipDatas>k__BackingField:
+    - <Type>k__BackingField: 0
+      <Clip>k__BackingField: {fileID: 8300000, guid: 8c42b0b93050f7347af5695f37b9d500, type: 3}
+    - <Type>k__BackingField: 1
+      <Clip>k__BackingField: {fileID: 8300000, guid: 8c42b0b93050f7347af5695f37b9d500, type: 3}
+    - <Type>k__BackingField: 2
+      <Clip>k__BackingField: {fileID: 8300000, guid: 8c42b0b93050f7347af5695f37b9d500, type: 3}
     <Mixer>k__BackingField: {fileID: -7435032008179721844, guid: 826e2d750f9764f43b08948b66b1619f, type: 2}

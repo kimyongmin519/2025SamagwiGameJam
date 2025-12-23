@@ -1,6 +1,8 @@
+using DG.Tweening;
 using Member.SYW._01_Scripts.Manager;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Member.SYW._01_Scripts.UI
 {
@@ -24,6 +26,7 @@ namespace Member.SYW._01_Scripts.UI
         [SerializeField] private ScoreManager scoreManager;
         [SerializeField] private TextMeshProUGUI scoreText;
         [SerializeField] private TextMeshProUGUI gradeText;
+        [SerializeField] private Button[] buttons;
 
         [Header("Grade Settings (점수 커트라인 설정)")] 
         [SerializeField] private int scoreSSS = 10000;
@@ -44,7 +47,15 @@ namespace Member.SYW._01_Scripts.UI
         public void Show()
         {
             gameObject.SetActive(true);
-
+            
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(gradeText.DOFade(1f, 0.5f)).SetUpdate(true);
+            sequence.AppendInterval(0.5f).SetUpdate(true);
+            foreach (Button button in buttons)
+            {
+                sequence.Append(button.image.DOFade(1f, 0.5f)).SetUpdate(true);
+            }
+            
             if (scoreManager != null)
             {
                 int finalScore = scoreManager.GetScore();
