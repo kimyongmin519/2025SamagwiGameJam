@@ -34,6 +34,17 @@ namespace Member.KYM.Code.Weapon
                 _ammo = value;
             }
         }
+
+        private float _gunDelay;
+
+        public float GunDelay
+        {
+            get => _gunDelay;
+            set
+            {
+                _gunDelay = Mathf.Clamp(value, 0.001f, gunData.ShotDelay);
+            }
+        }
         
         private int _bulletCount;
 
@@ -46,6 +57,7 @@ namespace Member.KYM.Code.Weapon
             Renderer.Initialize(transform);
 
             _bulletCount = gunData.BulletCount;
+            _gunDelay = gunData.ShotDelay;
 
             EventBus<ReloadEndEvent>.OnEvent += Reload;
             EventBus<AmmoResetEvent>.OnEvent += ResetAmmo;
@@ -91,7 +103,7 @@ namespace Member.KYM.Code.Weapon
             while (_shoot && Ammo > 0)
             {
                 ShootBullet();
-                yield return new WaitForSeconds(gunData.ShotDelay - (0.01f * _upgradeValues.gunSpeedLevel));
+                yield return new WaitForSeconds(GunDelay - (0.01f * _upgradeValues.gunSpeedLevel));
             }
         }
 
