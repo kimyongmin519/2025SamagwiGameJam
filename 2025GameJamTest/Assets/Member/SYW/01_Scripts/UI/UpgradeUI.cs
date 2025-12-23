@@ -1,6 +1,10 @@
 using DG.Tweening;
+using Member.KYM.Code.Bus;
+using Member.KYM.Code.GameEvents;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Sequence = DG.Tweening.Sequence;
 
 namespace Member.SYW._01_Scripts.UI
 {
@@ -53,7 +57,7 @@ namespace Member.SYW._01_Scripts.UI
 
         public void Choose()
         {
-            // 여기다가 버프 넘기기 쓰면 됨
+            
         }
 
         public void Exit()

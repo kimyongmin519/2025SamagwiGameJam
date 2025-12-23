@@ -1,27 +1,58 @@
 using System;
 using System.IO;
+using Member.KYM.Code.Bus;
+using Member.KYM.Code.GameEvents;
 using Member.SYW._01_Scripts.Manager;
+using Unity.VisualScripting;
 using UnityEngine;
 using Path = System.IO.Path;
 
 namespace Member.KYM.Code.Manager.Level
 {
+    public enum UpgradeType
+    {
+        Damage,
+        Ammo,
+        Speed,
+        Reload
+    }
+    
     [Serializable]
     public class WeaponProgress
     {
-        [field: SerializeField] public int GunDamageLevel { get; private set; } = 1;
-        [field: SerializeField] public int GunAmmoLevel { get; private set; } = 1;
-        [field: SerializeField] public int GunSpeedLevel { get; private set; } = 1;
-        [field: SerializeField] public int GunReloadSpeedLevel { get; private set; } = 1;
+        [field: SerializeField] public int GunDamageLevel { get; private set; }
+        [field: SerializeField] public int GunAmmoLevel { get; private set; }
+        [field: SerializeField] public int GunSpeedLevel { get; private set; }
+        [field: SerializeField] public int GunReloadSpeedLevel { get; private set; }
 
+        public void LevelUp(UpgradeType _type)
+        {
+            switch (_type)
+            {
+                case UpgradeType.Ammo:
+                    GunAmmoLevel++;
+                    break;
+                case UpgradeType.Reload:
+                    GunReloadSpeedLevel++;
+                    break;
+                case UpgradeType.Speed:
+                    GunSpeedLevel++;
+                    break;
+                case UpgradeType.Damage: 
+                    GunDamageLevel++;
+                    break;
+            }
+        }
     }
     public class ProgressManager : MonoSingleton<ProgressManager>
     {
         [field:SerializeField] public WeaponProgress WeaponProgress { get; private set; }
 
-        private void Awake()
+        private new void Awake()
         {
+            base.Awake();
             DontDestroyOnLoad(gameObject);
+            EventBus<WeaponUpgradeEvent>.OnEvent += Upgrade;
         }
 
         [ContextMenu("Save To Json")]
@@ -43,6 +74,17 @@ namespace Member.KYM.Code.Manager.Level
 
             WeaponProgress = JsonUtility.FromJson<WeaponProgress>(jsonData);
         }
-        
+
+        private void Upgrade(WeaponUpgradeEvent evt)
+        {
+            WeaponProgress.LevelUp(evt.upgradeType);
+            Save();
+        }
+
+        private new void OnDestroy()
+        {
+            base.OnDestroy();
+            EventBus<WeaponUpgradeEvent>.OnEvent -= Upgrade;
+        }
     }
 }
