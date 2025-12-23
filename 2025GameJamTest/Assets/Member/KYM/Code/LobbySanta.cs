@@ -11,6 +11,7 @@ namespace Member.KYM.Code
         
         public void Move(Transform goal)
         {
+            SoundManager.Instance.Play(SFXSoundType.ABSOLUTE);
             Sequence s = DOTween.Sequence();
             
             s.Append(transform.DOMove(goal.position, 0.1f).SetEase(Ease.Linear));

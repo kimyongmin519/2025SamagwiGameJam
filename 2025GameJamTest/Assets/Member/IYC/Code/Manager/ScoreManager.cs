@@ -11,6 +11,7 @@ public class ScoreManager : MonoSingleton<ScoreManager>
 
     private void Start()
     {
+        SoundManager.Instance.Play(BGMSoundType.GAMEBGM, 1f);
         UpdateScoreUI();
     }
 
@@ -25,7 +26,7 @@ public class ScoreManager : MonoSingleton<ScoreManager>
     {
         if (scoreText != null)
         {
-            scoreText.text = $"점수: {score}";
+            scoreText.text = $"점수: {score}점";
         }
     }
     
