@@ -15,6 +15,7 @@ namespace Member.SYW._01_Scripts.UI
         [Header("Settings")]
         [SerializeField] private float animationDuration = 0.5f;
         [SerializeField] private float slideOffset = 1000f;
+        [SerializeField] private CanvasGroup canvasGroup;
         
         private Sequence _animSeq;
         
@@ -31,6 +32,7 @@ namespace Member.SYW._01_Scripts.UI
         public void Show()
         {
             gameObject.SetActive(true);
+            canvasGroup.blocksRaycasts = true;
             
             panel1.rectTransform.anchoredPosition = _p1Origin + new Vector2(-slideOffset, 0);
             panel2.rectTransform.anchoredPosition = _p2Origin + new Vector2(-slideOffset, 0);
@@ -56,6 +58,7 @@ namespace Member.SYW._01_Scripts.UI
 
         public void Exit()
         {
+            canvasGroup.blocksRaycasts = false;
             PlayExitAnimation();
         }
         
@@ -78,6 +81,7 @@ namespace Member.SYW._01_Scripts.UI
             if (_animSeq != null) _animSeq.Kill();
 
             Time.timeScale = 1;
+            canvasGroup.blocksRaycasts = true;
             gameObject.SetActive(false);
         }
     }
