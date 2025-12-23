@@ -20,6 +20,8 @@ public class Santa : Agent
         HealthSystem.Initialize(this);
         HealthSystem.SetHealth(health);
 
+        HealthSystem.OnDead += SantaDie;
+
         SantaMove = GetComponent<SantaMove>();
 
         if (SantaMove != null)
@@ -58,12 +60,11 @@ public class Santa : Agent
     private void OnDestroy()
     {
         CancelInvoke();
+        HealthSystem.OnDead -= SantaDie;
     }
     
     public void SantaDie()
     {
-        if(HealthSystem.Health <= 0)
-        {
             SoundManager.Instance.Play(SFXSoundType.HURTSANTAR);
             print("��Ÿ����");
             if (deathEffectPrefab != null)
@@ -74,7 +75,6 @@ public class Santa : Agent
             health += 100;
             HealthSystem.SetHealth(health);
             print($"��ȭ�� ��Ÿ ü��: {HealthSystem.Health}");
-        }
     }
 
     private void OnDrawGizmos()
