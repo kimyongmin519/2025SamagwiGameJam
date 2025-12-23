@@ -18,7 +18,7 @@ namespace Member.SYW._01_Scripts.UI
         F
     }
     
-    public class GameWinUI : MonoSingleton<GameWinUI>
+    public class GameEndUI : MonoSingleton<GameEndUI>
     {
         [Header("References")]
         [SerializeField] private ScoreManager scoreManager;
