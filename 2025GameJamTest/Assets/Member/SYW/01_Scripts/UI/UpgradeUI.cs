@@ -87,9 +87,11 @@ namespace Member.SYW._01_Scripts.UI
         public void UpgradeEffect()
         {
             _material.DOFloat(1f, "_RainbowFade", 0.5f)
+                .SetUpdate(true)
                 .OnComplete(() =>
                 {
-                    _material.DOFloat(0f, "_RainbowFade", 0.5f);
+                    _material.DOFloat(0f, "_RainbowFade", 0.5f)
+                        .SetUpdate(true);
                 });
         }
         

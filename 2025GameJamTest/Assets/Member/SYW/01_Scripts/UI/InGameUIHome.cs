@@ -31,14 +31,14 @@ namespace Member.SYW._01_Scripts.UI
         private void AppearanceUI()
         {
             _rectTransform.DOKill();
-            _rectTransform.DOAnchorPosX(_targetTransform, 1f)
+            _rectTransform.DOAnchorPosX(_targetTransform, 0.75f)
                 .SetUpdate(true);
         }
 
         private void UnAppearanceUI()
         {
             _rectTransform.DOKill();
-            _rectTransform.DOAnchorPosX(_originTransform, 1f)
+            _rectTransform.DOAnchorPosX(_originTransform, 0.75f)
                 .SetUpdate(true);
             _editPanel.gameObject.SetActive(false);
         }
