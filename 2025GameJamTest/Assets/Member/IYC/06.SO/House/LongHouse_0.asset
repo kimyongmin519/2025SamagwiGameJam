@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa156546d452301439d67a7743e5494f, type: 3}
-  m_Name: HouseSO2
+  m_Script: {fileID: 11500000, guid: 036c7827d246b1a4484a094cb0b5dcea, type: 3}
+  m_Name: LongHouse_0
   m_EditorClassIdentifier: 
-  <ItemName>k__BackingField: House3_0
-  <Count>k__BackingField: 5
-  <ItemPrefab>k__BackingField: {fileID: 3680966843244949848, guid: 1bd9200eef1d68d41835ae375bf52745, type: 3}
+  <Obstacle>k__BackingField: {fileID: 7440300608635191783, guid: acfa498cbe4e82e49b7b2f9f6fbd412e, type: 3}

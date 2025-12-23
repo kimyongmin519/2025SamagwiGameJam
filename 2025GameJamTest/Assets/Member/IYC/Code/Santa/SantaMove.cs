@@ -60,12 +60,6 @@ public class SantaMove : MonoBehaviour, IAgentComponent
         if (_santa == null) return;
         if (GameManager.Instance == null || _player == null) return;
 
-        if (isKnockedBack)
-        {
-            HandleKnockback();
-            return;
-        }
-
         if (_santa.IsStun)
         {
             StopMovement();
@@ -126,29 +120,6 @@ public class SantaMove : MonoBehaviour, IAgentComponent
         if (distance <= catchDistance)
         {
             GameManager.Instance.GameOver();
-        }
-    }
-
-    public void Knockback()
-    {
-        if (isKnockedBack) return;
-
-        isKnockedBack = true;
-        knockbackTimer = knockbackDuration;
-
-        if (_rigidbody != null)
-        {
-            _rigidbody.linearVelocityX = -knockbackForce;
-        }
-    }
-
-    private void HandleKnockback()
-    {
-        knockbackTimer -= Time.fixedDeltaTime;
-
-        if (knockbackTimer <= 0f)
-        {
-            isKnockedBack = false;
         }
     }
 

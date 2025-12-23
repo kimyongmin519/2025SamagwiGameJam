@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 036c7827d246b1a4484a094cb0b5dcea, type: 3}
-  m_Name: HouseSO 4
+  m_Name: House5_0
   m_EditorClassIdentifier: 
-  <Obstacle>k__BackingField: {fileID: 3196158347595321670, guid: 1bd9200eef1d68d41835ae375bf52745, type: 3}
+  <Obstacle>k__BackingField: {fileID: 6718661181110433970, guid: ebe38e8669e386542bf8d279ebd564a7, type: 3}

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: HouseListSO
   m_EditorClassIdentifier: 
   <Obstacles>k__BackingField:
-  - {fileID: 11400000, guid: 47919d55be968464d8afa7877a8ed949, type: 2}
-  - {fileID: 11400000, guid: 22935c91452283745a6f2808120113cf, type: 2}
-  - {fileID: 11400000, guid: 57d3ab12ee043b542adb15fd026d7a2a, type: 2}
   - {fileID: 11400000, guid: 291b5a38d8daaa54ebef7283c53df615, type: 2}
   - {fileID: 11400000, guid: 4cfc9c00687029848897f3c926f89284, type: 2}
   - {fileID: 11400000, guid: 1feb97bef57aebf429b87888fefde4da, type: 2}
+  - {fileID: 11400000, guid: 57d3ab12ee043b542adb15fd026d7a2a, type: 2}
+  - {fileID: 11400000, guid: 47919d55be968464d8afa7877a8ed949, type: 2}
+  - {fileID: 11400000, guid: 22935c91452283745a6f2808120113cf, type: 2}
