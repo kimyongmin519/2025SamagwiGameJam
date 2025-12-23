@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Member.SYW._01_Scripts.UI
 {
-    public class GameOverUI : MonoSingleton<GameOverUI>
+    public class GameOverUI : MonoSingleton<GameOverUI> // 폐기
     {
         [SerializeField] private ScoreManager scoreManager;
         [SerializeField] private TextMeshProUGUI scoreText;

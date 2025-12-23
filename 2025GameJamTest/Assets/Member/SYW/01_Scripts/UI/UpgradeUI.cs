@@ -52,9 +52,13 @@ namespace Member.SYW._01_Scripts.UI
         public void Choose()
         {
             // 여기다가 버프 넘기기 쓰면 됨
-            PlayExitAnimation();
         }
 
+        public void Exit()
+        {
+            PlayExitAnimation();
+        }
+        
         private void PlayExitAnimation()
         {
             if (_animSeq != null && _animSeq.IsActive()) _animSeq.Kill();

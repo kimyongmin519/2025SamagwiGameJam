@@ -4,20 +4,18 @@ using Member.SYW._01_Scripts.UI;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    private GameOverUI _gameOverUI;
-    private GameWinUI _gameWinUI;
+    private GameEndUI _gameEndUI;
     
     protected override void Awake()
     {
         base.Awake();
-        _gameOverUI = GameOverUI.Instance;
-        _gameWinUI = GameWinUI.Instance;
+        _gameEndUI = GameEndUI.Instance;
     }
 
     public void GameOver()
     {
         Debug.Log("Game Over!");
-        _gameOverUI.Show();
+        _gameEndUI.Show();
         TimeManager.Instance?.TimeStop();
     }
 
@@ -29,10 +27,10 @@ public class GameManager : MonoSingleton<GameManager>
             Victory();
     }
 
-    public void Victory()
+    public void Victory() // 폐?기
     {
         Debug.Log("Victory!");
-        _gameWinUI.Show();
+        _gameEndUI.Show();
         TimeManager.Instance?.TimeStop();
     }
 }
