@@ -134,6 +134,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4198628133878843030, guid: b6034477081ac0b4d9c9736699514049, type: 3}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: ButtonClickSoundPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7862138624331265923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +286,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2892234185250454326}
         m_TargetAssemblyTypeName: Member.SYW._01_Scripts.UI.InGameUIHome, Assembly-CSharp
         m_MethodName: GoTitle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4198628133878843030, guid: b6034477081ac0b4d9c9736699514049, type: 3}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: ButtonClickSoundPlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -934,6 +958,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4198628133878843030, guid: b6034477081ac0b4d9c9736699514049, type: 3}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: ButtonClickSoundPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2656659616588266174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1096,6 +1132,14 @@ PrefabInstance:
     - target: {fileID: 5149250914185536, guid: 4182aea537455fc42a9780a6e8a5cb95, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 836954416261317850, guid: 4182aea537455fc42a9780a6e8a5cb95, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 836954416261317850, guid: 4182aea537455fc42a9780a6e8a5cb95, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ButtonClickSoundPlay
       objectReference: {fileID: 0}
     - target: {fileID: 1246103300256608553, guid: 4182aea537455fc42a9780a6e8a5cb95, type: 3}
       propertyPath: m_AnchorMax.y

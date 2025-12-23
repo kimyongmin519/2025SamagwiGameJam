@@ -64,11 +64,12 @@ public class Santa : Agent
     {
         if(HealthSystem.Health <= 0)
         {
-            print("»êÅ¸µÚÁü");
+            SoundManager.Instance.Play(SFXSoundType.HURTSANTAR);
+            print("ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½");
             Stun(2);
             health += 100;
             HealthSystem.SetHealth(health);
-            print($"°­È­µÈ »êÅ¸ Ã¼·Â: {HealthSystem.Health}");
+            print($"ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½Å¸ Ã¼ï¿½ï¿½: {HealthSystem.Health}");
         }
     }
 

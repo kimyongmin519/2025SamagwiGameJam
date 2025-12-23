@@ -112,4 +112,14 @@ public class SoundManager : MonoSingleton<SoundManager>
         }
         bgmAudioSource.volume = 1f;
     }
+
+    public void ButtonClickSoundPlay()
+    {
+        Play(SFXSoundType.BUTTONCLICK);
+    }
+
+    public void UpgradeBtClickSoundPlay()
+    {
+        Play(SFXSoundType.UPGRADEBTCLICK);
+    }
 }
