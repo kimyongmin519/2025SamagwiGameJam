@@ -62,6 +62,8 @@ namespace Member.SYW._01_Scripts.UI
 
         public void Choose(int index)
         {
+            if (PlayerPrefs.GetInt("UpgradePoint") == 0) return;
+            Debug.Log(index);
             
             UpgradeManager.Instance.PlusPoint(-1);
             

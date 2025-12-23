@@ -2,7 +2,6 @@ using System;
 using Member.KYM.Code.Bus;
 using Member.KYM.Code.GameEvents;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Member.KYM.Code
@@ -17,7 +16,12 @@ namespace Member.KYM.Code
             EventBus<WeaponUpgradeEvent>.OnEvent += SetText;
         }
         
-        private void SetText(WeaponUpgradeEvent evt)
+        public void SetText(WeaponUpgradeEvent evt)
+        {
+            _textMeshPro.SetText($"남은 포인트: {PlayerPrefs.GetInt("UpgradePoint")}");
+        }
+
+        public void SetText()
         {
             _textMeshPro.SetText($"남은 포인트: {PlayerPrefs.GetInt("UpgradePoint")}");
         }
