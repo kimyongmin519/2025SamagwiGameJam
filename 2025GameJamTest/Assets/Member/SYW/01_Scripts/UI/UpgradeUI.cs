@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Member.KYM.Code.Bus;
 using Member.KYM.Code.GameEvents;
+using Member.KYM.Code.Manager;
 using Member.KYM.Code.Manager.Level;
 using UnityEngine;
 using UnityEngine.UI;
@@ -61,6 +62,10 @@ namespace Member.SYW._01_Scripts.UI
 
         public void Choose(int index)
         {
+            if (PlayerPrefs.GetInt("Upgrade") == 0) return;
+            
+            UpgradeManager.Instance.PlusPoint(-1);
+            
             switch (index)
             {
                 case 0:

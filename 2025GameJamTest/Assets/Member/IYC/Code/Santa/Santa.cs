@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Member.KYM.Code.Agent;
+using Member.KYM.Code.Manager;
 using Member.KYM.Code.Players;
 using TransitionsPlus;
 using Unity.VisualScripting;
@@ -41,6 +42,7 @@ public class Santa : Agent
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            UpgradeManager.Instance.PlusPoint(1);
             GameManager.Instance?.GameOver();
         }
     }
@@ -67,6 +69,7 @@ public class Santa : Agent
     
     public void SantaDie()
     {
+        UpgradeManager.Instance.PlusPoint(3);
         transitionAnimator.gameObject.SetActive(true);
             SoundManager.Instance.Play(SFXSoundType.HURTSANTAR);
             print("��Ÿ����");

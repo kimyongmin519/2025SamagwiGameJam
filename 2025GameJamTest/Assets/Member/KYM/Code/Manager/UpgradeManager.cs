@@ -9,12 +9,14 @@ namespace Member.KYM.Code.Manager
         private void Start()
         {
             PlayerPrefs.SetInt("UpgradePoint", UpgradePoint);
+            PlayerPrefs.Save();
         }
 
         public void PlusPoint(int amount)
         {
             UpgradePoint += amount;
             PlayerPrefs.SetInt("UpgradePoint", UpgradePoint);
+            PlayerPrefs.Save();
         }
     }
 }
