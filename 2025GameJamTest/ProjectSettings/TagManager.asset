@@ -48,6 +48,9 @@ TagManager:
   - name: Background
     uniqueID: 2342641079
     locked: 0
+  - name: New Layer 7
+    uniqueID: 1301239413
+    locked: 0
   - name: Ground
     uniqueID: 2651939087
     locked: 0
