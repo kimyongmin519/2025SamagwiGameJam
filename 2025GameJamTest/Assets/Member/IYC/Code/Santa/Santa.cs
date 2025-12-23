@@ -11,9 +11,6 @@ public class Santa : Agent
 
     public SantaMove SantaMove { get; private set; }
     public Player player;
-    [SerializeField]
-    private Rigidbody2D _rigi;
-
     public bool IsStun { get; private set; }
 
     protected override void Awake()
@@ -24,7 +21,6 @@ public class Santa : Agent
         HealthSystem.SetHealth(health);
 
         SantaMove = GetComponent<SantaMove>();
-        _rigi = GetComponent<Rigidbody2D>();
 
         if (SantaMove != null)
         {
@@ -47,14 +43,16 @@ public class Santa : Agent
 
     public void Stun(float duration)
     {
-        _rigi.constraints = RigidbodyConstraints2D.FreezeAll;
+        SantaMove.enabled = false;
+        IsStun = true;
         StartCoroutine(StopStun(duration));
-        _rigi.constraints = RigidbodyConstraints2D.None;
     }
 
     private IEnumerator StopStun(float duration)
     {
         yield return new WaitForSeconds(duration);
+        SantaMove.enabled = true;
+        IsStun = false;
     }
 
     private void OnDestroy()
