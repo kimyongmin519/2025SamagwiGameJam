@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using Member.KYM.Code.Agent;
+using Member.KYM.Code.Manager;
 using Member.KYM.Code.Players;
+using TransitionsPlus;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +11,7 @@ public class Santa : Agent
 {
     [SerializeField] private double health = 100f;
     [SerializeField] private GameObject deathEffectPrefab;
+    [SerializeField] private TransitionAnimator transitionAnimator;
     public SantaMove SantaMove { get; private set; }
     public Player player;
     public bool IsStun { get; private set; }
@@ -19,6 +22,8 @@ public class Santa : Agent
 
         HealthSystem.Initialize(this);
         HealthSystem.SetHealth(health);
+
+        HealthSystem.OnDead += SantaDie;
 
         SantaMove = GetComponent<SantaMove>();
 
@@ -37,6 +42,7 @@ public class Santa : Agent
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            UpgradeManager.Instance.PlusPoint(1);
             GameManager.Instance?.GameOver();
         }
     }
@@ -58,12 +64,13 @@ public class Santa : Agent
     private void OnDestroy()
     {
         CancelInvoke();
+        HealthSystem.OnDead -= SantaDie;
     }
     
     public void SantaDie()
     {
-        if(HealthSystem.Health <= 0)
-        {
+        UpgradeManager.Instance.PlusPoint(3);
+        transitionAnimator.gameObject.SetActive(true);
             SoundManager.Instance.Play(SFXSoundType.HURTSANTAR);
             print("��Ÿ����");
             if (deathEffectPrefab != null)
@@ -74,7 +81,6 @@ public class Santa : Agent
             health += 100;
             HealthSystem.SetHealth(health);
             print($"��ȭ�� ��Ÿ ü��: {HealthSystem.Health}");
-        }
     }
 
     private void OnDrawGizmos()
