@@ -25,7 +25,7 @@ public class ScoreManager : MonoSingleton<ScoreManager>
     {
         if (scoreText != null)
         {
-            scoreText.text = $"점수: {score}";
+            scoreText.text = $"점수: {score}점";
         }
     }
     

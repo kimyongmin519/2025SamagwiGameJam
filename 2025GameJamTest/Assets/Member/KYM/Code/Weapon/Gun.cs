@@ -160,6 +160,10 @@ namespace Member.KYM.Code.Weapon
             _upgradeValues.gunDamageLevel = ProgressManager.Instance.WeaponProgress.GunDamageLevel;
             _upgradeValues.gunSpeedLevel = ProgressManager.Instance.WeaponProgress.GunSpeedLevel;
             _upgradeValues.gunReloadSpeedLevel = ProgressManager.Instance.WeaponProgress.GunReloadSpeedLevel;
+            
+            _maxAmmo = gunData.Ammo + (10 * _upgradeValues.gunAmmoLevel);
+
+            Renderer.SetAnimSpeed(1 + (_upgradeValues.gunReloadSpeedLevel * 0.2f));
         }
 
     private void OnDestroy()

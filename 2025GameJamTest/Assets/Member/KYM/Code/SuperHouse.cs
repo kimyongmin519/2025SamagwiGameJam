@@ -1,5 +1,9 @@
+using System;
 using UnityEngine;
 using DG.Tweening;
+using Member.KYM.Code.Bus;
+using Member.KYM.Code.GameEvents;
+using Member.KYM.Code.Manager.Level;
 
 namespace Member.KYM.Code
 {
@@ -7,6 +11,7 @@ namespace Member.KYM.Code
     {
         [SerializeField] private Transform goal;
         
+
         public void SpinBoooooom()
         {
             transform.DOMove(goal.position, 0.5f).SetEase(Ease.Linear);
