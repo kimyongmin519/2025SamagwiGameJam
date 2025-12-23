@@ -43,7 +43,7 @@ public class ElectronicDisplayBoard : Agent, IPoolable
 
         isFall = false;
         _collider.isTrigger = false;
-        
+        gameObject.SetActive(false);
     }
 
     private void OnEnable()
@@ -80,6 +80,7 @@ public class ElectronicDisplayBoard : Agent, IPoolable
             _rigi.linearVelocity = new Vector2(_rigi.linearVelocity.x, 0);
         }
     }
+
     private IEnumerator LifeCoroutine()
     {
         yield return new WaitForSeconds(lifeTime);

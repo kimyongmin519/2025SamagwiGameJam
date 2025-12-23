@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ElectronicDisplayBoardSO
   m_EditorClassIdentifier: 
   <ItemName>k__BackingField: ElectronicDisplayBoard
-  <Count>k__BackingField: 2
+  <Count>k__BackingField: 1
   <ItemPrefab>k__BackingField: {fileID: 692247709409628127, guid: cb3a36acb1e97e7458a8f25686ef5137, type: 3}
