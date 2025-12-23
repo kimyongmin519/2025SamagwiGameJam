@@ -50,11 +50,6 @@ public class SantaMove : MonoBehaviour, IAgentComponent
         _player = player;
     }
 
-    private void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         if (_santa == null) return;

@@ -58,24 +58,37 @@ namespace Member.KYM.Code.Manager.Level
         [ContextMenu("Save To Json")]
         public void Save()
         {
-            string jsonData = JsonUtility.ToJson(WeaponProgress);
-            
-            string path = Path.Combine(Application.dataPath, "GunProgress.json");
-            
+            string jsonData = JsonUtility.ToJson(WeaponProgress, true);
+
+            string path = Path.Combine(Application.persistentDataPath, "GunProgress.json");
+
             File.WriteAllText(path, jsonData);
-            
+
+            Debug.Log($"[SAVE] {path}");
+
             EventBus<GunSettingEvent>.Raise(new GunSettingEvent());
         }
+
         
         [ContextMenu("Load To Json")]
         public void Load()
         {
-            string path = Path.Combine(Application.dataPath, "GunProgress.json");
+            string path = Path.Combine(Application.persistentDataPath, "GunProgress.json");
+
+            if (!File.Exists(path))
+            {
+                Debug.Log("[LOAD] Save file not found. Create new data.");
+                WeaponProgress = new WeaponProgress();
+                Save();
+                return;
+            }
 
             string jsonData = File.ReadAllText(path);
-
             WeaponProgress = JsonUtility.FromJson<WeaponProgress>(jsonData);
+
+            Debug.Log($"[LOAD] {path}");
         }
+
 
         private void Upgrade(WeaponUpgradeEvent evt)
         {
