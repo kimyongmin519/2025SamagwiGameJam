@@ -20,8 +20,7 @@ namespace Member.KYM.Code.Feedback
 
         public override void CreateFeedback()
         {
-            float targetX = KimMet.GetWorldMousePos().x > trm.position.x ? recoilAmount : -recoilAmount;
-            _recoilTween = trm.DOLocalMoveX(targetX, recoilDuration).SetLoops(2, LoopType.Yoyo);
+            _recoilTween = trm.DOLocalMove(-trm.right, recoilDuration).SetLoops(2, LoopType.Yoyo);
         }
 
         public override void FinishFeedback()

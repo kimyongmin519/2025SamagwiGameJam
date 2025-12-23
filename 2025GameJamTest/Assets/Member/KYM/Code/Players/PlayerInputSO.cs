@@ -15,6 +15,7 @@ namespace Member.KYM.Code.Players
         public event Action OnAttackReleased;
         public event Action OnJumpPressed;
         public event Action OnReloadPressed;
+        public event Action OnInteractPressed;
 
         private void OnEnable()
         {
@@ -64,6 +65,12 @@ namespace Member.KYM.Code.Players
                 OnAttackReleased?.Invoke();
                 OnReloadPressed?.Invoke();
             }
+        }
+
+        public void OnInteraction(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                OnInteractPressed?.Invoke();
         }
     }
 }
