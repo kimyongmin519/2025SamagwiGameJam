@@ -29,9 +29,8 @@ namespace Member.SYW._01_Scripts.UI
             _rectTransform.DOKill();
             _rectTransform.DOSizeDelta(
                     new Vector2(hoverWidth, hoverHeight), duration)
-                .SetEase(Ease.Flash);
-            
-            Debug.Log("엉");
+                .SetEase(Ease.Flash)
+                .SetUpdate(true);
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -39,9 +38,8 @@ namespace Member.SYW._01_Scripts.UI
             _rectTransform.DOKill();
             _rectTransform.DOSizeDelta(
                     new Vector2(_originWidth, _originHeight), duration)
-                .SetEase(Ease.Flash);
-            
-            Debug.Log("잉");
+                .SetEase(Ease.Flash)
+                .SetUpdate(true);
         }
 
         private void OnDisable()

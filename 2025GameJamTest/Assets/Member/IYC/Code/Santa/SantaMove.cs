@@ -8,17 +8,20 @@ using System.Collections;
 
 public class SantaMove : MonoBehaviour, IAgentComponent
 {
-    [SerializeField] private float baseSpeed = 7;
-    [SerializeField] private float farDistance = 10000000000000000000000000000000000f;
-    [SerializeField] private float closeDistance = 2f;
-    [SerializeField] private float farSpeedMultiplier = 100000f;
-    [SerializeField] private float closeSpeedMultiplier = 1.1f;
-    [SerializeField] private float catchDistance = 1f;
-    [SerializeField] private float knockbackForce = 5f;
-    [SerializeField] private float knockbackDuration = 0.5f;
+    private float baseSpeed = 6.5f;
+    private float farDistance = 30;
+    private float closeDistance = 2f;
+    private float farSpeedMultiplier = 1;
+    private float closeSpeedMultiplier = 1.1f;
+    private float catchDistance = 7f;
+    private float knockbackForce = 5f;
+    private float knockbackDuration = 0.5f;
+    private float boostTime = 1f;
+    private float speedIncrease = 1f;
+    private float timer;
+    private float timeSpeedBonus = 0f;
 
     private Player _player;
-    private Agent _agent;
     private Santa _santa;
     private Rigidbody2D _rigidbody;
 
@@ -28,7 +31,6 @@ public class SantaMove : MonoBehaviour, IAgentComponent
     private bool isSpeedUP = false;
     public void Initialize(Agent agent)
     {
-        _agent = agent;
         _santa = agent as Santa;
         _rigidbody = agent.GetComponent<Rigidbody2D>();
     }
@@ -36,6 +38,11 @@ public class SantaMove : MonoBehaviour, IAgentComponent
     public void SetPlayer(Player player)
     {
         _player = player;
+    }
+
+    private void Update()
+    {
+        _santa.SantaDie();
     }
 
     private void FixedUpdate()
@@ -55,17 +62,18 @@ public class SantaMove : MonoBehaviour, IAgentComponent
             return;
         }
 
-        MoveRight();
+
+
+        transform.position += Vector3.right * (MoveRight() + IncreaseSpeed()) * Time.deltaTime;
         CheckCatchPlayer();
     }
 
-    private void MoveRight()
+    private float MoveRight()
     {
         float distanceToPlayer = _player.transform.position.x - transform.position.x;
-
         float currentSpeed = baseSpeed;
 
-        if(isSpeedUP)
+        if (isSpeedUP)
         {
             currentSpeed = baseSpeed * farSpeedMultiplier;
         }
@@ -74,16 +82,30 @@ public class SantaMove : MonoBehaviour, IAgentComponent
         {
             print("속도가 증가되었습니다.");
             currentSpeed = baseSpeed * farSpeedMultiplier;
-
-            StartCoroutine(StaySpeed(9999999));
+            if (!isSpeedUP)
+            {
+                StartCoroutine(StaySpeed(9999999));
+            }
         }
-
         else if (distanceToPlayer <= closeDistance)
         {
             currentSpeed = baseSpeed * closeSpeedMultiplier;
         }
 
-        transform.position += Vector3.right * currentSpeed * Time.fixedDeltaTime;
+        return currentSpeed;
+    }
+
+
+    private float IncreaseSpeed()
+    {
+        timer += Time.deltaTime;
+        if (timer > boostTime)
+        {
+            timeSpeedBonus += speedIncrease;
+            print($"누적: {timeSpeedBonus}");
+            timer = 0;
+        }
+        return timeSpeedBonus;
     }
 
     private IEnumerator StaySpeed(float time)

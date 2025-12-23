@@ -21,7 +21,7 @@ namespace Member.SYW._01_Scripts.Data
 
         private IEnumerator SpawnRoutine()
         {
-            while (true)
+            while (true) // 그 전설적인...
             {
                 SpawnObstacle();
                 float randomInterval = Random.Range(minSpawnInterval, maxSpawnInterval);

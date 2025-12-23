@@ -28,16 +28,7 @@ public class ScoreManager : MonoSingleton<ScoreManager>
             scoreText.text = $"점수: {score}";
         }
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            score += 50;
-            UpdateScoreUI();
-        }
-    }
-
+    
     public int GetScore()
     {
         return score;

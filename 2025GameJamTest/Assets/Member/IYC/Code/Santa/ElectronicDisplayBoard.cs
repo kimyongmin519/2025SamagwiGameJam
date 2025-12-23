@@ -2,6 +2,7 @@ using System.Collections;
 using Member.KYM.Code.Agent;
 using Member.KYM.Code.Interface;
 using Member.KYM.Code.Manager.Pooling;
+using Member.KYM.Code.Weapon;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +10,8 @@ public class ElectronicDisplayBoard : Agent, IPoolable
 {
     private Rigidbody2D _rigi;
     public UnityEvent OnBulletHit;
+    [SerializeField]
+    private BoxCollider2D _collider;
 
     private float _stunCoolDown = 3f;
 
@@ -31,16 +34,22 @@ public class ElectronicDisplayBoard : Agent, IPoolable
         {
             _rigi.linearVelocity = Vector2.zero;
             _rigi.gravityScale = 0;
+           
         }
 
         HealthSystem.SetHealth(currentHealth);
+        HealthSystem.OnDead -= FallDisplay;
+
         isFall = false;
+        _collider.isTrigger = false;
+        
     }
 
     private void OnEnable()
     {
         _rigi.gravityScale = 0;
         StartCoroutine(LifeCoroutine());
+        HealthSystem.OnDead += FallDisplay;
     }
 
     protected override void Awake()
@@ -50,19 +59,17 @@ public class ElectronicDisplayBoard : Agent, IPoolable
         HealthSystem.Initialize(this);
         HealthSystem.SetHealth(currentHealth);
 
+
         _rigi = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<BoxCollider2D>();
 
         OnBulletHit.AddListener(() => FallEletronicDisplayBoard());
     }
 
-    private void Update()
+    private void FallDisplay()
     {
-        if (HealthSystem.Health <= 0)
-        {
-            OnBulletHit?.Invoke();
-            isFall = true;
-            print("Àü±¤ÆÇ Á×À½");
-        }
+        OnBulletHit?.Invoke();
+        print("Àü±¤ÆÇ Á×À½");
     }
 
     private void FixedUpdate()
@@ -81,24 +88,23 @@ public class ElectronicDisplayBoard : Agent, IPoolable
     private void FallEletronicDisplayBoard()
     {
         _rigi.gravityScale = 2;
+        _collider.isTrigger = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isFall)
+        if (collision.gameObject.TryGetComponent<Santa>(out Santa s))
         {
-            if (collision.gameObject.TryGetComponent<Santa>(out Santa s))
-            {
-                print("½ºÅÏÃ³¸®");
-                s.Stun(_stunCoolDown);
-                PoolManager.Instance.Push(this);
-                isFall = false;
-            }
-            else if (collision.gameObject.TryGetComponent<GroundScroller>(out GroundScroller g))
-            {
-                PoolManager.Instance.Push(this);
-            }
+            print("±×³É ºÎ‹HÈû");
+            s.Stun(_stunCoolDown);
+            PoolManager.Instance.Push(this);
+            isFall = false;
         }
-
+        else if (!collision.gameObject.TryGetComponent<Bullet>(out Bullet b))
+        {
+            print($"{collision.gameObject}¿¡ ´ê¾Ò´Ù.");
+            PoolManager.Instance.Push(this);
+        }
     }
+
 }
