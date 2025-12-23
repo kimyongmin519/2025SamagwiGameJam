@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Santa : Agent
 {
-    [SerializeField] private float health = 100f;
+    [SerializeField] private double health = 100f;
 
     public SantaMove SantaMove { get; private set; }
     public Player player;

@@ -6,9 +6,9 @@ namespace Member.KYM.Code.Agent
 {
     public class HealthSystem : MonoBehaviour, IAgentComponent
     {
-        public float MaxHealth { get; private set; }
+        public double MaxHealth { get; private set; }
 
-        [SerializeField] private float health;
+        [SerializeField] private double health;
 
         [SerializeField] private bool isInvincible = false;
         
@@ -17,16 +17,14 @@ namespace Member.KYM.Code.Agent
         public Action OnDead;
         public Action OnDamaged;
         
-        public float Health
+        public double Health
         {
             get => health;
             set
             {
-                float before = health;
-
                 if (!isInvincible)
                 {
-                    health = Mathf.Clamp(value, 0, MaxHealth);
+                    health = Math.Clamp(value, 0, MaxHealth);
                     OnDamaged?.Invoke();
                 }
             }
@@ -42,7 +40,7 @@ namespace Member.KYM.Code.Agent
             }
         }
         
-        public void SetHealth(float _health)
+        public void SetHealth(double _health)
         {
             MaxHealth = _health;
             health = MaxHealth;
