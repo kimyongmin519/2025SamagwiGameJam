@@ -1,77 +1,172 @@
+using System.Collections;
+using System.Collections.Generic;
 using Member.KYM.Code.Interface;
 using Member.KYM.Code.Manager.Pooling;
 using UnityEngine;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
-namespace Member.KYM.Code
+namespace Member.KYM.Code.Spawner
 {
-    public class PoolItemLauncher : MonoBehaviour
+    public class PoolItemLuncher : MonoBehaviour
     {
-        [SerializeField] private PoolItemListSO poolItemListSO;
-        [SerializeField] private Transform spawnTransform;
-        [SerializeField] private float minSpawnTime = 1f;
-        [SerializeField] private float maxSpawnTime = 3f;
-        
-        private bool isActive = true;
-        private float _currentTime = 0f;
-        private float _nextSpawnTime;
-        private int _totalSpawnedCount = 0;
+        [SerializeField] private PoolItemListSO poolItemList;
+        [SerializeField] private float minSpawnTime = 2f;
+        [SerializeField] private float maxSpawnTime = 5f;
+        [SerializeField] private Transform spawnPoint;
+
+        [SerializeField] private bool useRandomX = false;
+        [SerializeField] private float minX = 0f;
+        [SerializeField] private float maxX = 5f;
+
+        [SerializeField] private bool useRandomY = false;
+        [SerializeField] private float minY = 0f;
+        [SerializeField] private float maxY = 5f;
+
+        [SerializeField] private List<string> spawnItemNames = new List<string>();
+
+        private Coroutine _spawnCoroutine;
+        private bool _isSpawning = false;
+        private IPoolable _currentActiveItem = null;
+        private void OnValidate()
+        {
+            if (poolItemList != null)
+            {
+                UpdateSpawnItemNames();
+            }
+        }
+
+        private void UpdateSpawnItemNames()
+        {
+            spawnItemNames.Clear();
+
+            foreach (PoolItemSO item in poolItemList.PoolItems)
+            {
+                if (!string.IsNullOrEmpty(item.ItemName))
+                {
+                    spawnItemNames.Add(item.ItemName);
+                }
+            }
+        }
+
         private void Start()
         {
-            if (poolItemListSO == null || poolItemListSO.PoolItems.Count == 0)
+            if (spawnPoint == null)
             {
-                Debug.LogError("PoolItemListSO가 할당되지 않았거나 비어있습니다!");
-                enabled = false;
-                return;
+                spawnPoint = transform;
             }
 
-            _nextSpawnTime = Random.Range(minSpawnTime, maxSpawnTime);
+            if (poolItemList != null)
+            {
+                UpdateSpawnItemNames();
+            }
+
+            StartSpawning();
         }
 
-        private void Update()
-        {
-            if (!isActive) return;
-            _currentTime += Time.deltaTime;
-
-            if (_currentTime >= _nextSpawnTime)
-            {
-                SpawnPoolItem();
-                _currentTime = 0f;
-                _nextSpawnTime = Random.Range(minSpawnTime, maxSpawnTime);
-            }
-        }
-
-        private void SpawnPoolItem()
-        {
-            int randomIndex = Random.Range(0, poolItemListSO.PoolItems.Count);
-            PoolItemSO selectedSO = poolItemListSO.PoolItems[randomIndex];
-
-            if (selectedSO == null)
-            {
-                Debug.LogError("선택된 PoolItemSO가 null입니다!");
-                return;
-            }
-
-            IPoolable item = PoolManager.Instance.Pop(selectedSO.ItemName);
-
-            if (item != null)
-            {
-                GameObject itemObj = item.GetGameObject();
-
-                itemObj.transform.position = spawnTransform.position;
-                itemObj.transform.rotation = spawnTransform.rotation;
-
-                _totalSpawnedCount++;
-            }
-        }
 
         public void StartSpawning()
         {
-            isActive = true;
+            if (_isSpawning) return;
+
+            _isSpawning = true;
+            _spawnCoroutine = StartCoroutine(SpawnRoutine());
         }
 
         public void StopSpawning()
         {
-            isActive = false;
+            if (!_isSpawning) return;
+
+            _isSpawning = false;
+            if (_spawnCoroutine != null)
+            {
+                StopCoroutine(_spawnCoroutine);
+                _spawnCoroutine = null;
+            }
+        }
+
+        private IEnumerator SpawnRoutine()
+        {
+            while (_isSpawning)
+            {
+                float waitTime = Random.Range(minSpawnTime, maxSpawnTime);
+                yield return new WaitForSeconds(waitTime);
+
+                SpawnRandom();
+            }
+        }
+
+        private void SpawnRandom()
+        {
+            if (spawnItemNames.Count == 0)
+            {
+                return;
+            }
+
+            if (_currentActiveItem != null)
+            {
+                PoolManager.Instance.Push(_currentActiveItem);
+                _currentActiveItem = null;
+            }
+
+            string randomItemName = spawnItemNames[Random.Range(0, spawnItemNames.Count)];
+
+            IPoolable item = PoolManager.Instance.Pop(randomItemName);
+
+            if (item != null)
+            {
+                float xOffset = useRandomX ? Random.Range(minX, maxX) : 0f;
+                float yOffset = useRandomY ? Random.Range(minY, maxY) : 0f;
+
+                Vector3 spawnPosition = new Vector3(
+                    spawnPoint.position.x + xOffset,
+                    spawnPoint.position.y + yOffset,
+                    spawnPoint.position.z
+                );
+
+                item.GetGameObject().transform.position = spawnPosition;
+                item.GetGameObject().transform.rotation = spawnPoint.rotation;
+
+                _currentActiveItem = item;
+            }
+        }
+
+        public void Spawn(string itemName)
+        {
+            if (_currentActiveItem != null)
+            {
+                PoolManager.Instance.Push(_currentActiveItem);
+                _currentActiveItem = null;
+            }
+
+            IPoolable item = PoolManager.Instance.Pop(itemName);
+
+            if (item != null)
+            {
+                float xOffset = useRandomX ? Random.Range(minX, maxX) : 0f;
+                float yOffset = useRandomY ? Random.Range(minY, maxY) : 0f;
+
+                Vector3 spawnPosition = new Vector3(
+                    spawnPoint.position.x + xOffset,
+                    spawnPoint.position.y + yOffset,
+                    spawnPoint.position.z
+                );
+
+                item.GetGameObject().transform.position = spawnPosition;
+                item.GetGameObject().transform.rotation = spawnPoint.rotation;
+
+                _currentActiveItem = item;
+            }
+        }
+
+        private void OnDestroy()
+        {
+            StopSpawning();
+
+            if (_currentActiveItem != null)
+            {
+                PoolManager.Instance.Push(_currentActiveItem);
+                _currentActiveItem = null;
+            }
         }
     }
 }
