@@ -102,11 +102,11 @@ namespace Member.KYM.Code.Spawner
                 return;
             }
 
-            if (_currentActiveItem != null)
-            {
-                PoolManager.Instance.Push(_currentActiveItem);
-                _currentActiveItem = null;
-            }
+            //if (_currentActiveItem != null)
+            //{
+            //    PoolManager.Instance.Push(_currentActiveItem);
+            //    _currentActiveItem = null;
+            //}
 
             string randomItemName = spawnItemNames[Random.Range(0, spawnItemNames.Count)];
 
@@ -162,11 +162,11 @@ namespace Member.KYM.Code.Spawner
         {
             StopSpawning();
 
-            if (_currentActiveItem != null)
-            {
-                PoolManager.Instance.Push(_currentActiveItem);
-                _currentActiveItem = null;
-            }
+            //if (_currentActiveItem != null)
+            //{
+            //    PoolManager.Instance.Push(_currentActiveItem);
+            //    _currentActiveItem = null;
+            //}
         }
     }
 }

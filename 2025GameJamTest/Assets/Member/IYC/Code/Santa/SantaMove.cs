@@ -89,6 +89,7 @@ public class SantaMove : MonoBehaviour, IAgentComponent
         if (distanceToPlayer >= farDistance)
         {
             print("속도가 증가되었습니다.");
+            StartCoroutine(speedUp());
             currentSpeed = baseSpeed * farSpeedMultiplier;
         }
         else if (distanceToPlayer <= closeDistance)
@@ -99,6 +100,12 @@ public class SantaMove : MonoBehaviour, IAgentComponent
         return currentSpeed;
     }
 
+    private IEnumerator speedUp()
+    {
+        isSpeedUP = true;
+        yield return new WaitForSeconds(2);
+        isSpeedUP = false;
+    }
 
     private float IncreaseSpeed()
     {

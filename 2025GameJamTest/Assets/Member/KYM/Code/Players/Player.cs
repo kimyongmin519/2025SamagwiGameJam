@@ -1,4 +1,3 @@
-using System;
 using Member.KYM.Code.Agent;
 using Member.KYM.Code.Weapon;
 using UnityEngine;
@@ -45,7 +44,7 @@ namespace Member.KYM.Code.Players
             else
                 AgentMovement.SetSpeed(speed);
             
-            AgentRenderer.FlipControl(PlayerInput.MousePos.x);
+            AgentRenderer.FlipControl(PlayerInput.MoveDir.x);
             AgentMovement.SetXDir(PlayerInput.MoveDir.x);
             _gun.SetMousePos(PlayerInput.MousePos);
         }

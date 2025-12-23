@@ -31,7 +31,14 @@ public class PresentBox : Agent, IPoolable
     private void OnEnable()
     {
         HealthSystem.OnDead += Hit;
+        transform.position += Vector3.up * 0.4f * Time.deltaTime;
         StartCoroutine(LifeCoroutine());
+    }
+
+    private IEnumerator LifeCoroutine()
+    {
+        yield return new WaitForSeconds(lifeTime);
+        PoolManager.Instance.Push(this);
     }
 
     protected override void Awake()
@@ -60,11 +67,5 @@ public class PresentBox : Agent, IPoolable
         Console.WriteLine("Bullet과의 충돌이 감지됨");
         OnBulletHit?.Invoke();
         gameObject.SetActive(false);
-    }
-
-    private IEnumerator LifeCoroutine()
-    {
-        yield return new WaitForSeconds(lifeTime);
-        PoolManager.Instance.Push(this);
     }
 }

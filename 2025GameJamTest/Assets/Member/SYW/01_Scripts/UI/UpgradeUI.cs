@@ -25,8 +25,12 @@ namespace Member.SYW._01_Scripts.UI
         
         private Vector2 _p1Origin, _p2Origin, _p3Origin, _p4Origin;
 
+        [SerializeField] private Image image;
+        private Material _material;
+
         private void Awake()
         {
+            _material = image.material;
             _p1Origin = panel1.rectTransform.anchoredPosition;
             _p2Origin = panel2.rectTransform.anchoredPosition;
             _p3Origin = panel3.rectTransform.anchoredPosition;
@@ -78,6 +82,17 @@ namespace Member.SYW._01_Scripts.UI
         {
             canvasGroup.blocksRaycasts = false;
             PlayExitAnimation();
+        }
+
+        public void UpgradeEffect()
+        {
+            _material.DOFloat(1f, "_RainbowFade", 0.5f)
+                .SetUpdate(true)
+                .OnComplete(() =>
+                {
+                    _material.DOFloat(0f, "_RainbowFade", 0.5f)
+                        .SetUpdate(true);
+                });
         }
         
         private void PlayExitAnimation()

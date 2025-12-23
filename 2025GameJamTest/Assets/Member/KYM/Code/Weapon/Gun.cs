@@ -109,6 +109,22 @@ namespace Member.KYM.Code.Weapon
 
         private void ShootBullet()
         {
+            int rand = Random.Range(0, 3);
+            switch (rand)
+            {
+                case 0:
+                    SoundManager.Instance.Play(SFXSoundType.GUNSHOT1);
+                    break;
+                case 1:
+                    SoundManager.Instance.Play(SFXSoundType.GUNSHOT2);
+                    break;
+                case 2:
+                    SoundManager.Instance.Play(SFXSoundType.GUNSHOT3);
+                    break;
+                case 3:
+                    SoundManager.Instance.Play(SFXSoundType.GUNSHOT4);
+                    break;
+            }
             OnShootEvent?.Invoke();
 
             Ammo--;

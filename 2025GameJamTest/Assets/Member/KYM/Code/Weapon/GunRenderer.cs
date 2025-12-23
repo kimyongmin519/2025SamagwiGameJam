@@ -1,8 +1,6 @@
-using System;
 using Member.KYM.Code.Bus;
 using Member.KYM.Code.GameEvents;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Member.KYM.Code.Weapon
 {
@@ -39,6 +37,19 @@ namespace Member.KYM.Code.Weapon
         public void SetAnimSpeed(float speed)
         {
             _animator.speed = speed;
+        }
+
+        public void PlaySound(int index)
+        {
+            switch (index)
+            {
+                case 0:
+                    SoundManager.Instance.Play(SFXSoundType.GUNSPIN);
+                    break;
+                case 1:
+                    SoundManager.Instance.Play(SFXSoundType.GUNRELOAD);
+                    break;
+            }
         }
     }
 }
