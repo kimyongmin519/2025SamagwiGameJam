@@ -6,17 +6,11 @@ namespace Member.SYW._01_Scripts.UI
 {
     enum Grade
     {
-        SSS_Plus,
         SSS,
-        SS_Plus,
         SS,
-        S_Plus,
         S,
-        AAA_Plus,
         AAA,
-        AA_Plus,
         AA,
-        A_Plus,
         A,
         B,
         C,
@@ -24,7 +18,7 @@ namespace Member.SYW._01_Scripts.UI
         F
     }
     
-    public class GameWinUI : MonoSingleton<GameWinUI>
+    public class GameEndUI : MonoSingleton<GameEndUI>
     {
         [Header("References")]
         [SerializeField] private ScoreManager scoreManager;
@@ -32,18 +26,12 @@ namespace Member.SYW._01_Scripts.UI
         [SerializeField] private TextMeshProUGUI gradeText;
 
         [Header("Grade Settings (점수 커트라인 설정)")] 
-        [SerializeField] private int scoreSSSP = 10000;
-        [SerializeField] private int scoreSSS = 9900;
-        [SerializeField] private int scoreSSP = 9800;
-        [SerializeField] private int scoreSS = 9700;
-        [SerializeField] private int scoreSP = 9600;
+        [SerializeField] private int scoreSSS = 10000;
+        [SerializeField] private int scoreSS = 9750;
         [SerializeField] private int scoreS = 9500;
-        [SerializeField] private int scoreAAAP = 9250;
         [SerializeField] private int scoreAAA = 9000;
-        [SerializeField] private int scoreAAP = 8500;
         [SerializeField] private int scoreAA = 8000;
-        [SerializeField] private int scoreAP = 7000;
-        [SerializeField] private int scoreA = 6000;
+        [SerializeField] private int scoreA = 7000;
         [SerializeField] private int scoreB = 5000;
         [SerializeField] private int scoreC = 3500;
         [SerializeField] private int scoreD = 1000;
@@ -71,7 +59,11 @@ namespace Member.SYW._01_Scripts.UI
 
         private Grade CalculateGrade(int score)
         {
+            if (score >= scoreSSS) return Grade.SSS;
+            if (score >= scoreSS) return Grade.SS;
             if (score >= scoreS) return Grade.S;
+            if (score >= scoreAAA) return Grade.AAA;
+            if (score >= scoreAA) return Grade.AA;
             if (score >= scoreA) return Grade.A;
             if (score >= scoreB) return Grade.B;
             if (score >= scoreC) return Grade.C;
@@ -84,6 +76,8 @@ namespace Member.SYW._01_Scripts.UI
         {
             switch (grade)
             {
+                case Grade.SSS: gradeText.color = Color.cyan; break;
+                case Grade.SS: gradeText.color = Color.yellow; break;
                 case Grade.S: gradeText.color = Color.yellow; break;
                 case Grade.A: gradeText.color = Color.blue; break;
                 case Grade.B: gradeText.color = Color.blue; break;

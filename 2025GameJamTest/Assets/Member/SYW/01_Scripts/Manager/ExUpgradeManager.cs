@@ -1,4 +1,3 @@
-using System;
 using Member.SYW._01_Scripts.UI;
 using UnityEngine;
 
