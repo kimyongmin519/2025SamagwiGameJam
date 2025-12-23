@@ -8,18 +8,28 @@ using System.Collections;
 
 public class SantaMove : MonoBehaviour, IAgentComponent
 {
+    [SerializeField] 
     private float baseSpeed = 6.5f;
+    [SerializeField] 
     private float farDistance = 30;
+    [SerializeField] 
     private float closeDistance = 2f;
+    [SerializeField] 
     private float farSpeedMultiplier = 1;
+    [SerializeField] 
     private float closeSpeedMultiplier = 1.1f;
+    [SerializeField] 
     private float catchDistance = 7f;
+    [SerializeField] 
     private float knockbackForce = 5f;
+    [SerializeField] 
     private float knockbackDuration = 0.5f;
+    [SerializeField] 
     private float boostTime = 1f;
-    private float speedIncrease = 1f;
+    [SerializeField] 
+    private float speedIncrease = 0f;
     private float timer;
-    private float timeSpeedBonus = 0f;
+    [SerializeField] private float timeSpeedBonus = 0f;
 
     private Player _player;
     private Santa _santa;
@@ -62,8 +72,6 @@ public class SantaMove : MonoBehaviour, IAgentComponent
             return;
         }
 
-
-
         transform.position += Vector3.right * (MoveRight() + IncreaseSpeed()) * Time.deltaTime;
         CheckCatchPlayer();
     }
@@ -82,10 +90,6 @@ public class SantaMove : MonoBehaviour, IAgentComponent
         {
             print("속도가 증가되었습니다.");
             currentSpeed = baseSpeed * farSpeedMultiplier;
-            if (!isSpeedUP)
-            {
-                StartCoroutine(StaySpeed(9999999));
-            }
         }
         else if (distanceToPlayer <= closeDistance)
         {
@@ -106,13 +110,6 @@ public class SantaMove : MonoBehaviour, IAgentComponent
             timer = 0;
         }
         return timeSpeedBonus;
-    }
-
-    private IEnumerator StaySpeed(float time)
-    {
-        isSpeedUP = true;
-        yield return new WaitForSeconds(time);
-        isSpeedUP = false;
     }
 
     private void CheckCatchPlayer()
