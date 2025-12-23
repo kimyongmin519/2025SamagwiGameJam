@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa156546d452301439d67a7743e5494f, type: 3}
-  m_Name: PoolItemSO
+  m_Name: ElectronicDisplayBoardSO
   m_EditorClassIdentifier: 
-  <ItemName>k__BackingField: "\uC120\uBB3C\uC0C1\uC790_0"
-  <Count>k__BackingField: 1
-  <ItemPrefab>k__BackingField: {fileID: 1653497741069659027, guid: 4f790ab8286e6d04280f987b80e2c1c5, type: 3}
+  <ItemName>k__BackingField: ElectronicDisplayBoard
+  <Count>k__BackingField: 2
+  <ItemPrefab>k__BackingField: {fileID: 692247709409628127, guid: cb3a36acb1e97e7458a8f25686ef5137, type: 3}

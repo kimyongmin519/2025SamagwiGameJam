@@ -1,6 +1,7 @@
 using System;
 using Member.SYW._01_Scripts.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Member.SYW._01_Scripts.Manager
 {
@@ -54,6 +55,12 @@ namespace Member.SYW._01_Scripts.Manager
             print("잉");
         }
 
+        public void Restart()
+        {
+            SceneManager.LoadScene("Develop");
+            Time.timeScale = 1;
+        }
+        
         public void GameExit()
         {
             Application.Quit();

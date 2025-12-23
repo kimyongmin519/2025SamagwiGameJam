@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using Member.KYM.Code.Players;
 using Member.SYW._01_Scripts.Manager;
 using Member.SYW._01_Scripts.UI;
 
@@ -19,14 +17,22 @@ public class GameManager : MonoSingleton<GameManager>
     public void GameOver()
     {
         Debug.Log("Game Over!");
-        _gameOverUI.gameObject.SetActive(true);
+        _gameOverUI.Show();
         TimeManager.Instance?.TimeStop();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+            GameOver();
+        if (Input.GetKeyDown(KeyCode.V))
+            Victory();
     }
 
     public void Victory()
     {
         Debug.Log("Victory!");
-        _gameWinUI.gameObject.SetActive(true);
+        _gameWinUI.Show();
         TimeManager.Instance?.TimeStop();
     }
 }
