@@ -57,7 +57,7 @@ namespace Member.SYW._01_Scripts.Manager
 
         public void Restart()
         {
-            SceneManager.LoadScene("InGame");
+            SceneManager.LoadScene("LobbyScene");
             TimeManager.Instance.TimeStart();
         }
         
