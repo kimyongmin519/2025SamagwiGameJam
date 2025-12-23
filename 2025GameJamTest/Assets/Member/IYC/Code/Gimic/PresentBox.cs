@@ -62,6 +62,7 @@ public class PresentBox : Agent, IPoolable
         _rb.bodyType = RigidbodyType2D.Kinematic;
     }
 
+
     private void Hit()
     {
         Console.WriteLine("Bullet과의 충돌이 감지됨");

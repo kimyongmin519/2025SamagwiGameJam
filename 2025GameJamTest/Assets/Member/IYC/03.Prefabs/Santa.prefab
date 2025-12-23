@@ -526,7 +526,7 @@ MonoBehaviour:
   baseSpeed: 6.5
   farDistance: 30
   closeDistance: 2
-  farSpeedMultiplier: 1
+  farSpeedMultiplier: 2
   closeSpeedMultiplier: 1.1
   catchDistance: 7
   knockbackForce: 5
@@ -578,7 +578,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

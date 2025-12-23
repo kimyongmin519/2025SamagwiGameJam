@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 690674592070393971}
   - component: {fileID: 1590996419771436166}
   - component: {fileID: 5121026056527976015}
+  - component: {fileID: 8314553001137795534}
+  - component: {fileID: 435998796329492996}
   m_Layer: 9
   m_Name: ElectronicDisplayBoard
   m_TagString: Untagged
@@ -169,7 +171,8 @@ MonoBehaviour:
   _collider: {fileID: 0}
   lifeTime: 20
   currentHealth: 1
-  animator: {fileID: 0}
+  hitAnimationDuration: 0.6
+  animator: {fileID: 8314553001137795534}
 --- !u!50 &5121026056527976015
 Rigidbody2D:
   serializedVersion: 5
@@ -197,3 +200,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!95 &8314553001137795534
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692247709409628127}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14b1e107679d06d419e5d6878d43fd77, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &435998796329492996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692247709409628127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2a9235520a1f64a864fdf9bdcaa618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
