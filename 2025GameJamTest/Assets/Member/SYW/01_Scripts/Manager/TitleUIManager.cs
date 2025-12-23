@@ -18,6 +18,7 @@ namespace Member.SYW._01_Scripts.Manager
 
         private void Start()
         {
+            SoundManager.Instance.Play(BGMSoundType.MAINBGM);
             creditText.gameObject.SetActive(false);
         }
 

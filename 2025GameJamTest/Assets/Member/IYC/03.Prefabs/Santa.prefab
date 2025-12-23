@@ -526,7 +526,7 @@ MonoBehaviour:
   baseSpeed: 6.5
   farDistance: 30
   closeDistance: 2
-  farSpeedMultiplier: 1
+  farSpeedMultiplier: 2
   closeSpeedMultiplier: 1.1
   catchDistance: 7
   knockbackForce: 5
