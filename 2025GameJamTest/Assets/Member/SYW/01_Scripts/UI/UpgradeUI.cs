@@ -47,8 +47,8 @@ namespace Member.SYW._01_Scripts.UI
             _animSeq.Join(panel2.rectTransform.DOAnchorPos(_p2Origin, animationDuration).SetEase(Ease.OutBack));
             _animSeq.Join(panel3.rectTransform.DOAnchorPos(_p3Origin, animationDuration).SetEase(Ease.OutBack));
             _animSeq.Join(panel4.rectTransform.DOAnchorPos(_p4Origin, animationDuration).SetEase(Ease.OutBack));
-            
-            Time.timeScale = 0;
+
+            TimeManager.Instance.TimeStop();
         }
 
         public void Choose()
@@ -80,7 +80,7 @@ namespace Member.SYW._01_Scripts.UI
         {
             if (_animSeq != null) _animSeq.Kill();
 
-            Time.timeScale = 1;
+            TimeManager.Instance.TimeStart();
             canvasGroup.blocksRaycasts = true;
             gameObject.SetActive(false);
         }
