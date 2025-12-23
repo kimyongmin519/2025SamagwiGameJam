@@ -13,7 +13,8 @@ public enum SFXSoundType
     GUNRELOAD,
     GUNSPIN,
     BUTTONCLICK,
-    UPGRADEBTCLICK
+    UPGRADEBTCLICK,
+    HURTSANTAR
 }
 
 public enum BGMSoundType
