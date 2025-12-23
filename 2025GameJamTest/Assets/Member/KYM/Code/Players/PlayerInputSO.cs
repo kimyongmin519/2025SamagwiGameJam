@@ -9,7 +9,7 @@ namespace Member.KYM.Code.Players
     {
         private Controller _controller;
 
-        public Vector2 MoveDir { get; private set; }
+        public Vector2 MoveDir { get; private set; } =  Vector2.zero;
         public Vector2 MousePos { get;private set; }
         public event Action OnAttackPressed;
         public event Action OnAttackReleased;

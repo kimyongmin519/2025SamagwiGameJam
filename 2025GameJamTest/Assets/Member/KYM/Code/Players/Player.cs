@@ -40,7 +40,7 @@ namespace Member.KYM.Code.Players
         private void Update()
         {
             if (_isAttack && _gun.Ammo > 0)
-                AgentMovement.SetSpeed(speed / 1.5f);
+                AgentMovement.SetSpeed(speed / 1.25f);
             else
                 AgentMovement.SetSpeed(speed);
             

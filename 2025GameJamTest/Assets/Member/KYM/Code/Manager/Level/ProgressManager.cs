@@ -3,7 +3,6 @@ using System.IO;
 using Member.KYM.Code.Bus;
 using Member.KYM.Code.GameEvents;
 using Member.SYW._01_Scripts.Manager;
-using Unity.VisualScripting;
 using UnityEngine;
 using Path = System.IO.Path;
 
@@ -53,7 +52,7 @@ namespace Member.KYM.Code.Manager.Level
             base.Awake();
             DontDestroyOnLoad(gameObject);
             EventBus<WeaponUpgradeEvent>.OnEvent += Upgrade;
-            
+            EventBus<LevelSettingUIEvent>.Raise(new LevelSettingUIEvent());
             Load();
         }
 
@@ -83,6 +82,23 @@ namespace Member.KYM.Code.Manager.Level
         {
             WeaponProgress.LevelUp(evt.upgradeType);
             Save();
+        }
+
+        public int ReturnLevelValue(UpgradeType upgradeType)
+        {
+            switch (upgradeType)
+            {
+                case UpgradeType.Ammo:
+                    return WeaponProgress.GunAmmoLevel;
+                case UpgradeType.Damage:
+                    return WeaponProgress.GunDamageLevel;
+                case UpgradeType.Speed:
+                    return WeaponProgress.GunSpeedLevel;
+                case UpgradeType.Reload:
+                    return WeaponProgress.GunReloadSpeedLevel;
+                default:
+                    return 0;
+            }
         }
 
         private new void OnDestroy()
