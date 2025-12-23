@@ -152,7 +152,7 @@ MonoBehaviour:
   OnBulletHit:
     m_PersistentCalls:
       m_Calls: []
-  lifeTime: 5
+  lifeTime: 50
 --- !u!50 &4988860267312431315
 Rigidbody2D:
   serializedVersion: 5

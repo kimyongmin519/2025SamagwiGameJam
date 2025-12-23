@@ -1,11 +1,24 @@
 using UnityEngine;
+using Member.KYM.Code.Players;
 
 public class GroundScroller : MonoBehaviour
 {
-    [SerializeField] private float scrollSpeed = 5f;
-
+    [SerializeField] private Player player;
+    private Rigidbody2D playerRigidbody;
+    
+    private void Start()
+    {
+        if (player != null)
+        {
+            playerRigidbody = player.GetComponent<Rigidbody2D>();
+        }
+    }
+    
     private void Update()
     {
-        transform.position += Vector3.right * scrollSpeed * Time.deltaTime;
+        if (playerRigidbody != null)
+        {
+            transform.position += Vector3.right * playerRigidbody.linearVelocityX * Time.deltaTime;
+        }
     }
 }

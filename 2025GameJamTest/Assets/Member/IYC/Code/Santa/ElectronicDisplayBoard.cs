@@ -24,6 +24,8 @@ public class ElectronicDisplayBoard : Agent, IPoolable
     private bool isFall = false;
     public string ItemName => gameObject.name;
 
+    [SerializeField]private Animator animator;
+
     public GameObject GetGameObject()
     {
         return gameObject;
@@ -49,7 +51,6 @@ public class ElectronicDisplayBoard : Agent, IPoolable
     private void OnEnable()
     {
         _rigi.gravityScale = 0;
-        StartCoroutine(LifeCoroutine());
         HealthSystem.OnDead += FallDisplay;
     }
 
@@ -81,27 +82,36 @@ public class ElectronicDisplayBoard : Agent, IPoolable
         }
     }
 
-    private IEnumerator LifeCoroutine()
-    {
-        yield return new WaitForSeconds(lifeTime);
-        PoolManager.Instance.Push(this);
-    }
-
     private void FallEletronicDisplayBoard()
     {
         _rigi.gravityScale = 2;
         _collider.isTrigger = true;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.TryGetComponent<Santa>(out Santa santa))
+        {
+            print("ÃÑ ¾È ¸Â°í ºÎ‹HÈû");
+            PoolManager.Instance.Push(this);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent<Santa>(out Santa s))
         {
-            print("±×³É ºÎ‹HÈû");
+            print("ÃÑ ¸Â°í ºÎ‹HÈû");
             s.Stun(_stunCoolDown);
             PoolManager.Instance.Push(this);
             isFall = false;
         }
+
+        else if (collision.gameObject.TryGetComponent<infinitygameobject>(out infinitygameobject ig))
+        {
+            PoolManager.Instance.Push(this);
+        }
+
         else if (!collision.gameObject.TryGetComponent<Bullet>(out Bullet b))
         {
             print($"{collision.gameObject}¿¡ ´ê¾Ò´Ù.");
