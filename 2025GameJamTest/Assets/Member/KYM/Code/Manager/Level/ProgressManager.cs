@@ -65,6 +65,8 @@ namespace Member.KYM.Code.Manager.Level
             string path = Path.Combine(Application.dataPath, "GunProgress.json");
             
             File.WriteAllText(path, jsonData);
+            
+            EventBus<GunSettingEvent>.Raise(new GunSettingEvent());
         }
         
         [ContextMenu("Load To Json")]

@@ -12,7 +12,7 @@ namespace Member.KYM.Code.Players
         [SerializeField] private float jumpPower;
         public AgentMovement AgentMovement { get; private set; }
         public AgentRenderer AgentRenderer { get; private set; }
-        private Hand _hand;
+        private Gun _gun;
 
         private bool _isAttack = false;
 
@@ -20,7 +20,7 @@ namespace Member.KYM.Code.Players
         {
             AgentMovement = GetComponentInChildren<AgentMovement>();
             AgentRenderer = GetComponentInChildren<AgentRenderer>();
-            _hand = GetComponentInChildren<Hand>();
+            _gun = GetComponentInChildren<Gun>();
             
             AgentMovement.Initialize(this);
             AgentRenderer.Initialize(this);
@@ -31,23 +31,23 @@ namespace Member.KYM.Code.Players
         private void Start()
         {
             PlayerInput.OnJumpPressed += AgentMovement.Jump;
-            PlayerInput.OnAttackPressed += _hand.Gun.Shoot;
-            PlayerInput.OnAttackReleased += _hand.Gun.StopShoot;
-            PlayerInput.OnReloadPressed += _hand.Gun.Renderer.ReloadAnim;
+            PlayerInput.OnAttackPressed += _gun.Shoot;
+            PlayerInput.OnAttackReleased += _gun.StopShoot;
+            PlayerInput.OnReloadPressed += _gun.Renderer.ReloadAnim;
             PlayerInput.OnAttackPressed += AttackTrue;
             PlayerInput.OnAttackReleased += AttackFalse;
         }
 
         private void Update()
         {
-            if (_isAttack && _hand.Gun.Ammo > 0)
+            if (_isAttack && _gun.Ammo > 0)
                 AgentMovement.SetSpeed(speed / 1.5f);
             else
                 AgentMovement.SetSpeed(speed);
             
             AgentRenderer.FlipControl(PlayerInput.MousePos.x);
             AgentMovement.SetXDir(PlayerInput.MoveDir.x);
-            _hand.SetMousePos(PlayerInput.MousePos);
+            _gun.SetMousePos(PlayerInput.MousePos);
         }
         
         private void AttackTrue() => _isAttack = true;
@@ -56,9 +56,9 @@ namespace Member.KYM.Code.Players
         private void OnDestroy()
         {
             PlayerInput.OnJumpPressed -= AgentMovement.Jump;
-            PlayerInput.OnAttackPressed -= _hand.Gun.Shoot;
-            PlayerInput.OnAttackReleased -= _hand.Gun.StopShoot;
-            PlayerInput.OnReloadPressed -= _hand.Gun.Renderer.ReloadAnim;
+            PlayerInput.OnAttackPressed -= _gun.Shoot;
+            PlayerInput.OnAttackReleased -= _gun.StopShoot;
+            PlayerInput.OnReloadPressed -= _gun.Renderer.ReloadAnim;
             PlayerInput.OnAttackPressed -= AttackTrue;
             PlayerInput.OnAttackReleased -= AttackFalse;
         }

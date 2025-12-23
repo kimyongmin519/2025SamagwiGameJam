@@ -33,6 +33,8 @@ namespace Member.KYM.Code.Players
 
         public void OnMove(InputAction.CallbackContext context)
         {
+            if (Time.timeScale <= 0) return;
+            
             if (context.performed)
                 MoveDir = context.ReadValue<Vector2>();
             if (context.canceled)
@@ -41,12 +43,16 @@ namespace Member.KYM.Code.Players
 
         public void OnJump(InputAction.CallbackContext context)
         {
+            if (Time.timeScale <= 0) return;
+            
             if (context.performed)
                 OnJumpPressed?.Invoke();
         }
 
         public void OnAttack(InputAction.CallbackContext context)
         {
+            if (Time.timeScale <= 0) return;
+            
             if (context.performed)
                 OnAttackPressed?.Invoke();
             else
@@ -55,11 +61,15 @@ namespace Member.KYM.Code.Players
 
         public void OnMousePos(InputAction.CallbackContext context)
         {
+            if (Time.timeScale <= 0) return;
+            
             MousePos = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>());
         }
 
         public void OnReload(InputAction.CallbackContext context)
         {
+            if (Time.timeScale <= 0) return;
+            
             if (context.performed)
             {
                 OnAttackReleased?.Invoke();
@@ -69,6 +79,8 @@ namespace Member.KYM.Code.Players
 
         public void OnInteraction(InputAction.CallbackContext context)
         {
+            if (Time.timeScale <= 0) return;
+            
             if (context.performed)
                 OnInteractPressed?.Invoke();
         }
