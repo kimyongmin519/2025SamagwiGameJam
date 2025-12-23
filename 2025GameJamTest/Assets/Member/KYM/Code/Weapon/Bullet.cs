@@ -12,6 +12,7 @@ namespace Member.KYM.Code.Weapon
         [SerializeField] private BulletDataSO bulletData;
         private Rigidbody2D _rigidbody2D;
         private SpriteRenderer _spriteRenderer;
+        private TrailRenderer _trailRenderer;
 
         private float _currentTime;
 
@@ -19,6 +20,7 @@ namespace Member.KYM.Code.Weapon
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _trailRenderer = GetComponent<TrailRenderer>();
             
             _spriteRenderer.sprite = bulletData.BulletSprite;
         }
@@ -34,6 +36,7 @@ namespace Member.KYM.Code.Weapon
 
         public void ShootBullet(Vector2 dir)
         {
+            _trailRenderer.enabled = true;
             _rigidbody2D.linearVelocity = dir * bulletData.BulletSpeed;
         }
 
@@ -46,6 +49,7 @@ namespace Member.KYM.Code.Weapon
         public void Reset()
         {
             gameObject.SetActive(false);
+            _trailRenderer.enabled = false;
             _currentTime = 0;
             _rigidbody2D.linearVelocity = Vector2.zero;
         }

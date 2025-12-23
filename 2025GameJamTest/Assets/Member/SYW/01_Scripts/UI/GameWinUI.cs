@@ -6,7 +6,17 @@ namespace Member.SYW._01_Scripts.UI
 {
     enum Grade
     {
+        SSS_Plus,
+        SSS,
+        SS_Plus,
+        SS,
+        S_Plus,
         S,
+        AAA_Plus,
+        AAA,
+        AA_Plus,
+        AA,
+        A_Plus,
         A,
         B,
         C,
@@ -16,17 +26,27 @@ namespace Member.SYW._01_Scripts.UI
     
     public class GameWinUI : MonoSingleton<GameWinUI>
     {
-       [Header("References")]
+        [Header("References")]
         [SerializeField] private ScoreManager scoreManager;
         [SerializeField] private TextMeshProUGUI scoreText;
         [SerializeField] private TextMeshProUGUI gradeText;
 
-        [Header("Grade Settings (점수 커트라인 설정)")]
-        [SerializeField] private int scoreS = 1000;
-        [SerializeField] private int scoreA = 800;
-        [SerializeField] private int scoreB = 600;
-        [SerializeField] private int scoreC = 400;
-        [SerializeField] private int scoreD = 200;
+        [Header("Grade Settings (점수 커트라인 설정)")] 
+        [SerializeField] private int scoreSSSP = 10000;
+        [SerializeField] private int scoreSSS = 9900;
+        [SerializeField] private int scoreSSP = 9800;
+        [SerializeField] private int scoreSS = 9700;
+        [SerializeField] private int scoreSP = 9600;
+        [SerializeField] private int scoreS = 9500;
+        [SerializeField] private int scoreAAAP = 9250;
+        [SerializeField] private int scoreAAA = 9000;
+        [SerializeField] private int scoreAAP = 8500;
+        [SerializeField] private int scoreAA = 8000;
+        [SerializeField] private int scoreAP = 7000;
+        [SerializeField] private int scoreA = 6000;
+        [SerializeField] private int scoreB = 5000;
+        [SerializeField] private int scoreC = 3500;
+        [SerializeField] private int scoreD = 1000;
         
         private void Start()
         {

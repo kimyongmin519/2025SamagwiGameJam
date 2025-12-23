@@ -20,7 +20,7 @@ namespace Member.KYM.Code.Feedback
 
         public override void CreateFeedback()
         {
-            _recoilTween = trm.DOLocalMove(-trm.right, recoilDuration).SetLoops(2, LoopType.Yoyo);
+            _recoilTween = trm.DOLocalMove(-trm.right / recoilAmount, recoilDuration).SetLoops(2, LoopType.Yoyo);
         }
 
         public override void FinishFeedback()
