@@ -260,14 +260,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 333203572925926696, guid: 7774825af522e7c4288347bb83b94ed9, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 202d0d3c33a0c6941a2d6edf50092ab0, type: 2}
-    - target: {fileID: 671043939941636601, guid: 7774825af522e7c4288347bb83b94ed9, type: 3}
-      propertyPath: recoilAmount
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1867109523927552404, guid: 7774825af522e7c4288347bb83b94ed9, type: 3}
       propertyPath: m_Name
       value: Player
@@ -312,14 +304,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5498440092518079824, guid: 7774825af522e7c4288347bb83b94ed9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5722730619621267887, guid: 7774825af522e7c4288347bb83b94ed9, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 202d0d3c33a0c6941a2d6edf50092ab0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
