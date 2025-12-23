@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 14fc3ee456113a0478ad0baa82fe7b2f
+guid: a37ade571024aa44bab88815f7358cfa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6378281174148590136
-    second: DisplayBoard2_0
-  - first:
-      213: 8801693785930326808
-    second: DisplayBoard2_1
+      213: 822182253614255771
+    second: FakeGift_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -78,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DisplayBoard2_0
+      name: FakeGift_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 14
-        width: 94
-        height: 68
+        x: 5
+        y: 5
+        width: 21
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 83a20be2fe4348850800000000000000
-      internalID: 6378281174148590136
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DisplayBoard2_1
-      rect:
-        serializedVersion: 2
-        x: 142
-        y: 14
-        width: 94
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 813e32c6dd5e52a70800000000000000
-      internalID: 8801693785930326808
+      spriteID: b9ece4f476af86b00800000000000000
+      internalID: 822182253614255771
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DisplayBoard2_0: 6378281174148590136
-      DisplayBoard2_1: 8801693785930326808
+      FakeGift_0: 822182253614255771
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
