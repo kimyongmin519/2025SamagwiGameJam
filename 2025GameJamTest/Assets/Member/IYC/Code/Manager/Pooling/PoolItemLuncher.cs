@@ -35,7 +35,7 @@ namespace Member.SYW._01_Scripts.ETC
         {
             if (poolList == null || poolList.PoolItems.Count == 0)
             {
-                Debug.LogWarning("ObstacleListSO가 비어있거나 할당되지 않았습니다.");
+                Debug.LogWarning("PoolItemSO 비어있거나 할당되지 않았습니다.");
                 return;
             }
 
