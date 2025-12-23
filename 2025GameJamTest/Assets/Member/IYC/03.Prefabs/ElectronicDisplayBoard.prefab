@@ -166,7 +166,7 @@ MonoBehaviour:
   OnBulletHit:
     m_PersistentCalls:
       m_Calls: []
-  lifeTime: 4
+  lifeTime: 10
   currentHealth: 1
 --- !u!50 &5121026056527976015
 Rigidbody2D:
