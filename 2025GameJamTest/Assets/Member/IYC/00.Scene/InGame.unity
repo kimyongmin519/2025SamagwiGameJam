@@ -350,6 +350,10 @@ PrefabInstance:
       propertyPath: effectPrefeb
       value: 
       objectReference: {fileID: 3839138626938547149, guid: 45cc959bc00250b4a84a26fcbf93a8b3, type: 3}
+    - target: {fileID: 3453474614447571739, guid: 2ecd3a8ab90acb943985184f55af8dd5, type: 3}
+      propertyPath: deathEffectPrefab
+      value: 
+      objectReference: {fileID: 8264468139146044340, guid: b748c97380e740249a06943ef4d15b62, type: 3}
     - target: {fileID: 3814571635042785942, guid: 2ecd3a8ab90acb943985184f55af8dd5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -25.58
