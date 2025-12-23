@@ -52,7 +52,7 @@ public class SantaMove : MonoBehaviour, IAgentComponent
 
     private void Update()
     {
-        _santa.SantaDie();
+        
     }
 
     private void FixedUpdate()
@@ -82,7 +82,7 @@ public class SantaMove : MonoBehaviour, IAgentComponent
 
         if (distanceToPlayer >= farDistance)
         {
-            print("¼Óµµ°¡ Áõ°¡µÇ¾ú½À´Ï´Ù.");
+            print("ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
             StartCoroutine(speedUp());
             currentSpeed = baseSpeed * farSpeedMultiplier;
         }
@@ -107,7 +107,7 @@ public class SantaMove : MonoBehaviour, IAgentComponent
         if (timer > boostTime)
         {
             timeSpeedBonus += speedIncrease;
-            print($"´©Àû: {timeSpeedBonus}");
+            print($"ï¿½ï¿½ï¿½ï¿½: {timeSpeedBonus}");
             timer = 0;
         }
         return timeSpeedBonus;

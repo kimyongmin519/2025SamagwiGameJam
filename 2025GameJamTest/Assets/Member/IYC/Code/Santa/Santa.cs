@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Member.KYM.Code.Agent;
 using Member.KYM.Code.Players;
+using TransitionsPlus;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class Santa : Agent
 {
     [SerializeField] private double health = 100f;
     [SerializeField] private GameObject deathEffectPrefab;
+    [SerializeField] private TransitionAnimator transitionAnimator;
     public SantaMove SantaMove { get; private set; }
     public Player player;
     public bool IsStun { get; private set; }
@@ -65,6 +67,7 @@ public class Santa : Agent
     
     public void SantaDie()
     {
+        transitionAnimator.gameObject.SetActive(true);
             SoundManager.Instance.Play(SFXSoundType.HURTSANTAR);
             print("��Ÿ����");
             if (deathEffectPrefab != null)
