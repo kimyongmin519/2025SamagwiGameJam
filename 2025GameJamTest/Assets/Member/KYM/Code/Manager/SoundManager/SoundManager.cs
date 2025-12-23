@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Member.SYW._01_Scripts.Manager;
 using UnityEngine;
 using UnityEngine.Audio;
+
 public enum SFXSoundType
 {
     GUNSHOT1,
@@ -19,7 +20,9 @@ public enum SFXSoundType
 
 public enum BGMSoundType
 {
-    
+    MAINBGM,
+    LOBBYBGM,
+    GAMEBGM
 }
 public class SoundManager : MonoSingleton<SoundManager>
 {
