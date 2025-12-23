@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 439400893066957603}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40.56, y: 1.97, z: -0.78633255}
+  m_LocalPosition: {x: 41.22, y: 2.44, z: -0.78633255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -109,7 +109,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -8075467970455673301, guid: b70fff20f2ce1a44db7d12183013d4c5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -224,7 +224,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -8075467970455673301, guid: b70fff20f2ce1a44db7d12183013d4c5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -390,7 +390,7 @@ Transform:
   m_GameObject: {fileID: 7931335121397981807}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40.41, y: -3.04, z: -0.78633255}
+  m_LocalPosition: {x: 40.41, y: -2.18, z: -0.78633255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -405,7 +405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9217405561865076066}
-  - component: {fileID: 4087959057405410311}
+  - component: {fileID: 3418245635630904607}
   m_Layer: 0
   m_Name: BackGround
   m_TagString: Untagged
@@ -435,7 +435,7 @@ Transform:
   - {fileID: 6709876560478584636}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4087959057405410311
+--- !u!114 &3418245635630904607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -533,7 +533,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -8075467970455673301, guid: b70fff20f2ce1a44db7d12183013d4c5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
