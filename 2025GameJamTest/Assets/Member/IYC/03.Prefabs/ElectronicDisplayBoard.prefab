@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 692247709409628127}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.8703, y: 6.3894, z: 0}
-  m_LocalScale: {x: 0.9593, y: 1.7388, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -166,6 +166,7 @@ MonoBehaviour:
   OnBulletHit:
     m_PersistentCalls:
       m_Calls: []
+  _collider: {fileID: 0}
   lifeTime: 10
   currentHealth: 1
 --- !u!50 &5121026056527976015

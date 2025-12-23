@@ -1,57 +1,77 @@
-using System.Collections;
 using Member.KYM.Code.Interface;
 using Member.KYM.Code.Manager.Pooling;
-using Member.SYW._01_Scripts.Data;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-namespace Member.SYW._01_Scripts.ETC
+namespace Member.KYM.Code
 {
-    public class PoolItemLuncher : MonoBehaviour
+    public class PoolItemLauncher : MonoBehaviour
     {
-        [Header("Settings")]
-        [SerializeField] private Transform spawnPoint;
-        [SerializeField] private PoolItemListSO poolList;
-        [SerializeField] private float minSpawnInterval = 0.5f;
-        [SerializeField] private float maxSpawnInterval = 3f;
-
+        [SerializeField] private PoolItemListSO poolItemListSO;
+        [SerializeField] private Transform spawnTransform;
+        [SerializeField] private float minSpawnTime = 1f;
+        [SerializeField] private float maxSpawnTime = 3f;
+        
+        private bool isActive = true;
+        private float _currentTime = 0f;
+        private float _nextSpawnTime;
+        private int _totalSpawnedCount = 0;
         private void Start()
         {
-            StartCoroutine(SpawnRoutine());
-        }
-
-        private IEnumerator SpawnRoutine()
-        {
-            while (true)
+            if (poolItemListSO == null || poolItemListSO.PoolItems.Count == 0)
             {
-                SpwanPoolItem();
-                float randomInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
-                
-                yield return new WaitForSeconds(randomInterval);
-            }
-        }
-
-        private void SpwanPoolItem()
-        {
-            if (poolList == null || poolList.PoolItems.Count == 0)
-            {
-                Debug.LogWarning("PoolItemSO 비어있거나 할당되지 않았습니다.");
+                Debug.LogError("PoolItemListSO가 할당되지 않았거나 비어있습니다!");
+                enabled = false;
                 return;
             }
 
-            int randomIndex = Random.Range(0, poolList.PoolItems.Count);
-            PoolItemSO selectedData = poolList.PoolItems[randomIndex];
-            
-            string obstacleName = selectedData.ItemPrefab.gameObject.name;
-            
-            IPoolable item = PoolManager.Instance.Pop(obstacleName);
+            _nextSpawnTime = Random.Range(minSpawnTime, maxSpawnTime);
+        }
+
+        private void Update()
+        {
+            if (!isActive) return;
+            _currentTime += Time.deltaTime;
+
+            if (_currentTime >= _nextSpawnTime)
+            {
+                SpawnPoolItem();
+                _currentTime = 0f;
+                _nextSpawnTime = Random.Range(minSpawnTime, maxSpawnTime);
+            }
+        }
+
+        private void SpawnPoolItem()
+        {
+            int randomIndex = Random.Range(0, poolItemListSO.PoolItems.Count);
+            PoolItemSO selectedSO = poolItemListSO.PoolItems[randomIndex];
+
+            if (selectedSO == null)
+            {
+                Debug.LogError("선택된 PoolItemSO가 null입니다!");
+                return;
+            }
+
+            IPoolable item = PoolManager.Instance.Pop(selectedSO.ItemName);
 
             if (item != null)
             {
-                GameObject obj = item.GetGameObject();
-                obj.transform.position = spawnPoint.position;
-                obj.transform.rotation = Quaternion.identity;
+                GameObject itemObj = item.GetGameObject();
+
+                itemObj.transform.position = spawnTransform.position;
+                itemObj.transform.rotation = spawnTransform.rotation;
+
+                _totalSpawnedCount++;
             }
+        }
+
+        public void StartSpawning()
+        {
+            isActive = true;
+        }
+
+        public void StopSpawning()
+        {
+            isActive = false;
         }
     }
 }
