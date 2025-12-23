@@ -59,6 +59,18 @@ public class Santa : Agent
     {
         CancelInvoke();
     }
+    
+    public void SantaDie()
+    {
+        if(HealthSystem.Health <= 0)
+        {
+            print("산타뒤짐");
+            Stun(2);
+            health += 100;
+            HealthSystem.SetHealth(health);
+            print($"강화된 산타 체력: {HealthSystem.Health}");
+        }
+    }
 
     private void OnDrawGizmos()
     {

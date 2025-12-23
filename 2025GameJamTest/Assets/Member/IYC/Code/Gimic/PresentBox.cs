@@ -25,10 +25,12 @@ public class PresentBox : Agent, IPoolable
     public void Reset()
     {
         if (_rb != null) _rb.linearVelocity = Vector2.zero;
+        HealthSystem.OnDead -= Hit;
     }
 
     private void OnEnable()
     {
+        HealthSystem.OnDead += Hit;
         StartCoroutine(LifeCoroutine());
     }
 
@@ -53,14 +55,11 @@ public class PresentBox : Agent, IPoolable
         _rb.bodyType = RigidbodyType2D.Kinematic;
     }
 
-    private void Update()
+    private void Hit()
     {
-        if(HealthSystem.Health <= 0)
-        {
-            Console.WriteLine("Bullet과의 충돌이 감지됨");
-            OnBulletHit?.Invoke();
-            gameObject.SetActive(false);
-        }
+        Console.WriteLine("Bullet과의 충돌이 감지됨");
+        OnBulletHit?.Invoke();
+        gameObject.SetActive(false);
     }
 
     private IEnumerator LifeCoroutine()
