@@ -39,7 +39,7 @@ public class infinitygameobject1 : MonoBehaviour
 
         foreach (GameObject spawner in Spawnner)
         {
-            spawner.transform.position = new Vector3(rightmostX, spawner.transform.position.y, spawner.transform.position.z);
+            spawner.transform.position = new Vector3(rightmostX + 30, spawner.transform.position.y, spawner.transform.position.z);
         }
     }
 }
