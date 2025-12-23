@@ -1265,6 +1265,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 492228784}
+    - target: {fileID: 6319810260085250261, guid: 25a37f6288eddf14f8cddb1824666e35, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281604786006035648, guid: 25a37f6288eddf14f8cddb1824666e35, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.41
+      objectReference: {fileID: 0}
     - target: {fileID: 8146609180617066689, guid: 25a37f6288eddf14f8cddb1824666e35, type: 3}
       propertyPath: m_Name
       value: BackGround
