@@ -58,7 +58,7 @@ namespace Member.SYW._01_Scripts.Manager
         public void Restart()
         {
             SceneManager.LoadScene("Develop");
-            Time.timeScale = 1;
+            TimeManager.Instance.TimeStart();
         }
         
         public void GameExit()

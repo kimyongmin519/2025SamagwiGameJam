@@ -24,14 +24,14 @@ namespace Member.SYW._01_Scripts.ETC
         {
             while (true)
             {
-                SpawnObstacle();
+                SpwanPoolItem();
                 float randomInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
                 
                 yield return new WaitForSeconds(randomInterval);
             }
         }
 
-        private void SpawnObstacle()
+        private void SpwanPoolItem()
         {
             if (poolList == null || poolList.PoolItems.Count == 0)
             {

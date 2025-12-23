@@ -1,6 +1,10 @@
 using DG.Tweening;
+using Member.KYM.Code.Bus;
+using Member.KYM.Code.GameEvents;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Sequence = DG.Tweening.Sequence;
 
 namespace Member.SYW._01_Scripts.UI
 {
@@ -15,6 +19,7 @@ namespace Member.SYW._01_Scripts.UI
         [Header("Settings")]
         [SerializeField] private float animationDuration = 0.5f;
         [SerializeField] private float slideOffset = 1000f;
+        [SerializeField] private CanvasGroup canvasGroup;
         
         private Sequence _animSeq;
         
@@ -31,6 +36,7 @@ namespace Member.SYW._01_Scripts.UI
         public void Show()
         {
             gameObject.SetActive(true);
+            canvasGroup.blocksRaycasts = true;
             
             panel1.rectTransform.anchoredPosition = _p1Origin + new Vector2(-slideOffset, 0);
             panel2.rectTransform.anchoredPosition = _p2Origin + new Vector2(-slideOffset, 0);
@@ -45,16 +51,21 @@ namespace Member.SYW._01_Scripts.UI
             _animSeq.Join(panel2.rectTransform.DOAnchorPos(_p2Origin, animationDuration).SetEase(Ease.OutBack));
             _animSeq.Join(panel3.rectTransform.DOAnchorPos(_p3Origin, animationDuration).SetEase(Ease.OutBack));
             _animSeq.Join(panel4.rectTransform.DOAnchorPos(_p4Origin, animationDuration).SetEase(Ease.OutBack));
-            
-            Time.timeScale = 0;
+
+            TimeManager.Instance.TimeStop();
         }
 
         public void Choose()
         {
-            // 여기다가 버프 넘기기 쓰면 됨
-            PlayExitAnimation();
+            
         }
 
+        public void Exit()
+        {
+            canvasGroup.blocksRaycasts = false;
+            PlayExitAnimation();
+        }
+        
         private void PlayExitAnimation()
         {
             if (_animSeq != null && _animSeq.IsActive()) _animSeq.Kill();
@@ -73,7 +84,8 @@ namespace Member.SYW._01_Scripts.UI
         {
             if (_animSeq != null) _animSeq.Kill();
 
-            Time.timeScale = 1;
+            TimeManager.Instance.TimeStart();
+            canvasGroup.blocksRaycasts = true;
             gameObject.SetActive(false);
         }
     }
