@@ -19,14 +19,6 @@ public class GameManager : MonoSingleton<GameManager>
         TimeManager.Instance?.TimeStop();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-            GameOver();
-        if (Input.GetKeyDown(KeyCode.V))
-            Victory();
-    }
-
     public void Victory() // 폐?기
     {
         Debug.Log("Victory!");
