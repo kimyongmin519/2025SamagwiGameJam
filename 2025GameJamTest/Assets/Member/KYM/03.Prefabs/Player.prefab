@@ -75,7 +75,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 202d0d3c33a0c6941a2d6edf50092ab0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -118,7 +118,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 202d0d3c33a0c6941a2d6edf50092ab0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trm: {fileID: 4053019818966624848}
-  recoilAmount: -0.2
+  recoilAmount: 5
   recoilDuration: 0.05
 --- !u!1 &6729557175038150177
 GameObject:
