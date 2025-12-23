@@ -20,6 +20,7 @@ public class ElectronicDisplayBoard : Agent, IPoolable
 
     [SerializeField]
     private float currentHealth = 1;
+    
     private bool isFall = false;
     public string ItemName => gameObject.name;
 
