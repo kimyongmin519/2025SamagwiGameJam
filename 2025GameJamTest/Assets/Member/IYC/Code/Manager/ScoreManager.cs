@@ -11,6 +11,7 @@ public class ScoreManager : MonoSingleton<ScoreManager>
 
     private void Start()
     {
+        SoundManager.Instance.Play(BGMSoundType.GAMEBGM, 1f);
         UpdateScoreUI();
     }
 
