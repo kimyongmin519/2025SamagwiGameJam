@@ -14,6 +14,8 @@ namespace Member.KYM.Code.Weapon
         private SpriteRenderer _spriteRenderer;
         private TrailRenderer _trailRenderer;
 
+        private float _bonusDamage;
+
         private float _currentTime;
 
         private void Awake()
@@ -39,6 +41,11 @@ namespace Member.KYM.Code.Weapon
             _trailRenderer.enabled = true;
             _rigidbody2D.linearVelocity = dir * bulletData.BulletSpeed;
         }
+        
+        public void SetBonusSound(float bonus)
+        {
+            _bonusDamage = bonus;
+        }
 
         [field:SerializeField] public string ItemName { get;  private set; }
         public GameObject GetGameObject()
@@ -58,7 +65,7 @@ namespace Member.KYM.Code.Weapon
         {
             if (other.gameObject.TryGetComponent(out HealthSystem healthSystem))
             {
-                healthSystem.GetDamage(bulletData.Damage);
+                healthSystem.GetDamage(bulletData.Damage + _bonusDamage);
                 
                 GameObject effect = PoolManager.Instance.Pop("HitEffect").GetGameObject();
                     

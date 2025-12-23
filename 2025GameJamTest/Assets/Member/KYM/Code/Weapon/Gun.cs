@@ -103,7 +103,7 @@ namespace Member.KYM.Code.Weapon
             while (_shoot && Ammo > 0)
             {
                 ShootBullet();
-                yield return new WaitForSeconds(GunDelay - (0.01f * _upgradeValues.gunSpeedLevel));
+                yield return new WaitForSeconds(GunDelay - (0.05f * _upgradeValues.gunSpeedLevel));
             }
         }
 
@@ -133,9 +133,10 @@ namespace Member.KYM.Code.Weapon
 
             for (int i = 0; i < _bulletCount; i++)
             {
-                GameObject bullet = PoolManager.Instance.Pop("Bullet").GetGameObject();
+                Bullet bullet = PoolManager.Instance.Pop("Bullet").GetGameObject().GetComponent<Bullet>();
                 bullet.transform.position = firePoint.position;
-                bullet.GetComponent<Bullet>().ShootBullet((_mouseDir + new Vector2(errorValue, 0)).normalized);
+                bullet.ShootBullet((_mouseDir + new Vector2(errorValue, 0)).normalized);
+                bullet.SetBonusSound(_upgradeValues.gunDamageLevel * 0.5f);
             }
         }
 
