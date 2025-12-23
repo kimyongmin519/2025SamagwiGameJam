@@ -1,5 +1,115 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1060128595510337012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3078879218271301114}
+  - component: {fileID: 2577290081663465757}
+  m_Layer: 0
+  m_Name: PresentLuncher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3078879218271301114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060128595510337012}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.73, y: 6.48, z: -0.12591906}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4968656313635738829}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2577290081663465757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060128595510337012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc4171b466552e44ab53e0ee845252f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolItemList: {fileID: 0}
+  minSpawnTime: 1
+  maxSpawnTime: 3
+  spawnPoint: {fileID: 0}
+  useRandomX: 0
+  minX: 0
+  maxX: 5
+  useRandomY: 0
+  minY: 0
+  maxY: 5
+  spawnItemNames: []
+--- !u!1 &1816760169708040502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 541112156378314395}
+  - component: {fileID: 171961022728758232}
+  m_Layer: 0
+  m_Name: ObstacleLuncher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &541112156378314395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816760169708040502}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.66, y: -1.71, z: -0.12591906}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4968656313635738829}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &171961022728758232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816760169708040502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc4171b466552e44ab53e0ee845252f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolItemList: {fileID: 0}
+  minSpawnTime: 1
+  maxSpawnTime: 3
+  spawnPoint: {fileID: 0}
+  useRandomX: 0
+  minX: 0
+  maxX: 5
+  useRandomY: 0
+  minY: 0
+  maxY: 5
+  spawnItemNames: []
 --- !u!1 &1867109523927552404
 GameObject:
   m_ObjectHideFlags: 0
@@ -36,6 +146,9 @@ Transform:
   - {fileID: 655071696037208848}
   - {fileID: 8835130055290351365}
   - {fileID: 3796710674577950663}
+  - {fileID: 541112156378314395}
+  - {fileID: 3078879218271301114}
+  - {fileID: 6519019695786002268}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5334955023196919415
@@ -367,6 +480,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6199005341162575496}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7057495265963423796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6519019695786002268}
+  - component: {fileID: 2888866301664349238}
+  m_Layer: 0
+  m_Name: ElectronicDisplayBoard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6519019695786002268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7057495265963423796}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.12, y: 6.57, z: -0.92740154}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4968656313635738829}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2888866301664349238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7057495265963423796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc4171b466552e44ab53e0ee845252f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolItemList: {fileID: 0}
+  minSpawnTime: 1
+  maxSpawnTime: 3
+  spawnPoint: {fileID: 0}
+  useRandomX: 0
+  minX: 0
+  maxX: 5
+  useRandomY: 0
+  minY: 0
+  maxY: 5
+  spawnItemNames: []
 --- !u!1 &7319673632209483956
 GameObject:
   m_ObjectHideFlags: 0
