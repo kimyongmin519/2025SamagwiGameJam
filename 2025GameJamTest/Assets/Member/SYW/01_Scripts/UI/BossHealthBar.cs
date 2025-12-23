@@ -21,14 +21,14 @@ namespace Member.SYW._01_Scripts.UI
 
         private void Start()
         {
-            _hpBar.value = healthSystem.Health;
-            _hpBar.maxValue = healthSystem.MaxHealth;
+            _hpBar.maxValue = 1f;
         }
 
         private void Update()
         {
-            _hpBar.value = healthSystem.Health;
-            _hpBar.maxValue = healthSystem.MaxHealth;
+            double value = healthSystem.Health / healthSystem.MaxHealth;
+
+            _hpBar.value = (float)value;
         }
 
         private void BossDieBar()
