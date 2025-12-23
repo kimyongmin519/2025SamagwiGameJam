@@ -109,6 +109,7 @@ namespace Member.KYM.Code.Weapon
 
         private void ShootBullet()
         {
+            SoundManager.Instance.Play(SFXSoundType.GUNSHOT1);
             OnShootEvent?.Invoke();
 
             Ammo--;
