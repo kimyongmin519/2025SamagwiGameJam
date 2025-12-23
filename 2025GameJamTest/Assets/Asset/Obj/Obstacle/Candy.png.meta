@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a37ade571024aa44bab88815f7358cfa
+guid: 80d1580e66a6ad744930a824c64e7aa9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 822182253614255771
-    second: FakeGift_0
+      213: -3366272070310193754
+    second: Candy_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 32
+    maxTextureSize: 64
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FakeGift_0
+      name: Candy_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 5
-        width: 21
-        height: 22
+        x: 20
+        y: 11
+        width: 25
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b9ece4f476af86b00800000000000000
-      internalID: 822182253614255771
+      spriteID: 6a597d723699841d0800000000000000
+      internalID: -3366272070310193754
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FakeGift_0: 822182253614255771
+      Candy_0: -3366272070310193754
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
