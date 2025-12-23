@@ -1367,7 +1367,8 @@ MonoBehaviour:
   masterSlider: {fileID: 5960518204482747217}
   bgmSlider: {fileID: 6252377215482162778}
   sfxSlider: {fileID: 5591475097573897200}
-  audioMixer: {fileID: 0}
+  closeButton: {fileID: 836954416261317850}
+  audioMixer: {fileID: 24100000, guid: 826e2d750f9764f43b08948b66b1619f, type: 2}
 --- !u!1 &6075245680659537155
 GameObject:
   m_ObjectHideFlags: 0
