@@ -10,7 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 015df460406fe514a885f985ec0343d2, type: 3}
-  m_Name: ElectronicDisplayBoard
+  m_Name: ObstarcleListSO
   m_EditorClassIdentifier: 
   <PoolItems>k__BackingField:
-  - {fileID: 11400000, guid: 6f29594a627066a468ca3e1cb2f29e98, type: 2}
+  - {fileID: 11400000, guid: 0dba3fb9af84ed84dbe6c4d207401b52, type: 2}
+  - {fileID: 11400000, guid: 5d9241125f2e02f45b2130ebcf4d46eb, type: 2}
+  - {fileID: 11400000, guid: e5387ec846fde104aa4a5d6565ac9380, type: 2}
+  - {fileID: 11400000, guid: 0d63cd1ade8a86a40992c9af4bbc9d3d, type: 2}
+  - {fileID: 11400000, guid: add2c47b373def8418e9ae27a55ca26f, type: 2}

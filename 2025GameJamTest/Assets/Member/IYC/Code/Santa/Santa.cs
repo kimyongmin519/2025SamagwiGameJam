@@ -47,7 +47,7 @@ public class Santa : Agent
 
     public void Stun(float duration)
     {
-        _rigi.constraints = RigidbodyConstraints2D.FreezePositionX;
+        _rigi.constraints = RigidbodyConstraints2D.FreezeAll;
         StartCoroutine(StopStun(duration));
         _rigi.constraints = RigidbodyConstraints2D.None;
     }

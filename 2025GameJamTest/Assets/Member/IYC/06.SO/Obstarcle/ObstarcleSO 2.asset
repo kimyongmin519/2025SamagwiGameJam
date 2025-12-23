@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2f2f7d9c79a7c34687d27c8e40f7e93, type: 3}
-  m_Name: PresentListSO
+  m_Script: {fileID: 11500000, guid: aa156546d452301439d67a7743e5494f, type: 3}
+  m_Name: ObstarcleSO 2
   m_EditorClassIdentifier: 
-  <PresentBox>k__BackingField:
-  - {fileID: 11400000, guid: 1f465158c89e1a94d9f0f41e03ef314d, type: 2}
+  <ItemName>k__BackingField: Obstacle2
+  <Count>k__BackingField: 10
+  <ItemPrefab>k__BackingField: {fileID: 6840645830111116227, guid: 75bc19b84ac83a1419dd3637f37e1a9d, type: 3}
