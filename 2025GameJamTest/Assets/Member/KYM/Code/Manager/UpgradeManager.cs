@@ -5,7 +5,7 @@ namespace Member.KYM.Code.Manager
 {
     public class UpgradeManager : MonoSingleton<UpgradeManager>
     {
-        public int UpgradePoint {get; private set;}
+        public int UpgradePoint { get; private set; } = 1;
         private void Start()
         {
             UpgradePoint = PlayerPrefs.GetInt("UpgradePoint");

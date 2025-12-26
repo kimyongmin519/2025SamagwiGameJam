@@ -144,7 +144,8 @@ public class SantaMove : MonoBehaviour, IAgentComponent
         {
             Gizmos.color = Color.green;
         }
-
+        
+        Gizmos.DrawWireSphere(transform.position, catchDistance);
         Gizmos.DrawLine(transform.position, _player.transform.position);
     }
 }
